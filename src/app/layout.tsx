@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import MainLayout from '@/component/layout/MainLayout';
 
 // style
-import '@/styles/reset.scss';
+// import '@/styles/reset.scss';
 import '@/styles/globals.css';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 

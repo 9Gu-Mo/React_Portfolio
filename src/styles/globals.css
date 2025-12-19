@@ -1,7 +1,18 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 html,
 body {
   font-size: 10px;
   font-family: 'pretendard', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.wrap {
+  width: 100%;
+  min-height: 100dvh;
+  background: url('/images/bg/bg2.jpg') no-repeat center /
+    cover;
 }

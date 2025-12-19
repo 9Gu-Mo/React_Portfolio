@@ -7,8 +7,8 @@ export default function IconClose(props: IconProps) {
   return (
     <>
       <svg
-        width={props.size ? props.size : '20px'}
-        height={props.size ? props.size : '20px'}
+        width={props.size ? props.size : '24px'}
+        height={props.size ? props.size : '24px'}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

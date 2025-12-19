@@ -21,10 +21,13 @@ export default function Gnb(props: Props) {
       >
         <button
           type="button"
-          className="absolute top-0 right-0"
+          className="absolute top-4 right-4 transition-transform duration-500 ease-in-out hover:rotate-180"
           onClick={props.closeClick}
         >
-          <IconClose color="#fff" />
+          <IconClose
+            color="#fff"
+            size="30"
+          />
         </button>
       </motion.nav>
     </>

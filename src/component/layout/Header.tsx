@@ -24,8 +24,12 @@ export default function Header() {
         <button
           type="button"
           onClick={handleClick}
+          className="transition-transform duration-500 ease-in-out hover:rotate-180"
         >
-          <IconMenu />
+          <IconMenu
+            color="#fff"
+            size="30"
+          />
         </button>
         <AnimatePresence>
           {open && <Gnb closeClick={handleClick} />}

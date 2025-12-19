@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div></div>;
+  return (
+    <>
+      <div className="wrap"></div>
+    </>
+  );
 }
