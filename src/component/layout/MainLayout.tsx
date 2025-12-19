@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "./layout/Header";
+import Header from "./Header";
+
 
 export default function MainLayout({
   children,
