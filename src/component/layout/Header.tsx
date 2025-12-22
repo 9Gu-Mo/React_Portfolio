@@ -16,11 +16,17 @@ export default function Header() {
 
   const handleClick = () => {
     setOpen(!open);
+
+    if (open) {
+      document.body.classList.remove('overflow-hidden');
+    } else {
+      document.body.classList.add('overflow-hidden');
+    }
   };
 
   return (
     <>
-      <header className="fixed top-0 right-0 left-0 p-4">
+      <header className="fixed top-0 right-0 left-0 z-10 p-4">
         <button
           type="button"
           onClick={handleClick}
@@ -31,9 +37,7 @@ export default function Header() {
             size="30"
           />
         </button>
-        <AnimatePresence>
-          {open && <Gnb closeClick={handleClick} />}
-        </AnimatePresence>
+        <AnimatePresence>{open && <Gnb closeClick={handleClick} />}</AnimatePresence>
       </header>
     </>
   );

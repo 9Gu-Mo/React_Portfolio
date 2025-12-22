@@ -8,6 +8,7 @@ import MainLayout from '@/component/layout/MainLayout';
 // import '@/styles/reset.scss';
 import '@/styles/globals.css';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
+import AOSProvider from '@/app/providers/AOSProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <MainLayout>{children}</MainLayout>
+        <AOSProvider>
+          <MainLayout>{children}</MainLayout>
+        </AOSProvider>
       </body>
     </html>
   );

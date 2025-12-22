@@ -4,6 +4,7 @@ html,
 body {
   font-size: 10px;
   font-family: 'pretendard', sans-serif;
+  scroll-behavior: smooth;
 }
 
 button {
@@ -11,8 +12,34 @@ button {
 }
 
 .wrap {
+  position: relative;
   width: 100%;
   min-height: 100dvh;
-  background: url('/images/bg/bg2.jpg') no-repeat center /
-    cover;
+  background: url('/images/bg/bg2.jpg') no-repeat center / cover;
+
+  .typing {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50px;
+    left: 50px;
+    overflow: hidden;
+    font-size: 50px;
+    color: #fff;
+    white-space: pre-line;
+  }
+
+  .cursor {
+    width: 2px;
+    height: 1em;
+    background-color: currentColor;
+    margin-left: 2px;
+  }
+}
+
+.gnb {
+  .list {
+    font-size: 20px;
+    color: #fff;
+  }
 }
