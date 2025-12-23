@@ -10,7 +10,7 @@ export default function Content(props: Props) {
     <>
       <div
         id={props.id}
-        className="flex min-h-dvh items-center justify-center"
+        className="mx-auto min-h-dvh max-w-[1200px] px-4 py-20"
       >
         {props.children}
       </div>

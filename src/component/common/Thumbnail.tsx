@@ -1,0 +1,180 @@
+'use client';
+
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
+
+interface Props {
+  id: number;
+  image: string;
+  category: string;
+  title: string;
+}
+
+export default function Thumbnail() {
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+
+  const cards: Props[] = [
+    {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+      category: 'Travel',
+      title: '5 Inspiring Apps for Your Next Trip',
+    },
+    {
+      id: 2,
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      category: 'How to',
+      title: 'Contemplate the Meaning of Life Twice a Day',
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop',
+      category: 'Steps',
+      title: 'Urban Exploration Apps for the Vertically-Inclined',
+    },
+    {
+      id: 4,
+      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop',
+      category: 'Hats',
+      title: 'Take Control of Your Hat Life With This Stunning New App',
+    },
+  ];
+
+  const selectedCard = cards.find((card) => card.id === selectedId);
+
+  return (
+    <>
+      {/* thumbnail */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {cards.map((card) => (
+          <motion.div
+            key={card.id}
+            layoutId={`card-${card.id}`}
+            onClick={() => setSelectedId(card.id)}
+            className="relative cursor-pointer overflow-hidden rounded-2xl shadow-lg"
+            // whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <motion.div
+              layoutId={`image-${card.id}`}
+              className="aspect-[4/3] w-full"
+            >
+              <Image
+                src={card.image}
+                alt={card.title}
+                className="h-full w-full object-cover"
+                width={500}
+                height={500}
+              />
+            </motion.div>
+            <motion.div
+              layoutId={`content-${card.id}`}
+              className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white"
+            >
+              <motion.p
+                layoutId={`category-${card.id}`}
+                className="mb-2 text-sm font-medium tracking-wider uppercase"
+              >
+                {card.category}
+              </motion.p>
+              <motion.h2
+                layoutId={`title-${card.id}`}
+                className="text-2xl font-bold"
+              >
+                {card.title}
+              </motion.h2>
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* expanede modal */}
+      <AnimatePresence>
+        {selectedId && selectedCard && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedId(null)}
+              className="fixed inset-0 z-40 bg-black/60"
+            >
+              <motion.div
+                layoutId={`card-${selectedId}`}
+                className="fixed inset-4 z-50 overflow-hidden rounded-2xl bg-white shadow-2xl md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[90vh] md:w-[800px] md:-translate-x-1/2 md:-translate-y-1/2"
+              >
+                <motion.div
+                  layoutId={`image-${selectedId}`}
+                  className="relative h-[400px] w-full"
+                >
+                  <Image
+                    src={selectedCard.image}
+                    alt={selectedCard.title}
+                    className="h-full w-full object-cover"
+                    width={500}
+                    height={500}
+                  />
+                  <button
+                    onClick={() => setSelectedId(null)}
+                    className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur transition-colors hover:bg-white"
+                  >
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </motion.div>
+                <motion.div
+                  layoutId={`content-${selectedId}`}
+                  className="p-8"
+                >
+                  <motion.p
+                    layoutId={`title-${selectedId}`}
+                    className="mb-3 text-sm font-semibold tracking-wider text-blue-600 uppercase"
+                  >
+                    {selectedCard.category}
+                  </motion.p>
+                  <motion.h2
+                    layoutId={`title-${selectedId}`}
+                    className="mb-6 text-4xl font-bold text-gray-900"
+                  >
+                    {selectedCard.title}
+                  </motion.h2>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <p className="mb-4 leading-relaxed text-gray-600">
+                      Discover amazing applications that will transform the way you approach
+                      {selectedCard.category.toLowerCase()}. Our curated selection brings you the best tools and
+                      experiences.
+                    </p>
+                    <p className="mb-6 leading-relaxed text-gray-600">
+                      Each app has been carefully reviewed by our team to ensure quality, usability, and innovation.
+                      Download today and start your journey.
+                    </p>
+                    <button className="w-full rounded-xl bg-blue-600 py-4 font-semibold text-white transition-colors hover:bg-blue-700">
+                      View Collection
+                    </button>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}

@@ -43,3 +43,12 @@ button {
     color: #fff;
   }
 }
+
+.debug {
+  background-color: blueviolet;
+  font-size: 30px;
+  position: fixed;
+  top: 200px;
+  left: 10px;
+  right: 10px;
+}
