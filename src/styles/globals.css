@@ -38,6 +38,7 @@ button {
 }
 
 .gnb {
+  min-height: 100dvh;
   .list {
     font-size: 20px;
     color: #fff;
@@ -51,4 +52,5 @@ button {
   top: 200px;
   left: 10px;
   right: 10px;
+  z-index: 10;
 }
