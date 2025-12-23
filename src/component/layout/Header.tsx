@@ -10,7 +10,7 @@ import Gnb from './Gnb';
 // style
 import '@/styles/layout/header.scss';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useScrollStore } from '@/stores/scrollStore';
+import { useHeaderStore } from '@/stores/useHeaderStore';
 
 export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
@@ -25,8 +25,7 @@ export default function Header() {
     }
   };
 
-  const isScrolled = useScrollStore((state) => state.isScrolled);
-  // const scrollY = useScrollStore((state) => state.scrollY);
+  const isPassedTarget = useHeaderStore((state) => state.isPassedTarget);
 
   return (
     <>
@@ -34,9 +33,9 @@ export default function Header() {
         className="fixed top-0 right-0 left-0 z-10 p-4"
         initial={false}
         animate={{
-          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)',
-          boxShadow: isScrolled ? '0 2px 8px rgba(0, 0, 0, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)',
+          backgroundColor: isPassedTarget ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+          backdropFilter: isPassedTarget ? 'blur(10px)' : 'blur(0px)',
+          boxShadow: isPassedTarget ? '0 2px 8px rgba(0, 0, 0, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)',
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
@@ -51,11 +50,6 @@ export default function Header() {
         </button>
         <AnimatePresence>{open && <Gnb closeClick={handleClick} />}</AnimatePresence>
       </motion.header>
-      {/* {process.env.NODE_ENV === 'development' && (
-        <div className="debug text-xs">
-          Scroll: {Math.round(scrollY)}px | Status: {isScrolled ? 'Scrolled' : 'Top'}
-        </div>
-      )} */}
     </>
   );
 }

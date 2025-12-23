@@ -1,19 +1,22 @@
-import { ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 
 interface Props {
   id: string;
   children: ReactNode;
 }
 
-export default function Content(props: Props) {
+const Content = forwardRef<HTMLDivElement, Props>(function Content({ id, children }, ref) {
   return (
     <>
       <div
-        id={props.id}
-        className="mx-auto min-h-dvh max-w-[1200px] px-4 py-20"
+        ref={ref}
+        id={id}
+        className="mx-auto min-h-dvh max-w-[1200px] px-4 py-22"
       >
-        {props.children}
+        {children}
       </div>
     </>
   );
-}
+});
+
+export default Content;

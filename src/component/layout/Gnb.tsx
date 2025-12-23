@@ -51,20 +51,18 @@ export default function Gnb(props: Props) {
         </button>
         <ul className="list flex flex-col gap-4">
           {items.map((item, index) => (
-            <>
-              <li
-                key={index}
-                data-aos={item.direction ? item.direction : 'fade-right'}
-                data-aos-duration={200 * (index + 1)}
+            <li
+              key={index}
+              data-aos={item.direction ? item.direction : 'fade-right'}
+              data-aos-duration={200 * (index + 1)}
+            >
+              <Link
+                href={`#${item.id}`}
+                className="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 after:content-[''] hover:after:w-full"
               >
-                <Link
-                  href={`#${item.id}`}
-                  className="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 after:content-[''] hover:after:w-full"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            </>
+                {item.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </motion.nav>

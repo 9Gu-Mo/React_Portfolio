@@ -1,4 +1,4 @@
-import ContentWrap from '@/component/common/ContentWrap';
+import Contents from '@/component/common/Contents';
 import TextTypingCursor from '@/component/common/TextTypingCursor';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
       <div className="wrap">
         <TextTypingCursor text={`타이핑 모션 테스트 :)`} />
       </div>
-      <ContentWrap />
+      <Contents />
     </>
   );
 }
