@@ -8,6 +8,7 @@ import MainLayout from '@/component/layout/MainLayout';
 import '@/styles/globals.scss';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 import AOSProvider from '@/app/providers/AOSProvider';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,6 +27,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <Script
+          id="scroll-reset"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+                window.scrollTo(0, 0);
+                
+                // 해시가 있어도 스크롤 방지
+                if (window.location.hash) {
+                  history.replaceState(null, '', window.location.pathname + window.location.search);
+
+                  setTimeout(function() {
+                    window.scrollTo(0, 0);
+                  }, 0);
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body>
         <AOSProvider>
           <MainLayout>{children}</MainLayout>

@@ -1,7 +1,7 @@
 'use client';
 
 // hook
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // component
 import IconMenu from '@/component/icon/IconMenu';
@@ -33,9 +33,9 @@ export default function Header() {
         className="fixed top-0 right-0 left-0 z-10 p-4"
         initial={false}
         animate={{
-          backgroundColor: isPassedTarget ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+          backgroundColor: isPassedTarget ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0)',
           backdropFilter: isPassedTarget ? 'blur(10px)' : 'blur(0px)',
-          boxShadow: isPassedTarget ? '0 2px 8px rgba(0, 0, 0, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)',
+          boxShadow: isPassedTarget ? '0 2px 8px rgba(0, 0, 0, 0.4)' : '0 0 0 rgba(0, 0, 0, 0)',
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >

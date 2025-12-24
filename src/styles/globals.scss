@@ -45,14 +45,6 @@ button {
   }
 }
 
-.thumb {
-  &-item {
-    &:nth-child(4n + 1) {
-      background-color: red;
-    }
-  }
-}
-
 .content {
   > * {
     scroll-margin-top: 54px;
