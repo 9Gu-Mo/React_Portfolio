@@ -34,7 +34,7 @@ export default function Contents() {
       // 현재 스크롤 값 저장
       const scrollY = window.scrollY;
 
-      setIsPassedTarget(scrollY >= targetOffsetTop - 20);
+      setIsPassedTarget(scrollY >= targetOffsetTop - 54);
     };
 
     // 페이지 초기 진입 시 상태 계산

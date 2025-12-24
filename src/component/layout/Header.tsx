@@ -27,14 +27,6 @@ export default function Header() {
 
   const isPassedTarget = useHeaderStore((state) => state.isPassedTarget);
 
-  // useEffect(() => {
-  //   if (window.location.hash) {
-  //     history.replaceState(null, '', window.location.pathname + window.location.search);
-  //   }
-
-  //   window.scrollTo(0, 0);
-  // }, []);
-
   return (
     <>
       <motion.header

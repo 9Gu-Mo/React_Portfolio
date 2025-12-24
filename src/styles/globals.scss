@@ -52,3 +52,9 @@ button {
     }
   }
 }
+
+.content {
+  > * {
+    scroll-margin-top: 54px;
+  }
+}
