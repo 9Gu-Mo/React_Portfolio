@@ -45,12 +45,10 @@ button {
   }
 }
 
-.debug {
-  background-color: blueviolet;
-  font-size: 30px;
-  position: fixed;
-  top: 200px;
-  left: 10px;
-  right: 10px;
-  z-index: 10;
+.thumb {
+  &-item {
+    &:nth-child(4n + 1) {
+      background-color: red;
+    }
+  }
 }

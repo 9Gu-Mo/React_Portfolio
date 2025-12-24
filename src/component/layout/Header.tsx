@@ -1,7 +1,7 @@
 'use client';
 
 // hook
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // component
 import IconMenu from '@/component/icon/IconMenu';
@@ -27,6 +27,14 @@ export default function Header() {
 
   const isPassedTarget = useHeaderStore((state) => state.isPassedTarget);
 
+  // useEffect(() => {
+  //   if (window.location.hash) {
+  //     history.replaceState(null, '', window.location.pathname + window.location.search);
+  //   }
+
+  //   window.scrollTo(0, 0);
+  // }, []);
+
   return (
     <>
       <motion.header
@@ -43,10 +51,17 @@ export default function Header() {
           type="button"
           onClick={handleClick}
         >
-          <IconMenu
-            color="#fff"
-            size="30"
-          />
+          {isPassedTarget ? (
+            <IconMenu
+              color="#000"
+              size="30"
+            />
+          ) : (
+            <IconMenu
+              color="#fff"
+              size="30"
+            />
+          )}
         </button>
         <AnimatePresence>{open && <Gnb closeClick={handleClick} />}</AnimatePresence>
       </motion.header>

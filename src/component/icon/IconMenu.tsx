@@ -14,18 +14,11 @@ export default function IconMenu(props: IconProps) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M8 12H8.00901M12.0045 12H12.0135M15.991 12H16"
-          stroke={props.color ? props.color : '#1C274C'}
+          d="M4 6H20M4 12H14M4 18H9"
+          stroke={props.color ? props.color : '#000'}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-        />
-        <circle
-          cx="12"
-          cy="12"
-          r="10"
-          stroke={props.color ? props.color : '#1C274C'}
-          strokeWidth="1.5"
         />
       </svg>
     </>
