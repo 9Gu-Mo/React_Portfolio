@@ -3,6 +3,8 @@
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 export default function Contents() {
@@ -56,19 +58,40 @@ export default function Contents() {
 
   return (
     <div
-      className="content"
+      className="content relative"
       ref={targetRef}
     >
-      {content.map((item) => (
-        <Content
-          key={item.id}
-          id={item.id}
-          // aosType={item.aosType}
-          // aosDuration={item.aosDuration}
-        >
-          {item.children}
-        </Content>
-      ))}
+      <div className="mx-auto flex max-w-[1200px] items-start gap-4 px-4">
+        {/* content */}
+        <div className="w-[calc(100%-110px)]">
+          {content.map((item) => (
+            <Content
+              key={item.id}
+              id={item.id}
+              // aosType={item.aosType}
+              // aosDuration={item.aosDuration}
+            >
+              {item.children}
+            </Content>
+          ))}
+        </div>
+
+        {/* sticky anchor */}
+        <section className="sticky top-26 my-22 h-full w-[100px] bg-red-100">
+          <ul>
+            {content.map((item, index) => (
+              <li
+                key={item.id}
+                className="relative"
+              >
+                <Link href={`#${item.id}`}>
+                  {index + 1}.{item.id}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </div>
   );
 }
