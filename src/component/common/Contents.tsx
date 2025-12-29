@@ -10,14 +10,19 @@ export default function Contents() {
     {
       id: 'item01',
       children: <Thumbnail />,
+      aosType: 'fade-right',
+      aosDuration: 700,
     },
     {
       id: 'item02',
       children: <div>item02</div>,
+      aosDuration: 700,
     },
     {
       id: 'item03',
       children: <div>item03</div>,
+      aosType: 'fade-right',
+      aosDuration: 700,
     },
   ];
 
@@ -58,6 +63,8 @@ export default function Contents() {
         <Content
           key={item.id}
           id={item.id}
+          // aosType={item.aosType}
+          // aosDuration={item.aosDuration}
         >
           {item.children}
         </Content>

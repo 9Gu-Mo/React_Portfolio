@@ -19,7 +19,6 @@ const items = [
   {
     id: 'item02',
     name: 'item02',
-    direction: 'fade-left',
   },
   {
     id: 'item03',
