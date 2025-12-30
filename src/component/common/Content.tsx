@@ -3,11 +3,11 @@ import { forwardRef, ReactNode } from 'react';
 interface Props {
   id: string;
   children: ReactNode;
-  aosType?: string;
-  aosDuration?: number;
+  // aosType?: string;
+  // aosDuration?: number;
 }
 
-const Content = forwardRef<HTMLDivElement, Props>(function Content({ id, children, aosType, aosDuration }, ref) {
+const Content = forwardRef<HTMLDivElement, Props>(function Content({ id, children }, ref) {
   return (
     <>
       <div
