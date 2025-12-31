@@ -85,6 +85,8 @@ export default function Contents() {
     setActiveIndex(step);
   });
 
+  console.log('merge 충돌 병합 확인용 콘솔');
+
   return (
     <div
       className="content relative"
