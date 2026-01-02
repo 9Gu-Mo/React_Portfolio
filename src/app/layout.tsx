@@ -9,6 +9,7 @@ import '@/styles/globals.scss';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 import AOSProvider from '@/app/providers/AOSProvider';
 import Script from 'next/script';
+import { ThemeScript } from '@/app/theme-script';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <ThemeScript />
         <Script
           id="scroll-reset"
           strategy="beforeInteractive"
@@ -52,7 +54,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="bg-white dark:bg-black">
         <AOSProvider>
           <MainLayout>{children}</MainLayout>
         </AOSProvider>

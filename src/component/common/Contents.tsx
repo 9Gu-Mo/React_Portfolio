@@ -89,7 +89,7 @@ export default function Contents() {
 
   return (
     <div
-      className="content relative"
+      className="content relative bg-white"
       ref={targetRef}
     >
       <div className="mx-auto flex max-w-[1200px] items-start gap-8 px-4">

@@ -1,7 +1,7 @@
 'use client';
 
 // hook
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // component
 import IconMenu from '@/component/icon/IconMenu';
@@ -11,9 +11,18 @@ import Gnb from './Gnb';
 import '@/styles/layout/header.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import { useThemeStore } from '@/stores/useThemeStore';
+import ThemeToggle from '@/component/common/ThemeToggle';
 
 export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
+
+  const setTheme = useThemeStore((state) => state.setTheme);
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'dark' : 'light');
+  }, [setTheme]);
 
   const handleClick = () => {
     setOpen(!open);
@@ -55,6 +64,7 @@ export default function Header() {
             />
           )}
         </button>
+        <ThemeToggle />
         <AnimatePresence>{open && <Gnb closeClick={handleClick} />}</AnimatePresence>
       </motion.header>
     </>
