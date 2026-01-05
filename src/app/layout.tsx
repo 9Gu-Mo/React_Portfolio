@@ -9,7 +9,6 @@ import '@/styles/globals.scss';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
 import AOSProvider from '@/app/providers/AOSProvider';
 import Script from 'next/script';
-import { ThemeScript } from '@/app/theme-script';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -32,7 +31,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <ThemeScript />
         <Script
           id="scroll-reset"
           strategy="beforeInteractive"
