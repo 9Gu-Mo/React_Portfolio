@@ -2,8 +2,7 @@
 
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
-import { useHeaderStore } from '@/stores/useHeaderStore';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -28,38 +27,30 @@ export default function Contents() {
     },
   ];
 
-  const setIsPassedTarget = useHeaderStore((state) => state.setIsPassedTarget);
-  const targetRef = useRef<HTMLDivElement | null>(null);
+  const itemRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (!targetRef.current) return;
-
     const handleScroll = () => {
-      // target content 상단 위치 저장
-      const targetOffsetTop = targetRef.current!.offsetTop;
-
       // 현재 스크롤 값 저장
       const scrollY = window.scrollY;
 
-      setIsPassedTarget(scrollY >= targetOffsetTop - 54);
-
-      const center = scrollY + window.innerHeight / 2;
-
       const index = itemRef.current.findIndex((el, i) => {
         if (!el) return false;
-
-        const top = el.offsetTop;
-        const nextTop = itemRef.current[i + 1]?.offsetTop ?? Infinity;
-
-        return center >= top && center < nextTop;
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + scrollY;
+        const nextEl = itemRef.current[i + 1];
+        const nextTop = nextEl ? nextEl.getBoundingClientRect().top + scrollY : Infinity;
+        return scrollY >= top && scrollY < nextTop;
       });
+
+      console.log('index', index);
 
       if (index !== -1) {
         setActiveIndex(index);
       }
     };
 
-    // 페이지 초기 진입 시 상태 계산
     handleScroll();
 
     window.addEventListener('scroll', handleScroll, {
@@ -69,29 +60,10 @@ export default function Contents() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [setIsPassedTarget]);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const itemRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['start end', 'end start'],
-  });
-
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const step = Math.min(content.length - 1, Math.floor(latest * content.length));
-    setActiveIndex(step);
-  });
-
-  console.log('merge 충돌 병합 확인용 콘솔');
+  }, []);
 
   return (
-    <div
-      className="content relative"
-      ref={targetRef}
-    >
+    <div className="content relative">
       <div className="mx-auto flex max-w-[1200px] items-start gap-8 px-4">
         {/* content */}
         <div className="w-[calc(100%-120px)]">
@@ -112,31 +84,24 @@ export default function Contents() {
 
         {/* sticky anchor */}
         <section className="sticky top-26 my-22 h-full w-[100px]">
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-8">
             {content.map((item, index) => {
               const isActive = index === activeIndex;
 
               return (
                 <li
                   key={item.id}
-                  className="relative flex items-center gap-4"
+                  className={`relative flex items-center gap-4 text-lg font-semibold ${isActive ? 'text-blue-500' : 'text-gray-400'}`}
                 >
                   <motion.span
                     animate={{
                       scale: isActive ? 1.4 : 1,
-                      // backgroundColor: isActive ? '#3b82f6' : '#d1d5db',
                     }}
                     transition={{ type: 'spring', stiffness: 250 }}
-                    // className="inline-block h-3.5 w-3.5 rounded-full"
-                    className={`inline-block h-3.5 w-3.5 rounded-full ${isActive ? 'bg-blue-500' : 'bg-gray-900'}`}
+                    className={`inline-block h-3.5 w-3.5 rounded-full ${isActive ? 'bg-blue-500' : 'bg-gray-400'}`}
                   />
 
-                  <Link
-                    href={`#${item.id}`}
-                    className={`text-lg font-semibold dark:text-white ${isActive ? '!text-blue-600' : 'text-gray-900'}`}
-                  >
-                    {index + 1}.{item.id}
-                  </Link>
+                  <Link href={`#${item.id}`}>{item.id}</Link>
                 </li>
               );
             })}

@@ -45,18 +45,8 @@ button {
   }
 }
 
-.gnb {
-  min-height: 100dvh;
-  .list {
-    font-size: 20px;
-    color: rgb(var(--foreground) / 1);
-  }
-}
-
-.content {
-  .item {
-    scroll-margin-top: 54px;
-  }
+.item {
+  padding: 54px 0;
 }
 
 .btn-darkmode {
