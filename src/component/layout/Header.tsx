@@ -1,22 +1,15 @@
 'use client';
 
 // hook
-import { useEffect, useState } from 'react';
-
-// component
-import IconMenu from '@/component/icon/IconMenu';
-import Gnb from './Gnb';
+import { useEffect } from 'react';
 
 // style
-import '@/styles/layout/header.scss';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useThemeStore } from '@/stores/useThemeStore';
-import ThemeToggle from '@/component/common/ThemeToggle';
+import Link from 'next/link';
 
 export default function Header() {
-  const [open, setOpen] = useState<boolean>(false);
-
   const setTheme = useThemeStore((state) => state.setTheme);
 
   useEffect(() => {
@@ -24,22 +17,39 @@ export default function Header() {
     setTheme(isDark ? 'dark' : 'light');
   }, [setTheme]);
 
-  const handleClick = () => {
-    setOpen(!open);
+  // const handleClick = () => {
+  //   setOpen(!open);
 
-    if (open) {
-      document.body.classList.remove('overflow-hidden');
-    } else {
-      document.body.classList.add('overflow-hidden');
-    }
-  };
+  //   if (open) {
+  //     document.body.classList.remove('overflow-hidden');
+  //   } else {
+  //     document.body.classList.add('overflow-hidden');
+  //   }
+  // };
 
   const isPassedTarget = useHeaderStore((state) => state.isPassedTarget);
+
+  const items = [
+    {
+      id: 'item01',
+      name: 'item01',
+      direction: '',
+    },
+    {
+      id: 'item02',
+      name: 'item02',
+    },
+    {
+      id: 'item03',
+      name: 'item03',
+      direction: '',
+    },
+  ];
 
   return (
     <>
       <motion.header
-        className="fixed top-0 right-0 left-0 z-10 p-4"
+        className="fixed top-0 right-0 left-0 z-10 flex h-[54px] items-center justify-end px-8"
         initial={false}
         animate={{
           backgroundColor: isPassedTarget ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0)',
@@ -48,24 +58,18 @@ export default function Header() {
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
-        <button
-          type="button"
-          onClick={handleClick}
-        >
-          {isPassedTarget ? (
-            <IconMenu
-              color="#000"
-              size="30"
-            />
-          ) : (
-            <IconMenu
-              color="#fff"
-              size="30"
-            />
-          )}
-        </button>
-        <ThemeToggle />
-        <AnimatePresence>{open && <Gnb closeClick={handleClick} />}</AnimatePresence>
+        <ul className="list flex gap-8">
+          {items.map((item, index) => (
+            <li key={index}>
+              <Link
+                href={`#${item.id}`}
+                className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${isPassedTarget ? 'text-black after:bg-black' : 'text-white after:bg-white'}`}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </motion.header>
     </>
   );

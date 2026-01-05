@@ -1,12 +1,19 @@
 @import 'tailwindcss';
-
-@custom-variant dark (&:where(.dark, .dark *));
+@import '../styles/theme.scss';
 
 html,
 body {
   font-size: 10px;
   font-family: 'pretendard', sans-serif;
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 button {
@@ -27,7 +34,6 @@ button {
     left: 50px;
     overflow: hidden;
     font-size: 50px;
-    color: #fff;
     white-space: pre-line;
   }
 
@@ -43,7 +49,7 @@ button {
   min-height: 100dvh;
   .list {
     font-size: 20px;
-    color: #fff;
+    color: rgb(var(--foreground) / 1);
   }
 }
 
@@ -51,4 +57,9 @@ button {
   .item {
     scroll-margin-top: 54px;
   }
+}
+
+.btn-darkmode {
+  box-shadow: 0 0 12px var(--color-box-shadow);
+  background-color: var(--color-bg);
 }

@@ -22,7 +22,7 @@ export default function TextTypingCursor({ text }: { text: string }) {
 
   return (
     <>
-      <div className="typing">
+      <div className="typing text-white">
         <h1>{displayedText}</h1>
 
         {/* 커서 표현 */}

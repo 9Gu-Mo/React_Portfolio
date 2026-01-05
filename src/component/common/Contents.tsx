@@ -89,7 +89,7 @@ export default function Contents() {
 
   return (
     <div
-      className="content relative bg-white"
+      className="content relative"
       ref={targetRef}
     >
       <div className="mx-auto flex max-w-[1200px] items-start gap-8 px-4">
@@ -124,15 +124,16 @@ export default function Contents() {
                   <motion.span
                     animate={{
                       scale: isActive ? 1.4 : 1,
-                      backgroundColor: isActive ? '#3b82f6' : '#d1d5db',
+                      // backgroundColor: isActive ? '#3b82f6' : '#d1d5db',
                     }}
                     transition={{ type: 'spring', stiffness: 250 }}
-                    className="inline-block h-3.5 w-3.5 rounded-full"
+                    // className="inline-block h-3.5 w-3.5 rounded-full"
+                    className={`inline-block h-3.5 w-3.5 rounded-full ${isActive ? 'bg-blue-500' : 'bg-gray-900'}`}
                   />
 
                   <Link
                     href={`#${item.id}`}
-                    className={`text-lg font-semibold ${isActive ? 'text-blue-600' : 'text-gray-900'}`}
+                    className={`text-lg font-semibold dark:text-white ${isActive ? '!text-blue-600' : 'text-gray-900'}`}
                   >
                     {index + 1}.{item.id}
                   </Link>

@@ -27,7 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      suppressHydrationWarning
+    >
       <head>
         <ThemeScript />
         <Script
@@ -54,7 +57,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white dark:bg-black">
+      <body>
         <AOSProvider>
           <MainLayout>{children}</MainLayout>
         </AOSProvider>
