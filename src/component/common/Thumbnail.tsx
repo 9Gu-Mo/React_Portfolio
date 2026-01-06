@@ -10,6 +10,8 @@ interface Props {
   image: string;
   category: string;
   title: string;
+  aosType?: string;
+  aosDuration?: number;
 }
 
 export default function Thumbnail() {
@@ -84,44 +86,50 @@ export default function Thumbnail() {
     <>
       {/* thumbnail */}
       <div className="thumb flex flex-wrap gap-4">
-        {cards.map((card) => (
-          <motion.div
+        {cards.map((card, index) => (
+          <div
             key={card.id}
-            layoutId={`card-${card.id}`}
-            onClick={() => modalOpenUse(card.id)}
-            className="thumb-item relative max-h-[350px] basis-full cursor-pointer overflow-hidden rounded-2xl shadow-lg md:basis-[40%] md:[&:nth-child(4n+1),&:nth-child(4n+4)]:basis-[calc(60%-10px)]"
-            transition={{ duration: 0.2 }}
+            data-aos={card.aosType ? card.aosType : 'fade-down'}
+            data-aos-duration={card.aosDuration ? card.aosDuration : 1200}
+            data-aos-delay={index * 50}
+            className="relative max-h-[350px] basis-full cursor-pointer overflow-hidden rounded-2xl md:basis-[40%] md:[&:nth-child(4n+1),&:nth-child(4n+4)]:basis-[calc(60%-10px)]"
           >
             <motion.div
-              layoutId={`image-${card.id}`}
-              className="aspect-[4/3] h-full w-full"
+              layoutId={`card-${card.id}`}
+              onClick={() => modalOpenUse(card.id)}
+              transition={{ duration: 0.2 }}
             >
-              <Image
-                src={card.image}
-                alt={card.title}
-                className="h-full w-full object-cover"
-                width={500}
-                height={500}
-              />
-            </motion.div>
-            <motion.div
-              layoutId={`content-${card.id}`}
-              className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white"
-            >
-              <motion.p
-                layoutId={`category-${card.id}`}
-                className="mb-2 text-sm font-medium tracking-wider uppercase"
+              <motion.div
+                layoutId={`image-${card.id}`}
+                className="aspect-[4/3] h-full w-full"
               >
-                {card.category}
-              </motion.p>
-              <motion.h2
-                layoutId={`title-${card.id}`}
-                className="text-2xl font-bold"
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  className="h-full w-full object-cover"
+                  width={500}
+                  height={500}
+                />
+              </motion.div>
+              <motion.div
+                layoutId={`content-${card.id}`}
+                className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white"
               >
-                {card.title}
-              </motion.h2>
+                <motion.p
+                  layoutId={`category-${card.id}`}
+                  className="mb-2 text-sm font-medium tracking-wider uppercase"
+                >
+                  {card.category}
+                </motion.p>
+                <motion.h2
+                  layoutId={`title-${card.id}`}
+                  className="text-2xl font-bold"
+                >
+                  {card.title}
+                </motion.h2>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         ))}
 
         {/* thumbnail modal */}

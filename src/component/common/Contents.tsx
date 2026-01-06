@@ -3,9 +3,6 @@
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
 import TimeLine from '@/component/common/TimeLine';
-import { useHeaderStore } from '@/stores/useHeaderStore';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Contents() {
@@ -13,19 +10,18 @@ export default function Contents() {
     {
       id: 'item01',
       children: <Thumbnail />,
-      aosType: 'fade-right',
-      aosDuration: 700,
     },
     {
       id: 'item02',
       children: <TimeLine />,
-      aosDuration: 700,
+      aosType: 'fade-down',
+      aosDuration: 1000,
     },
     {
       id: 'item03',
       children: <div>item03</div>,
       aosType: 'fade-right',
-      aosDuration: 700,
+      aosDuration: 1000,
     },
   ];
 
@@ -92,8 +88,8 @@ export default function Contents() {
               ref={(el) => {
                 itemRef.current[index] = el;
               }}
-              // aosType={item.aosType}
-              // aosDuration={item.aosDuration}
+              aosType={item.aosType}
+              aosDuration={item.aosDuration}
             >
               {item.children}
             </Content>
