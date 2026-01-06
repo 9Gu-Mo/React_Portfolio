@@ -28,7 +28,7 @@ export default function Thumbnail() {
       id: 2,
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
       category: 'How to',
-      title: 'Contemplate the Meaning of Life Twice a Day',
+      title: 'Contemplate the Meaning of Life Twice a DayContemplate the Meaning',
     },
     {
       id: 3,
@@ -150,7 +150,7 @@ export default function Thumbnail() {
               >
                 <motion.div
                   layoutId={`image-${selectedId}`}
-                  className="relative h-[400px] w-full"
+                  className="relative h-[calc(100dvh-370px)] w-full md:h-[400px]"
                 >
                   <Image
                     src={selectedCard.image}
@@ -189,7 +189,36 @@ export default function Thumbnail() {
                     transition={{ delay: 0.2 }}
                   >
                     <p className="mb-4 leading-relaxed text-gray-600">
-                      Discover amazing applications that will transform the way you approach
+                      Discover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachDiscover amazing applications that will
+                      transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachDiscover amazing applications that will
+                      transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachDiscover amazing applications that will
+                      transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachDiscover amazing applications that will
+                      transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachamazing applications that will transform the
+                      way you approachDiscover amazing applications that will transform the way you approachDiscover
+                      amazing applications that will transform the way you approachDiscover amazing applications that
+                      will transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachDiscover amazing applications that will
+                      transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachamazing applications that will transform the
+                      way you approachDiscover amazing applications that will transform the way you approachDiscover
+                      amazing applications that will transform the way you approachDiscover amazing applications that
+                      will transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approachDiscover amazing applications that will
+                      transform the way you approachDiscover amazing applications that will transform the way you
+                      approachDiscover amazing applications that will transform the way you approachDiscover amazing
+                      applications that will transform the way you approach
                       {selectedCard.category.toLowerCase()}. Our curated selection brings you the best tools and
                       experiences.
                     </p>

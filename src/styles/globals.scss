@@ -36,13 +36,6 @@ button {
     font-size: 50px;
     white-space: pre-line;
   }
-
-  // .cursor {
-  //   width: 2px;
-  //   height: 1em;
-  //   background-color: currentColor;
-  //   margin-left: 2px;
-  // }
 }
 
 .item {
@@ -62,6 +55,8 @@ button {
   &-content {
     background-color: var(--color-bg);
     color: var(--color-text);
+    height: 350px;
+    overflow-y: auto;
   }
 }
 
@@ -81,9 +76,5 @@ button {
       top: 50%;
       transform: translateY(-50%);
     }
-
-    // > div {
-    //   background-color: var(--color-bg);
-    // }
   }
 }

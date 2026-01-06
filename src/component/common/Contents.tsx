@@ -57,8 +57,6 @@ export default function Contents() {
           setFixed(false);
         }
       }
-
-      // const width = window.innerWidth;
     };
 
     handleScroll();
