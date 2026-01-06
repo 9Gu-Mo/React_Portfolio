@@ -29,7 +29,7 @@ export default function TimeLineItem({ timeline }: Props) {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView && { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className={`rounded-xl border p-6 text-black shadow-sm transition-colors ${isInView ? 'border-black bg-white' : 'border-gray-200 bg-gray-50'}`}
+          className={`rounded-xl border p-6 break-all text-black shadow-sm transition-colors ${isInView ? 'border-black bg-white' : 'border-gray-200 bg-gray-50'}`}
         >
           <span className="text-sm">{timeline.period}</span>
           <h3 className="mt-2 text-lg font-semibold">{timeline.title}</h3>
