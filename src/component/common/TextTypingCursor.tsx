@@ -23,14 +23,17 @@ export default function TextTypingCursor({ text }: { text: string }) {
   return (
     <>
       <div className="typing text-white">
-        <h1>{displayedText}</h1>
-
-        {/* 커서 표현 */}
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.8, repeat: Infinity }}
-          className="cursor"
-        />
+        <p style={{ display: 'inline' }}>
+          {displayedText}
+          <motion.span
+            animate={{ opacity: [1, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity }}
+            className="cursor"
+            style={{ display: 'inline-block' }}
+          >
+            |
+          </motion.span>
+        </p>
       </div>
     </>
   );

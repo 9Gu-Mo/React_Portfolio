@@ -1,17 +1,27 @@
 /* Light theme (default) */
 :root {
+  // bg
   --color-bg: #ffffff;
-  --color-text: #111827; // gray-900
-  --color-muted: #6b7280; // gray-500
+  --color-bg-gray: rgb(229, 231, 235);
+  --color-bg-black: #000000;
+
+  // text
+  --color-text: #111827;
+  --color-muted: #6b7280;
   --color-border: #e5e7eb;
   --color-box-shadow: rgba(0, 0, 0, 0.4);
 }
 
 /* Dark theme */
 html.dark {
-  --color-bg: #000000; // gray-900
-  --color-text: #f9fafb; // gray-50
-  --color-muted: #9ca3af; // gray-400
+  // bg
+  --color-bg: #000000;
+  --color-bg-gray: rgb(255, 255, 255);
+  --color-bg-black: #ffffff;
+
+  // text
+  --color-text: #f9fafb;
+  --color-muted: #9ca3af;
   --color-border: #374151;
   --color-box-shadow: rgba(255, 255, 255, 0.4);
 }

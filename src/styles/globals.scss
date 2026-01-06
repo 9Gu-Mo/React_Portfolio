@@ -37,12 +37,12 @@ button {
     white-space: pre-line;
   }
 
-  .cursor {
-    width: 2px;
-    height: 1em;
-    background-color: currentColor;
-    margin-left: 2px;
-  }
+  // .cursor {
+  //   width: 2px;
+  //   height: 1em;
+  //   background-color: currentColor;
+  //   margin-left: 2px;
+  // }
 }
 
 .item {
@@ -52,4 +52,42 @@ button {
 .btn-darkmode {
   box-shadow: 0 0 12px var(--color-box-shadow);
   background-color: var(--color-bg);
+}
+
+.thumb {
+  // &-item {
+  //   transition: all 0.3s;
+  // }
+
+  &-modal {
+    background-color: var(--color-bg);
+  }
+
+  &-content {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+}
+
+.timeline {
+  &-line {
+    background-color: var(--color-bg-gray);
+
+    &-active {
+      background-color: var(--color-bg-black);
+    }
+  }
+
+  &-item {
+    color: var(--color-text);
+
+    &-dot {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    // > div {
+    //   background-color: var(--color-bg);
+    // }
+  }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import IconClose from '@/component/icon/IconClose';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
@@ -122,94 +123,82 @@ export default function Thumbnail() {
             </motion.div>
           </motion.div>
         ))}
-      </div>
 
-      {/* thumbnail modal */}
-      <AnimatePresence>
-        {selectedId && selectedCard && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={modalCloseUse}
-              className="fixed inset-0 z-40 bg-black/60"
-            />
-            <motion.div
-              layoutId={`card-${selectedId}`}
-              className="fixed inset-4 z-50 overflow-hidden rounded-2xl bg-white shadow-2xl md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[90vh] md:w-[800px] md:-translate-x-1/2 md:-translate-y-1/2"
-              onClick={(e) => e.stopPropagation()}
-            >
+        {/* thumbnail modal */}
+        <AnimatePresence>
+          {selectedId && selectedCard && (
+            <>
               <motion.div
-                layoutId={`image-${selectedId}`}
-                className="relative h-[400px] w-full"
-              >
-                <Image
-                  src={selectedCard.image}
-                  alt={selectedCard.title}
-                  className="h-full w-full object-cover"
-                  width={500}
-                  height={500}
-                />
-                <button
-                  onClick={modalCloseUse}
-                  className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur transition-colors hover:bg-white"
-                >
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </motion.div>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={modalCloseUse}
+                className="fixed inset-0 z-40 bg-black/60"
+              />
               <motion.div
-                layoutId={`content-${selectedId}`}
-                className="p-8"
+                layoutId={`card-${selectedId}`}
+                className="thumb-modal fixed inset-4 z-50 overflow-hidden rounded-2xl bg-white shadow-2xl md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[90vh] md:w-[800px] md:-translate-x-1/2 md:-translate-y-1/2"
+                onClick={(e) => e.stopPropagation()}
               >
-                <motion.p
-                  layoutId={`category-${selectedId}`}
-                  className="mb-3 text-sm font-semibold tracking-wider text-blue-600 uppercase"
-                >
-                  {selectedCard.category}
-                </motion.p>
-                <motion.h2
-                  layoutId={`title-${selectedId}`}
-                  className="mb-6 text-4xl font-bold text-gray-900"
-                >
-                  {selectedCard.title}
-                </motion.h2>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ delay: 0.2 }}
+                  layoutId={`image-${selectedId}`}
+                  className="relative h-[400px] w-full"
                 >
-                  <p className="mb-4 leading-relaxed text-gray-600">
-                    Discover amazing applications that will transform the way you approach
-                    {selectedCard.category.toLowerCase()}. Our curated selection brings you the best tools and
-                    experiences.
-                  </p>
-                  <p className="mb-6 leading-relaxed text-gray-600">
-                    Each app has been carefully reviewed by our team to ensure quality, usability, and innovation.
-                    Download today and start your journey.
-                  </p>
-                  <button className="w-full rounded-xl bg-blue-600 py-4 font-semibold text-white transition-colors hover:bg-blue-700">
-                    View Collection
+                  <Image
+                    src={selectedCard.image}
+                    alt={selectedCard.title}
+                    className="h-full w-full object-cover"
+                    width={500}
+                    height={500}
+                  />
+                  <button
+                    onClick={modalCloseUse}
+                    className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur transition-colors hover:bg-white"
+                  >
+                    <IconClose size="12" />
                   </button>
                 </motion.div>
+                <motion.div
+                  layoutId={`content-${selectedId}`}
+                  className="thumb-content p-8"
+                >
+                  <motion.p
+                    layoutId={`category-${selectedId}`}
+                    className="mb-3 text-sm font-semibold tracking-wider text-blue-600 uppercase"
+                  >
+                    {selectedCard.category}
+                  </motion.p>
+                  <motion.h2
+                    layoutId={`title-${selectedId}`}
+                    className="mb-6 text-4xl font-bold"
+                  >
+                    {selectedCard.title}
+                  </motion.h2>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <p className="mb-4 leading-relaxed text-gray-600">
+                      Discover amazing applications that will transform the way you approach
+                      {selectedCard.category.toLowerCase()}. Our curated selection brings you the best tools and
+                      experiences.
+                    </p>
+                    <p className="mb-6 leading-relaxed text-gray-600">
+                      Each app has been carefully reviewed by our team to ensure quality, usability, and innovation.
+                      Download today and start your journey.
+                    </p>
+                    <button className="w-full rounded-xl bg-blue-600 py-4 font-semibold text-white transition-colors hover:bg-blue-700">
+                      View Collection
+                    </button>
+                  </motion.div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+            </>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }
