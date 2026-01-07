@@ -1,14 +1,19 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-export default function Footer() {
+function Inner() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+
   const [loading, setLoading] = useState(false);
+
   const [status, setStatus] = useState<{
     type: 'success' | 'error' | '';
     message: string;
@@ -33,30 +38,46 @@ export default function Footer() {
       return;
     }
 
+    if (!executeRecaptcha) {
+      setStatus({
+        type: 'error',
+        message: '보안 검증을 준비 중입니다. 잠시 후 다시 시도해주세요.',
+      });
+      return;
+    }
+
     setLoading(true);
     setStatus({ type: '', message: '' });
 
     try {
+      const recaptchaToken = await executeRecaptcha('contact_form');
+
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken,
+        }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
+        alert('전송 완료');
         setStatus({
           type: 'success',
           message: '전송 완료',
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
+        const errMsg = data.error || '전송 실패';
+        alert('❌ ' + errMsg);
         setStatus({
           type: 'error',
-          message: data.error || '이메일 전송에 실패했습니다.',
+          message: errMsg,
         });
       }
     } catch (error) {
@@ -169,9 +190,42 @@ export default function Footer() {
                 {status.message}
               </div>
             )}
+
+            {/* reCAPTCHA 안내 */}
+            <p className="text-center text-xs text-gray-500">
+              이 사이트는 reCAPTCHA로 보호되며, Google의{' '}
+              <a
+                href="https://policies.google.com/privacy"
+                className="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                개인정보 보호정책
+              </a>
+              과
+              <a
+                href="https://policies.google.com/terms"
+                className="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                서비스 약관
+              </a>
+              이 적용됩니다.
+            </p>
           </form>
         </div>
       </footer>
     </>
   );
+}
+
+export default function Footer() {
+  return <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} scriptProps={{
+    async: true,
+    defer: true,
+    appendTo: 'head',
+  }}>
+    <Inner />
+  </GoogleReCaptchaProvider>;
 }

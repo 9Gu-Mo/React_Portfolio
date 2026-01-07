@@ -3,9 +3,76 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+async function verifyRecaptcha(token: string): Promise<{
+  success: boolean;
+  score: number;
+  action: string;
+}> {
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+  const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `secret=${secretKey}&response=${token}`,
+  });
+
+  return await response.json();
+}
+
+// rate limiter
+const requestCounts = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const limit = 3; // 1시간 3번
+  const windowMs = 60 * 60 * 1000; // 1시간
+
+  const record = requestCounts.get(ip);
+
+  if (!record || now > record.resetTime) {
+    requestCounts.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+
+  if (record.count >= limit) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
 export async function POST(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ error: '너무 많은 요청입니다. 잠시 후 다시 시도해주세요.' }, { status: 429 });
+  }
+
   try {
-    const { message, email, name } = await request.json();
+    const { message, email, name, recaptchaToken } = await request.json();
+
+    if (!recaptchaToken) {
+      return NextResponse.json({ error: '보안 검증이 필요합니다.' }, { status: 400 });
+    }
+
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+
+    if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
+      console.log('Bot detected:', {
+        success: recaptchaResult.success,
+        score: recaptchaResult.score,
+        action: recaptchaResult.action,
+      });
+
+      return NextResponse.json({ error: '봇으로 감지되었습니다. 다시 시도해주세요.' }, { status: 403 });
+    }
+
+    // 로그 (디버깅용)
+    console.log('reCAPTCHA 검증 성공:', {
+      score: recaptchaResult.score,
+      action: recaptchaResult.action,
+    });
 
     if (!message || message.trim().length === 0) {
       return NextResponse.json({ error: '메시지를 입력해주세요.' }, { status: 400 });
@@ -32,11 +99,11 @@ export async function POST(request: Request) {
       replyTo: email || undefined,
       subject: `문의 - ${name || '익명'}`,
       text: `
-보낸 사람: ${name || '익명'}
-이메일: ${email || '미입력'}
+      보낸 사람: ${name || '익명'}
+      이메일: ${email || '미입력'}
 
-메시지:
-${message}
+      메시지:
+      ${message}
       `,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
@@ -44,6 +111,8 @@ ${message}
             <h2 style="color: #333; margin-top: 0; border-bottom: 2px solid #4CAF50; padding-bottom: 10px;">
               📧 새로운 문의가 도착했습니다
             </h2>
+
+            <h2>새로운 문의 (reCAPTCHA 점수: ${recaptchaResult.score.toFixed(2)})</h2>
             
             <div style="margin: 20px 0;">
               <p style="margin: 10px 0;">
