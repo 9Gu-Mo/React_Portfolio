@@ -1,0 +1,177 @@
+'use client';
+
+import { FormEvent, useState } from 'react';
+
+export default function Footer() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | '';
+    message: string;
+  }>({ type: '', message: '' });
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.email.trim()) {
+      setStatus({
+        type: 'error',
+        message: '내용을 입력하세요.',
+      });
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      setStatus({
+        type: 'error',
+        message: '내용을 입력하세요.',
+      });
+      return;
+    }
+
+    setLoading(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: '전송 완료',
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus({
+          type: 'error',
+          message: data.error || '이메일 전송에 실패했습니다.',
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: '오류가 발생했습니다. 나중에 다시 시도해주세요.',
+      });
+      console.error('전송 오류:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  return (
+    <>
+      <footer className="p-8">
+        <div className="mx-auto max-w-2xl p-6">
+          <h1 className="mb-6 text-3xl font-bold">문의하기</h1>
+
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4"
+          >
+            {/* 이름 (선택) */}
+            <div>
+              <label
+                htmlFor="name"
+                className="mb-2 block text-sm font-medium"
+              >
+                이름 (선택)
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                placeholder="홍길동"
+              />
+            </div>
+
+            {/* 이메일 (필수) */}
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-2 block text-sm font-medium"
+              >
+                이메일 <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                placeholder="your@email.com"
+                required
+              />
+              <p className="mt-1 text-sm text-gray-500">답변을 받으실 이메일 주소를 입력해주세요</p>
+            </div>
+
+            {/* 메시지 (필수) */}
+            <div>
+              <label
+                htmlFor="message"
+                className="mb-2 block text-sm font-medium"
+              >
+                메시지 <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={6}
+                className="w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                placeholder="문의 내용을 입력해주세요"
+                required
+              />
+            </div>
+
+            {/* 전송 버튼 */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-lg bg-blue-500 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {loading ? '전송 중...' : '전송하기'}
+            </button>
+
+            {/* 상태 메시지 */}
+            {status.message && (
+              <div
+                className={`rounded-lg p-4 ${
+                  status.type === 'success'
+                    ? 'border border-green-200 bg-green-50 text-green-800'
+                    : 'border border-red-200 bg-red-50 text-red-800'
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
+          </form>
+        </div>
+      </footer>
+    </>
+  );
+}
