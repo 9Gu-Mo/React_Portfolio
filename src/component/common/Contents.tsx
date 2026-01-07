@@ -3,19 +3,22 @@
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
 import TimeLine from '@/component/common/TimeLine';
+import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Contents() {
   const content = [
     {
       id: 'item01',
-      children: <Thumbnail />,
-    },
-    {
-      id: 'item02',
       children: <TimeLine />,
       aosType: 'fade-down',
       aosDuration: 1000,
+    },
+    {
+      id: 'item02',
+      children: <Thumbnail />,
+      // aosType: 'fade-down',
+      // aosDuration: 1000,
     },
     {
       id: 'item03',
@@ -27,14 +30,22 @@ export default function Contents() {
 
   const itemRef = useRef<(HTMLDivElement | null)[]>([]);
   const targetRef = useRef<HTMLDivElement | null>(null);
+  const setIsPassedTarget = useHeaderStore((state) => state.setIsPassedTarget);
 
   const [fixed, setFixed] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // anchor
+      // 페이지 스크롤 위치값
       const scrollY = window.scrollY;
+      // 컨텐츠 최상단 높이값
+      const contentTop = targetRef.current?.offsetTop ?? 0;
+
+      // header
+      setIsPassedTarget(scrollY >= contentTop - 54);
+
+      // anchor
       const index = itemRef.current.findIndex((el, i) => {
         if (!el) return false;
         const rect = el.getBoundingClientRect();
@@ -47,8 +58,6 @@ export default function Contents() {
       if (index !== -1) {
         setActiveIndex(index);
       }
-
-      const contentTop = targetRef.current?.offsetTop;
 
       if (contentTop) {
         if (scrollY >= contentTop) {

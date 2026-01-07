@@ -91,13 +91,14 @@ export default function Thumbnail() {
             key={card.id}
             data-aos={card.aosType ? card.aosType : 'fade-down'}
             data-aos-duration={card.aosDuration ? card.aosDuration : 1200}
-            data-aos-delay={index * 50}
+            data-aos-delay={index * 10}
             className="relative max-h-[350px] basis-full cursor-pointer overflow-hidden rounded-2xl md:basis-[40%] md:[&:nth-child(4n+1),&:nth-child(4n+4)]:basis-[calc(60%-10px)]"
           >
             <motion.div
               layoutId={`card-${card.id}`}
               onClick={() => modalOpenUse(card.id)}
               transition={{ duration: 0.2 }}
+              className="h-full"
             >
               <motion.div
                 layoutId={`image-${card.id}`}

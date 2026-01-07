@@ -50,7 +50,7 @@ export default function TimeLine() {
 
   return (
     <>
-      <section className="relative py-32">
+      <section className="relative">
         <h2 className="mb-20 text-center text-3xl font-bold">title</h2>
 
         <div
