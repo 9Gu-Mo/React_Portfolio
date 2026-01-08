@@ -95,7 +95,7 @@ export default function Thumbnail() {
             data-aos={card.aosType ? card.aosType : 'fade-down'}
             data-aos-duration={card.aosDuration ? card.aosDuration : 1200}
             data-aos-delay={index * 10}
-            className="relative max-h-[350px] basis-full cursor-pointer overflow-hidden rounded-2xl md:basis-[40%] md:[&:nth-child(4n+1),&:nth-child(4n+4)]:basis-[calc(60%-10px)]"
+            className="thumb-item relative max-h-[350px] basis-full cursor-pointer overflow-hidden rounded-2xl md:basis-[40%] md:[&:nth-child(4n+1),&:nth-child(4n+4)]:basis-[calc(60%-10px)]"
           >
             <motion.div
               layoutId={`card-${card.id}`}
@@ -106,6 +106,10 @@ export default function Thumbnail() {
               <motion.div
                 layoutId={`image-${card.id}`}
                 className="aspect-[4/3] h-full w-full"
+                transition={{ duration: 0.2 }}
+                whileHover={
+                  typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches ? { scale: 1.1 } : {}
+                }
               >
                 <Image
                   src={card.image}
