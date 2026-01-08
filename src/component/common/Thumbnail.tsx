@@ -1,8 +1,11 @@
 'use client';
 
+// component
 import IconClose from '@/component/icon/IconClose';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
+
+// hook
 import { useCallback, useState } from 'react';
 
 interface Props {

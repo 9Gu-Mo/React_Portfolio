@@ -1,8 +1,13 @@
 'use client';
 
-import { Timeline } from '@/types/timeline.types';
+// component
 import { motion, useInView } from 'framer-motion';
+
+// hook
 import { useRef } from 'react';
+
+// type
+import { Timeline } from '@/types/timeline.types';
 
 type Props = {
   timeline: Timeline;

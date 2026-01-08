@@ -1,7 +1,11 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+// component
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
+// hook
+import { FormEvent, useState } from 'react';
+import Link from 'next/link';
 
 function Inner() {
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -193,24 +197,24 @@ function Inner() {
 
             {/* reCAPTCHA 안내 */}
             <p className="text-center text-xs text-gray-500">
-              이 사이트는 reCAPTCHA로 보호되며, Google의{' '}
-              <a
+              이 사이트는 reCAPTCHA로 보호되며, Google의
+              <Link
                 href="https://policies.google.com/privacy"
                 className="underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 개인정보 보호정책
-              </a>
+              </Link>
               과
-              <a
+              <Link
                 href="https://policies.google.com/terms"
                 className="underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 서비스 약관
-              </a>
+              </Link>
               이 적용됩니다.
             </p>
           </form>
@@ -221,11 +225,16 @@ function Inner() {
 }
 
 export default function Footer() {
-  return <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} scriptProps={{
-    async: true,
-    defer: true,
-    appendTo: 'head',
-  }}>
-    <Inner />
-  </GoogleReCaptchaProvider>;
+  return (
+    <GoogleReCaptchaProvider
+      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+      scriptProps={{
+        async: true,
+        defer: true,
+        appendTo: 'head',
+      }}
+    >
+      <Inner />
+    </GoogleReCaptchaProvider>
+  );
 }

@@ -1,13 +1,15 @@
 'use client';
 
+// component
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
 // hook
 import { useEffect } from 'react';
 
-// style
-import { motion } from 'framer-motion';
+// store
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useThemeStore } from '@/stores/useThemeStore';
-import Link from 'next/link';
 
 export default function Header() {
   const setTheme = useThemeStore((state) => state.setTheme);
@@ -17,23 +19,12 @@ export default function Header() {
     setTheme(isDark ? 'dark' : 'light');
   }, [setTheme]);
 
-  // const handleClick = () => {
-  //   setOpen(!open);
-
-  //   if (open) {
-  //     document.body.classList.remove('overflow-hidden');
-  //   } else {
-  //     document.body.classList.add('overflow-hidden');
-  //   }
-  // };
-
   const isPassedTarget = useHeaderStore((state) => state.isPassedTarget);
 
   const items = [
     {
       id: 'item01',
       name: 'item01',
-      direction: '',
     },
     {
       id: 'item02',
@@ -42,7 +33,6 @@ export default function Header() {
     {
       id: 'item03',
       name: 'item03',
-      direction: '',
     },
   ];
 

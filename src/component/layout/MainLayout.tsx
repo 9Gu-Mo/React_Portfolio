@@ -1,7 +1,10 @@
-import React from 'react';
+// component
 import DarkModeBtn from '@/component/common/DarkModeBtn';
 import Header from '@/component/layout/Header';
 import Footer from '@/component/layout/Footer';
+
+// hook
+import React from 'react';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
