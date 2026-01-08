@@ -1,6 +1,9 @@
 'use client';
 
+// component
 import { motion } from 'framer-motion';
+
+// hook
 import { useEffect, useState } from 'react';
 
 export default function TextTypingCursor({ text }: { text: string }) {

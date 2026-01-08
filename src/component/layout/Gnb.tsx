@@ -1,11 +1,8 @@
-// lib
-import { motion } from 'framer-motion';
-
 // component
 import IconClose from '@/component/icon/IconClose';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-// interface
 interface Props {
   closeClick: React.MouseEventHandler<HTMLButtonElement>;
 }

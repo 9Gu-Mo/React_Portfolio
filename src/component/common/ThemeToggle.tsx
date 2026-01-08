@@ -1,4 +1,7 @@
+// component
 import IconDark from '@/component/icon/IconDark';
+
+// store
 import { useThemeStore } from '@/stores/useThemeStore';
 
 export default function ThemeToggle() {

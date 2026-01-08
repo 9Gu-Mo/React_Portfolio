@@ -1,9 +1,14 @@
 'use client';
 
+// component
 import TimeLineItem from '@/component/common/TimeLineItem';
-import { Timeline } from '@/types/timeline.types';
 import { motion, useScroll, useTransform } from 'framer-motion';
+
+// hook
 import { useRef } from 'react';
+
+// type
+import { Timeline } from '@/types/timeline.types';
 
 const careers: Timeline[] = [
   {

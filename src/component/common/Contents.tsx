@@ -1,10 +1,15 @@
 'use client';
 
+// component
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
 import TimeLine from '@/component/common/TimeLine';
+
+// hook
+import { useEffect, useRef } from 'react';
+
+// store
 import { useHeaderStore } from '@/stores/useHeaderStore';
-import { useEffect, useRef, useState } from 'react';
 
 export default function Contents() {
   const content = [
@@ -28,12 +33,9 @@ export default function Contents() {
     },
   ];
 
-  const itemRef = useRef<(HTMLDivElement | null)[]>([]);
+  // const itemRef = useRef<(HTMLDivElement | null)[]>([]);
   const targetRef = useRef<HTMLDivElement | null>(null);
   const setIsPassedTarget = useHeaderStore((state) => state.setIsPassedTarget);
-
-  const [fixed, setFixed] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,26 +48,18 @@ export default function Contents() {
       setIsPassedTarget(scrollY >= contentTop - 54);
 
       // anchor
-      const index = itemRef.current.findIndex((el, i) => {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        const top = rect.top + scrollY;
-        const nextEl = itemRef.current[i + 1];
-        const nextTop = nextEl ? nextEl.getBoundingClientRect().top + scrollY : Infinity;
-        return scrollY >= top && scrollY < nextTop;
-      });
+      // const index = itemRef.current.findIndex((el, i) => {
+      //   if (!el) return false;
+      //   const rect = el.getBoundingClientRect();
+      //   const top = rect.top + scrollY;
+      //   const nextEl = itemRef.current[i + 1];
+      //   const nextTop = nextEl ? nextEl.getBoundingClientRect().top + scrollY : Infinity;
+      //   return scrollY >= top && scrollY < nextTop;
+      // });
 
-      if (index !== -1) {
-        setActiveIndex(index);
-      }
-
-      if (contentTop) {
-        if (scrollY >= contentTop) {
-          setFixed(true);
-        } else {
-          setFixed(false);
-        }
-      }
+      // if (index !== -1) {
+      //   setActiveIndex(index);
+      // }
     };
 
     handleScroll();
@@ -86,15 +80,11 @@ export default function Contents() {
     >
       <div className="mx-auto flex max-w-[1200px] items-start gap-8 px-4">
         {/* content */}
-        {/* <div className="w-full md:w-[calc(100%-120px)]"> */}
         <div className="w-full">
-          {content.map((item, index) => (
+          {content.map((item) => (
             <Content
               key={item.id}
               id={item.id}
-              ref={(el) => {
-                itemRef.current[index] = el;
-              }}
               aosType={item.aosType}
               aosDuration={item.aosDuration}
             >
