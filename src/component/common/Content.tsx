@@ -14,7 +14,7 @@ const Content = forwardRef<HTMLDivElement, Props>(function Content({ id, childre
       <div
         ref={ref}
         id={id}
-        className="item min-h-dvh max-w-[1200px]"
+        className="min-h-dvh scroll-mt-[54px] py-[54px]"
         data-aos={aosType}
         data-aos-duration={aosDuration}
       >

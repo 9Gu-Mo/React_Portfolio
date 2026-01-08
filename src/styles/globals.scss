@@ -3,7 +3,7 @@
 
 html,
 body {
-  font-size: 10px;
+  font-size: 62.5%;
   font-family: 'pretendard', sans-serif;
   scroll-behavior: smooth;
 }
@@ -11,9 +11,7 @@ body {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 button {
@@ -21,26 +19,7 @@ button {
 }
 
 .wrap {
-  position: relative;
-  width: 100%;
-  min-height: 100dvh;
   background: url('/images/bg/bg2.jpg') no-repeat center / cover;
-
-  .typing {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    top: 50px;
-    left: 50px;
-    overflow: hidden;
-    font-size: 50px;
-    white-space: pre-line;
-  }
-}
-
-.item {
-  padding: 54px 0;
-  scroll-margin-top: 54px;
 }
 
 .btn-darkmode {
@@ -56,8 +35,6 @@ button {
   &-content {
     background-color: var(--color-bg);
     color: var(--color-text);
-    height: 350px;
-    overflow-y: auto;
   }
 }
 
@@ -67,15 +44,6 @@ button {
 
     &-active {
       background-color: var(--color-bg-black);
-    }
-  }
-
-  &-item {
-    color: var(--color-text);
-
-    &-dot {
-      top: 50%;
-      transform: translateY(-50%);
     }
   }
 }

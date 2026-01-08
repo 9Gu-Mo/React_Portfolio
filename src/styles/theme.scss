@@ -1,11 +1,8 @@
 /* Light theme (default) */
 :root {
-  // bg
   --color-bg: #ffffff;
   --color-bg-gray: rgb(229, 231, 235);
   --color-bg-black: #000000;
-
-  // text
   --color-text: #111827;
   --color-muted: #6b7280;
   --color-border: #e5e7eb;
@@ -14,12 +11,9 @@
 
 /* Dark theme */
 html.dark {
-  // bg
   --color-bg: #000000;
   --color-bg-gray: rgb(255, 255, 255);
   --color-bg-black: #ffffff;
-
-  // text
   --color-text: #f9fafb;
   --color-muted: #9ca3af;
   --color-border: #374151;

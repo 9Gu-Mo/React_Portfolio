@@ -172,7 +172,7 @@ export default function Thumbnail() {
                 </motion.div>
                 <motion.div
                   layoutId={`content-${selectedId}`}
-                  className="thumb-content p-8"
+                  className="thumb-content h-[350px] overflow-y-auto p-8"
                 >
                   <motion.p
                     layoutId={`category-${selectedId}`}

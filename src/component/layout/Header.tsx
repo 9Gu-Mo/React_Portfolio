@@ -34,6 +34,10 @@ export default function Header() {
       id: 'item03',
       name: 'item03',
     },
+    {
+      id: 'footer',
+      name: 'footer',
+    },
   ];
 
   return (
