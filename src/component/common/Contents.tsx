@@ -16,19 +16,15 @@ export default function Contents() {
     {
       id: 'item01',
       children: <TimeLine />,
-      aosType: 'fade-down',
-      aosDuration: 1000,
     },
     {
       id: 'item02',
       children: <Thumbnail />,
-      // aosType: 'fade-down',
-      // aosDuration: 1000,
     },
     {
       id: 'item03',
       children: <div>item03</div>,
-      aosType: 'fade-right',
+      aosType: 'fade-down',
       aosDuration: 1000,
     },
   ];

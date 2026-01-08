@@ -31,7 +31,7 @@ function Inner() {
         type: 'error',
         message: '내용을 입력하세요.',
       });
-      return;
+      return; // 조건이 true인 경우 if문 종료. false면 단계별로 하단 if문 실행
     }
 
     if (!formData.message.trim()) {
@@ -39,7 +39,7 @@ function Inner() {
         type: 'error',
         message: '내용을 입력하세요.',
       });
-      return;
+      return; // 조건이 true인 경우 if문 종료. false면 단계별로 하단 if문 실행
     }
 
     if (!executeRecaptcha) {
@@ -47,7 +47,7 @@ function Inner() {
         type: 'error',
         message: '보안 검증을 준비 중입니다. 잠시 후 다시 시도해주세요.',
       });
-      return;
+      return; // 조건이 true인 경우 if문 종료.
     }
 
     setLoading(true);
@@ -105,7 +105,12 @@ function Inner() {
 
   return (
     <>
-      <footer className="p-8">
+      <footer
+        className="p-8"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        id="footer"
+      >
         <div className="mx-auto max-w-2xl p-6">
           <h1 className="mb-6 text-3xl font-bold">문의하기</h1>
 
