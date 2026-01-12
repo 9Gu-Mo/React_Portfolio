@@ -39,11 +39,36 @@ button {
 }
 
 .timeline {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 10;
+
   &-line {
     background-color: var(--color-bg-gray);
 
     &-active {
       background-color: var(--color-bg-black);
+    }
+  }
+
+  &-item {
+    box-sizing: border-box;
+
+    &-dot {
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    &-con {
+      width: calc(50% - 20px);
+    }
+
+    &:nth-child(2n) {
+      .timeline-item-con {
+        margin-left: auto;
+      }
     }
   }
 }

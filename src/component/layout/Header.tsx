@@ -43,7 +43,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className="fixed top-0 right-0 left-0 z-10 flex h-[54px] items-center justify-end px-8"
+        className="fixed top-0 right-0 left-0 z-10 z-50 flex h-[54px] items-center justify-end px-8"
         initial={false}
         animate={{
           backgroundColor: isPassedTarget ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0)',

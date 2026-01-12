@@ -60,15 +60,18 @@ export default function TimeLine() {
 
         <div
           ref={containerRef}
-          className="timeline relative mx-auto max-w-3xl"
+          className="relative mx-auto max-w-6xl"
         >
-          <div className="timeline-line absolute top-0 left-4 h-full w-px" />
+          {/* line */}
+          <div className="timeline absolute">
+            <div className="timeline-line absolute top-0 h-full w-px" />
+            <motion.div
+              style={{ height: lineHeight }}
+              className="timeline-line-active absolute top-0 w-px"
+            />
+          </div>
 
-          <motion.div
-            style={{ height: lineHeight }}
-            className="timeline-line-active absolute top-0 left-4 w-px"
-          />
-
+          {/* item */}
           <ul className="space-y-24">
             {careers.map((item) => (
               <TimeLineItem

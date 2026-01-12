@@ -121,7 +121,7 @@ export default function Thumbnail() {
               </motion.div>
               <motion.div
                 layoutId={`content-${card.id}`}
-                className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white"
+                className="absolute top-0 right-0 bottom-0 left-0 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 to-transparent p-6 text-white"
               >
                 <motion.p
                   layoutId={`category-${card.id}`}
