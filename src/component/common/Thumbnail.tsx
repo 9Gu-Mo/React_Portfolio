@@ -149,11 +149,11 @@ export default function Thumbnail() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={modalCloseUse}
-                className="fixed inset-0 z-40 bg-black/60"
+                className="fixed inset-0 z-60 bg-black/60"
               />
               <motion.div
                 layoutId={`card-${selectedId}`}
-                className="thumb-modal fixed inset-4 z-50 overflow-hidden rounded-2xl bg-white shadow-2xl md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[90vh] md:w-[800px] md:-translate-x-1/2 md:-translate-y-1/2"
+                className="thumb-modal fixed inset-4 z-60 overflow-hidden rounded-2xl bg-white shadow-2xl md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[90vh] md:w-[800px] md:-translate-x-1/2 md:-translate-y-1/2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <motion.div
