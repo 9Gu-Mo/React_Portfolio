@@ -60,10 +60,10 @@ export default function TimeLine() {
 
         <div
           ref={containerRef}
-          className="relative mx-auto max-w-6xl"
+          className="relative mx-auto flex max-w-6xl gap-8 md:block"
         >
           {/* line */}
-          <div className="timeline absolute">
+          <div className="timeline static top-0 bottom-0 left-[50%] z-10 transform-none md:absolute md:-translate-x-1/2">
             <div className="timeline-line absolute top-0 h-full w-px" />
             <motion.div
               style={{ height: lineHeight }}
@@ -72,7 +72,7 @@ export default function TimeLine() {
           </div>
 
           {/* item */}
-          <ul className="space-y-24">
+          <ul className="space-y-12 md:space-y-24">
             {careers.map((item) => (
               <TimeLineItem
                 key={item.id}
