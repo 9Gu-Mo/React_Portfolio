@@ -40,14 +40,24 @@ button {
 
 .timeline {
   &-line {
-    background-color: var(--color-bg-gray);
+    background-color: #e5e7eb;
 
     &-active {
-      background-color: var(--color-bg-black);
+      background-color: var(--color-timeline-active);
     }
   }
 
   &-item {
+    &-dot {
+      background: var(--color-timeline-active);
+    }
+
+    &-con {
+      color: #1c1e24;
+      border-color: #1c1e24;
+      background-color: #fefefe;
+    }
+
     &:nth-child(2n) {
       .timeline-item-con {
         margin-left: auto;

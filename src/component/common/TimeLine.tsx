@@ -63,11 +63,11 @@ export default function TimeLine() {
           className="relative mx-auto flex max-w-6xl gap-8 md:block"
         >
           {/* line */}
-          <div className="timeline static top-0 bottom-0 left-[50%] z-10 transform-none md:absolute md:-translate-x-1/2">
-            <div className="timeline-line absolute top-0 h-full w-px" />
+          <div className="timeline static top-0 bottom-0 left-1/2 z-10 transform-none md:absolute md:-translate-x-1/2">
+            <div className="timeline-line absolute top-0 h-full w-[2px]" />
             <motion.div
               style={{ height: lineHeight }}
-              className="timeline-line-active absolute top-0 w-px"
+              className="timeline-line-active absolute top-0 w-[2px]"
             />
           </div>
 
