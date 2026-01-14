@@ -10,6 +10,7 @@ import { useEffect, useRef } from 'react';
 
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import Skill from '@/component/common/Skill';
 
 export default function Contents() {
   const content = [
@@ -23,7 +24,7 @@ export default function Contents() {
     },
     {
       id: 'item03',
-      children: <div>item03</div>,
+      children: <Skill />,
       aosType: 'fade-down',
       aosDuration: 1000,
     },

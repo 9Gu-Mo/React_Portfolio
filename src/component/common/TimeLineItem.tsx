@@ -31,10 +31,10 @@ export default function TimeLineItem({ timeline }: Props) {
         />
 
         <motion.div
-          initial={{ opacity: 0.2, y: 50 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView && { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className={`timeline-item-con rounded-xl border bg-white p-6 break-all text-black shadow-sm transition-colors md:w-[calc(50%-20px)]`}
+          className={`timeline-item-con relative rounded-xl border bg-white p-6 break-all text-black shadow-sm transition-colors md:w-[calc(50%-20px)]`}
         >
           <span className="text-lg font-medium">{timeline.period}</span>
           <h3 className="mt-2 text-2xl font-bold">{timeline.title}</h3>

@@ -60,7 +60,7 @@ export default function TimeLine() {
 
         <div
           ref={containerRef}
-          className="relative mx-auto flex max-w-6xl gap-8 md:block"
+          className="relative mx-auto flex max-w-7xl gap-8 md:block md:py-4"
         >
           {/* line */}
           <div className="timeline static top-0 bottom-0 left-1/2 z-10 transform-none md:absolute md:-translate-x-1/2">
