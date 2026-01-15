@@ -11,6 +11,7 @@ import IconReact from '@/component/icon/IconReact';
 import IconSass from '@/component/icon/IconSass';
 import IconSlack from '@/component/icon/IconSlack';
 import IconTs from '@/component/icon/IconTs';
+import IconVite from '@/component/icon/IconVite';
 import IconVue from '@/component/icon/IconVue';
 import IconZustand from '@/component/icon/IconZustand';
 
@@ -26,6 +27,7 @@ export default function Skill() {
         <IconNext />
         <IconVue />
         <IconZustand />
+        <IconVite />
 
         {/* PUB */}
         <IconHtml />

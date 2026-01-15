@@ -50,7 +50,7 @@ export default function Header() {
           backdropFilter: isPassedTarget ? 'blur(10px)' : 'blur(0px)',
           boxShadow: isPassedTarget ? '0 2px 8px rgba(0, 0, 0, 0.4)' : '0 0 0 rgba(0, 0, 0, 0)',
         }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
       >
         <ul className="list flex gap-8">
           {items.map((item, index) => (

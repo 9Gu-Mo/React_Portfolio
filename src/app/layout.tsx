@@ -6,9 +6,10 @@ import MainLayout from '@/component/layout/MainLayout';
 
 // style
 import '@/styles/globals.scss';
-import 'pretendard/dist/web/variable/pretendardvariable.css';
+// import 'pretendard/dist/web/variable/pretendardvariable.css';
 import AOSProvider from '@/app/providers/AOSProvider';
 import Script from 'next/script';
+import { pretendard } from '@/app/fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html
       lang="ko"
       suppressHydrationWarning
+      className={pretendard.className}
     >
       <head>
         <Script
