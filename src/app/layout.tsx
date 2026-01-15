@@ -1,15 +1,18 @@
-// lib
+// types
 import type { Metadata, Viewport } from 'next';
 
-// component
+// next
+import Script from 'next/script';
+
+// layout
 import MainLayout from '@/component/layout/MainLayout';
 
-// style
+// style & font
 import '@/styles/globals.scss';
-// import 'pretendard/dist/web/variable/pretendardvariable.css';
-import AOSProvider from '@/app/providers/AOSProvider';
-import Script from 'next/script';
 import { pretendard } from '@/app/fonts';
+
+// providers
+import AOSProvider from '@/app/providers/AOSProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
