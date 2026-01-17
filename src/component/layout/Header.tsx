@@ -5,20 +5,16 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 // hook
-import { useEffect } from 'react';
 
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useThemeStore } from '@/stores/useThemeStore';
 
 export default function Header() {
-  const setTheme = useThemeStore((state) => state.setTheme);
+  // dark mode state
+  const { theme, toggleTheme } = useThemeStore();
 
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setTheme(isDark ? 'dark' : 'light');
-  }, [setTheme]);
-
+  // header scroll state
   const isPassedTarget = useHeaderStore((state) => state.isPassedTarget);
 
   const items = [
@@ -45,8 +41,16 @@ export default function Header() {
       <motion.header
         className="fixed top-0 right-0 left-0 z-10 z-50 flex h-[54px] items-center justify-end px-8"
         initial={false}
+        // isPassedTarget true && theme light => rgba(255, 255, 255, 1)
+        // isPassedTarget true && theme dark => #1c1e24
+        // isPassedTarget false => rgba(0, 0, 0, 0)
         animate={{
-          backgroundColor: isPassedTarget ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0)',
+          backgroundColor:
+            isPassedTarget && theme === 'light'
+              ? 'rgba(255, 255, 255, 1)'
+              : isPassedTarget && theme === 'dark'
+                ? '#1c1e24'
+                : 'rgba(0, 0, 0, 0)',
           backdropFilter: isPassedTarget ? 'blur(10px)' : 'blur(0px)',
           boxShadow: isPassedTarget ? '0 2px 8px rgba(0, 0, 0, 0.4)' : '0 0 0 rgba(0, 0, 0, 0)',
         }}
@@ -57,7 +61,7 @@ export default function Header() {
             <li key={index}>
               <Link
                 href={`#${item.id}`}
-                className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${isPassedTarget ? 'text-black after:bg-black' : 'text-white after:bg-white'}`}
+                className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${isPassedTarget && theme === 'light' ? 'text-black after:bg-black' : 'text-white after:bg-white'}`}
               >
                 {item.name}
               </Link>

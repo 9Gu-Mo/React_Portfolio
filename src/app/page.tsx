@@ -5,7 +5,15 @@ export default function Home() {
   return (
     <>
       <div className="wrap relative min-h-dvh w-full">
-        <TextTypingCursor text={`타이핑 모션 테스트 :)`} />
+        <video
+          src="/images/bg/bg.mp4"
+          muted
+          loop
+          autoPlay
+          className="min-h-dvh w-full object-cover"
+        />
+        {/* <TextTypingCursor text={`Hi, My Name Is WonMo Gu :) Welcome My Portfolio`} /> */}
+        <TextTypingCursor text={`Welcome`} />
       </div>
       <Contents />
     </>
