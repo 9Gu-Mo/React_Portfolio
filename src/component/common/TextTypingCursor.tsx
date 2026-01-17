@@ -25,13 +25,13 @@ export default function TextTypingCursor({ text }: { text: string }) {
 
   return (
     <>
-      <div className="absolute top-[50px] left-[50px] pr-8 text-[50px] text-white">
-        <p className="inline break-keep">
+      <div className="absolute top-50 left-30 max-w-[526px] text-[50px] text-white">
+        <p className="inline-block break-keep">
           {displayedText}
           <motion.span
             animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            className="inline-block align-middle"
+            className="inline-block"
           >
             |
           </motion.span>
