@@ -30,33 +30,15 @@ export default function Contents() {
     },
   ];
 
-  // const itemRef = useRef<(HTMLDivElement | null)[]>([]);
   const targetRef = useRef<HTMLDivElement | null>(null);
   const setIsPassedTarget = useHeaderStore((state) => state.setIsPassedTarget);
 
   useEffect(() => {
     const handleScroll = () => {
-      // 페이지 스크롤 위치값
-      const scrollY = window.scrollY;
-      // 컨텐츠 최상단 높이값
-      const contentTop = targetRef.current?.offsetTop ?? 0;
+      if (!targetRef.current) return;
+      const contentTop = targetRef.current.getBoundingClientRect().top;
 
-      // header
-      setIsPassedTarget(scrollY >= contentTop - 54);
-
-      // anchor
-      // const index = itemRef.current.findIndex((el, i) => {
-      //   if (!el) return false;
-      //   const rect = el.getBoundingClientRect();
-      //   const top = rect.top + scrollY;
-      //   const nextEl = itemRef.current[i + 1];
-      //   const nextTop = nextEl ? nextEl.getBoundingClientRect().top + scrollY : Infinity;
-      //   return scrollY >= top && scrollY < nextTop;
-      // });
-
-      // if (index !== -1) {
-      //   setActiveIndex(index);
-      // }
+      setIsPassedTarget(0 >= contentTop - 54);
     };
 
     handleScroll();
