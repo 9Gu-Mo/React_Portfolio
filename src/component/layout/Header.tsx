@@ -9,6 +9,7 @@ import Link from 'next/link';
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useThemeStore } from '@/stores/useThemeStore';
+import { useEffect } from 'react';
 
 export default function Header() {
   // dark mode state
@@ -35,6 +36,10 @@ export default function Header() {
       name: 'footer',
     },
   ];
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, [theme]);
 
   return (
     <>

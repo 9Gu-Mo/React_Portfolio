@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export type Theme = 'light' | 'dark';
 
@@ -8,29 +9,37 @@ interface Props {
   setTheme: (theme: Theme) => void;
 }
 
-export const useThemeStore = create<Props>((set) => ({
-  theme: 'light',
+export const useThemeStore = create<Props>()(
+  persist(
+    (set, get) => ({
+      theme: 'light',
 
-  setTheme: (theme) => {
-    const html = document.documentElement;
+      setTheme: (theme) => {
+        if (typeof window === 'undefined') return;
 
-    if (theme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
+        const html = document.documentElement;
 
-    localStorage.setItem('theme', theme);
-    set({ theme });
-  },
+        if (theme === 'dark') {
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
+        }
 
-  toggleTheme: () => {
-    const html = document.documentElement;
-    const isDark = html.classList.contains('dark');
-    const nextTheme: Theme = isDark ? 'light' : 'dark';
+        set({ theme });
+      },
 
-    html.classList.toggle('dark');
-    localStorage.setItem('theme', nextTheme);
-    set({ theme: nextTheme });
-  },
-}));
+      toggleTheme: () => {
+        if (typeof window === 'undefined') return;
+
+        const { theme } = get();
+        const nextTheme: Theme = theme === 'dark' ? 'light' : 'dark';
+
+        document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+        set({ theme: nextTheme });
+      },
+    }),
+    {
+      name: 'theme-storage',
+    },
+  ),
+);
