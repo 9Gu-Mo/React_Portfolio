@@ -9,21 +9,21 @@ import TimeLine from '@/component/common/TimeLine';
 import { useEffect, useRef } from 'react';
 
 // store
-import { useHeaderStore } from '@/stores/useHeaderStore';
 import Skill from '@/component/common/Skill';
+import { useHeaderStore } from '@/stores/useHeaderStore';
 
 export default function Contents() {
   const content = [
     {
-      id: 'item01',
+      id: 'about',
       children: <TimeLine />,
     },
     {
-      id: 'item02',
+      id: 'career',
       children: <Thumbnail />,
     },
     {
-      id: 'item03',
+      id: 'skill',
       children: <Skill />,
       aosType: 'fade-down',
       aosDuration: 1000,
@@ -38,7 +38,7 @@ export default function Contents() {
       if (!targetRef.current) return;
       const contentTop = targetRef.current.getBoundingClientRect().top;
 
-      setIsPassedTarget(0 >= contentTop - 54);
+      setIsPassedTarget(0 >= contentTop - 70);
     };
 
     handleScroll();

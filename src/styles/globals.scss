@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: var(--color-bg);
+  background-color: var(--bg-primary);
   color: var(--color-text);
   transition: all 0.3s ease;
 }
@@ -19,16 +19,16 @@ button {
 
 .btn-darkmode {
   box-shadow: 0 0 12px var(--color-box-shadow);
-  background-color: var(--color-bg);
+  background-color: var(--bg-primary);
 }
 
 .thumb {
   &-modal {
-    background-color: var(--color-bg);
+    background-color: var(--bg-primary);
   }
 
   &-content {
-    background-color: var(--color-bg);
+    background-color: var(--bg-primary);
     color: var(--color-text);
   }
 }
@@ -48,9 +48,10 @@ button {
     }
 
     &-con {
-      color: #1c1e24;
-      border-color: #1c1e24;
+      color: #0f172a;
       background-color: #fefefe;
+      border: 2px solid var(--color-timeline);
+      box-sizing: border-box;
     }
 
     &:nth-child(2n) {

@@ -20,20 +20,20 @@ export default function Header() {
 
   const items = [
     {
-      id: 'item01',
-      name: 'item01',
+      id: 'about',
+      name: 'about',
     },
     {
-      id: 'item02',
-      name: 'item02',
+      id: 'career',
+      name: 'career',
     },
     {
-      id: 'item03',
-      name: 'item03',
+      id: 'skill',
+      name: 'skill',
     },
     {
-      id: 'footer',
-      name: 'footer',
+      id: 'contact',
+      name: 'contact',
     },
   ];
 
@@ -44,29 +44,26 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className="fixed top-0 right-0 left-0 z-10 z-50 flex h-[54px] items-center justify-end px-8"
+        className="fixed top-0 right-0 left-0 z-10 z-50 flex h-[70px] items-center justify-end px-8"
         initial={false}
-        // isPassedTarget true && theme light => rgba(255, 255, 255, 1)
-        // isPassedTarget true && theme dark => #1c1e24
-        // isPassedTarget false => rgba(0, 0, 0, 0)
         animate={{
           backgroundColor:
             isPassedTarget && theme === 'light'
               ? 'rgba(255, 255, 255, 1)'
               : isPassedTarget && theme === 'dark'
-                ? '#1c1e24'
+                ? '#0f172a'
                 : 'rgba(0, 0, 0, 0)',
           backdropFilter: isPassedTarget ? 'blur(10px)' : 'blur(0px)',
-          boxShadow: isPassedTarget ? '0 2px 8px rgba(0, 0, 0, 0.4)' : '0 0 0 rgba(0, 0, 0, 0)',
+          boxShadow: isPassedTarget ? '0 1px 6px rgba(0, 0, 0, 0.4)' : '0 0 0 rgba(0, 0, 0, 0)',
         }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
       >
-        <ul className="list flex gap-8">
+        <ul className="list flex gap-12">
           {items.map((item, index) => (
             <li key={index}>
               <Link
                 href={`#${item.id}`}
-                className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${isPassedTarget && theme === 'light' ? 'text-black after:bg-black' : 'text-white after:bg-white'}`}
+                className={`relative pb-1 text-3xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${isPassedTarget && theme === 'light' ? 'text-black after:bg-black' : 'text-white after:bg-white'}`}
               >
                 {item.name}
               </Link>
