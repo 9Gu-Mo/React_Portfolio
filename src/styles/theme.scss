@@ -1,9 +1,8 @@
 /* Light theme (default) */
 :root {
   // common
-  --color-bg: #ffffff;
-  --color-bg-black: #1c1e24;
-  --color-text: #111827;
+  --bg-primary: #ffffff;
+  --color-text: #0f172a;
   --color-box-shadow: rgba(0, 0, 0, 0.4);
 
   // timeline
@@ -14,12 +13,11 @@
 /* Dark theme */
 html.dark {
   // common
-  --color-bg: #1c1e24;
-  --color-bg-black: #ffffff;
-  --color-text: #e8e8e8;
+  --bg-primary: #0f172a;
+  --color-text: #f8f9fa;
   --color-box-shadow: rgba(255, 255, 255, 0.4);
 
   // timeline
-  --color-timeline: #f5f5f5; // timeline
-  --color-timeline-active: #57534d; // timeline active, dot
+  --color-timeline: #0d9488; // timeline
+  --color-timeline-active: #0d9488; // timeline active, dot
 }

@@ -4,8 +4,8 @@
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 // hook
-import { FormEvent, useState } from 'react';
 import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 
 function Inner() {
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -109,7 +109,7 @@ function Inner() {
         className="p-8"
         data-aos="fade-down"
         data-aos-duration="1000"
-        id="footer"
+        id="contact"
       >
         <div className="mx-auto max-w-2xl p-6">
           <h1 className="mb-6 text-3xl font-bold">문의하기</h1>
