@@ -10,12 +10,6 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        bg: 'var(--color-bg)',
-        text: 'var(--color-text)',
-        muted: 'var(--color-muted)',
-        border: 'var(--color-border)',
-      },
       spacing: {
         '1': '10px',
       },

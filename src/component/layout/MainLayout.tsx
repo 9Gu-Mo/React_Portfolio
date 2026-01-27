@@ -1,7 +1,7 @@
 // component
 import DarkModeBtn from '@/component/common/DarkModeBtn';
-import Header from '@/component/layout/Header';
 import Footer from '@/component/layout/Footer';
+import Header from '@/component/layout/Header';
 
 // hook
 import React from 'react';

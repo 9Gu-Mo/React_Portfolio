@@ -3,20 +3,22 @@
 // component
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
-import TimeLine from '@/component/common/TimeLine';
+import Skill from '@/component/common/Skill';
+import Footer from '@/component/layout/Footer';
 
 // hook
 import { useEffect, useRef } from 'react';
 
 // store
-import Skill from '@/component/common/Skill';
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import Contact from '@/component/common/Contact';
 
 export default function Contents() {
   const content = [
     {
       id: 'about',
-      children: <TimeLine />,
+      // children: <TimeLine />,
+      children: <div>ss</div>,
     },
     {
       id: 'career',
@@ -25,8 +27,10 @@ export default function Contents() {
     {
       id: 'skill',
       children: <Skill />,
-      aosType: 'fade-down',
-      aosDuration: 1000,
+    },
+    {
+      id: 'contact',
+      children: <Contact />,
     },
   ];
 
@@ -54,49 +58,19 @@ export default function Contents() {
 
   return (
     <div
-      className="content relative"
+      className="relative"
       ref={targetRef}
     >
-      <div className="mx-auto flex max-w-[1200px] items-start gap-8 px-4">
+      <div className="content flex flex-col items-start">
         {/* content */}
-        <div className="w-full">
-          {content.map((item) => (
-            <Content
-              key={item.id}
-              id={item.id}
-              aosType={item.aosType}
-              aosDuration={item.aosDuration}
-            >
-              {item.children}
-            </Content>
-          ))}
-        </div>
-
-        {/* sticky anchor */}
-        {/* <section className={`top-26 my-22 h-full w-[100px] ${fixed ? 'fixed' : 'sticky'}`}> */}
-        {/* <section className={`fixed top-26 my-22 h-full w-[100px] md:sticky ${fixed ? '' : 'sticky'}`}>
-          <ul className="flex flex-col gap-8">
-            {content.map((item, index) => {
-              const isActive = index === activeIndex;
-              return (
-                <li
-                  key={item.id}
-                  className={`relative flex items-center gap-4 text-lg font-semibold ${isActive ? 'text-blue-500' : 'text-gray-400'}`}
-                >
-                  <motion.span
-                    animate={{
-                      scale: isActive ? 1.4 : 1,
-                    }}
-                    transition={{ type: 'spring', stiffness: 250 }}
-                    className={`inline-block h-3.5 w-3.5 rounded-full ${isActive ? 'bg-blue-500' : 'bg-gray-400'}`}
-                  />
-
-                  <Link href={`#${item.id}`}>{item.id}</Link>
-                </li>
-              );
-            })}
-          </ul>
-        </section> */}
+        {content.map((item) => (
+          <Content
+            key={item.id}
+            id={item.id}
+          >
+            {item.children}
+          </Content>
+        ))}
       </div>
     </div>
   );
