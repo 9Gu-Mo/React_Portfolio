@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 // hook
+import { useEffect } from 'react';
 
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useThemeStore } from '@/stores/useThemeStore';
-import { useEffect } from 'react';
 
 export default function Header() {
   // dark mode state
@@ -54,7 +54,12 @@ export default function Header() {
                 ? '#0f172a'
                 : 'rgba(0, 0, 0, 0)',
           backdropFilter: isPassedTarget ? 'blur(10px)' : 'blur(0px)',
-          boxShadow: isPassedTarget ? '0 1px 6px rgba(0, 0, 0, 0.4)' : '0 0 0 rgba(0, 0, 0, 0)',
+          borderBottom:
+            isPassedTarget && theme === 'light'
+              ? '1px solid #e2e8f0'
+              : isPassedTarget && theme === 'dark'
+                ? '1px solid #334155'
+                : '',
         }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
       >

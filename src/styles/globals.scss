@@ -9,7 +9,7 @@ body {
 
 body {
   background-color: var(--bg-primary);
-  color: var(--color-text);
+  color: var(--text-primary);
   transition: all 0.3s ease;
 }
 
@@ -22,6 +22,15 @@ button {
   background-color: var(--bg-primary);
 }
 
+.content {
+  > * {
+    background-color: var(--bg-primary);
+    &:nth-child(2n) {
+      background-color: var(--bg-secondary);
+    }
+  }
+}
+
 .thumb {
   &-modal {
     background-color: var(--bg-primary);
@@ -29,7 +38,7 @@ button {
 
   &-content {
     background-color: var(--bg-primary);
-    color: var(--color-text);
+    color: var(--text-primary);
   }
 }
 
