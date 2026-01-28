@@ -1,6 +1,16 @@
 @import 'tailwindcss';
 @import '../styles/theme.scss';
 
+@keyframes floatAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 html,
 body {
   font-size: 62.5%;
@@ -22,11 +32,38 @@ button {
   background-color: var(--bg-primary);
 }
 
+.job {
+  color: var(--text-secondary);
+}
+
+.profile {
+  &-image {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.3 ease;
+    animation: floatAnimation 4s ease-in-out infinite;
+  }
+
+  svg {
+    width: 80px;
+    height: 80px;
+    color: var(--text-secondary);
+  }
+
+  span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+}
+
 .content {
   > * {
     background-color: var(--bg-primary);
     &:nth-child(2n) {
       background-color: var(--bg-secondary);
+    }
+    &:last-child {
+      min-height: fit-content;
     }
   }
 }

@@ -14,7 +14,7 @@ const Content = forwardRef<HTMLDivElement, Props>(function Content({ id, childre
       <div
         ref={ref}
         id={id}
-        className="min-h-dvh w-full scroll-mt-[70px] px-4 py-[70px]"
+        className="w-full scroll-mt-[70px] px-8 py-[70px]"
       >
         <div className="mx-auto max-w-[1200px]">{children}</div>
       </div>
