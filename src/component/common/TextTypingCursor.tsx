@@ -25,7 +25,7 @@ export default function TextTypingCursor({ text }: { text: string }) {
 
   return (
     <>
-      <div className="absolute top-50 left-30 max-w-[526px] text-[50px] text-white">
+      <div className="absolute top-70 left-30 max-w-[526px] text-[50px] text-white">
         <p className="inline-block break-keep">
           {displayedText}
           <motion.span

@@ -4,21 +4,21 @@
 import Content from '@/component/common/Content';
 import Thumbnail from '@/component/common/Thumbnail';
 import Skill from '@/component/common/Skill';
-import Footer from '@/component/layout/Footer';
+import Contact from '@/component/common/Contact';
+import About from '@/component/common/About';
 
 // hook
 import { useEffect, useRef } from 'react';
 
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
-import Contact from '@/component/common/Contact';
 
 export default function Contents() {
   const content = [
     {
       id: 'about',
       // children: <TimeLine />,
-      children: <div>ss</div>,
+      children: <About />,
     },
     {
       id: 'career',
