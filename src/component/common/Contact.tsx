@@ -105,126 +105,119 @@ function Inner() {
 
   return (
     <>
-      <footer
-        className="p-8"
-        data-aos="fade-down"
-        data-aos-duration="1000"
-        id="contact"
-      >
-        <div className="mx-auto max-w-2xl p-6">
-          <h1 className="mb-6 text-3xl font-bold">문의하기</h1>
+      <div className="max-w-2xl">
+        <h1 className="mb-6 text-3xl font-bold">문의하기</h1>
 
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4"
-          >
-            {/* 이름 (선택) */}
-            <div>
-              <label
-                htmlFor="name"
-                className="mb-2 block text-sm font-medium"
-              >
-                이름 (선택)
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-                placeholder="홍길동"
-              />
-            </div>
-
-            {/* 이메일 (필수) */}
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block text-sm font-medium"
-              >
-                이메일 <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-                placeholder="your@email.com"
-                required
-              />
-              <p className="mt-1 text-sm text-gray-500">답변을 받으실 이메일 주소를 입력해주세요</p>
-            </div>
-
-            {/* 메시지 (필수) */}
-            <div>
-              <label
-                htmlFor="message"
-                className="mb-2 block text-sm font-medium"
-              >
-                메시지 <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={6}
-                className="w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-                placeholder="문의 내용을 입력해주세요"
-                required
-              />
-            </div>
-
-            {/* 전송 버튼 */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full rounded-lg bg-blue-500 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4"
+        >
+          {/* 이름 (선택) */}
+          <div>
+            <label
+              htmlFor="name"
+              className="text-md mb-2 block font-medium"
             >
-              {loading ? '전송 중...' : '전송하기'}
-            </button>
+              이름 (선택)
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+              placeholder="홍길동"
+            />
+          </div>
 
-            {/* 상태 메시지 */}
-            {status.message && (
-              <div
-                className={`rounded-lg p-4 ${
-                  status.type === 'success'
-                    ? 'border border-green-200 bg-green-50 text-green-800'
-                    : 'border border-red-200 bg-red-50 text-red-800'
-                }`}
-              >
-                {status.message}
-              </div>
-            )}
+          {/* 이메일 (필수) */}
+          <div>
+            <label
+              htmlFor="email"
+              className="text-md mb-2 block font-medium"
+            >
+              이메일 <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+              placeholder="your@email.com"
+              required
+            />
+            <p className="mt-1 text-sm text-gray-500">답변을 받으실 이메일 주소를 입력해주세요</p>
+          </div>
 
-            {/* reCAPTCHA 안내 */}
-            <p className="text-center text-xs text-gray-500">
-              이 사이트는 reCAPTCHA로 보호되며, Google의
-              <Link
-                href="https://policies.google.com/privacy"
-                className="underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                개인정보 보호정책
-              </Link>
-              과
-              <Link
-                href="https://policies.google.com/terms"
-                className="underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                서비스 약관
-              </Link>
-              이 적용됩니다.
-            </p>
-          </form>
-        </div>
-      </footer>
+          {/* 메시지 (필수) */}
+          <div>
+            <label
+              htmlFor="message"
+              className="text-md mb-2 block font-medium"
+            >
+              메시지 <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={6}
+              className="w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+              placeholder="문의 내용을 입력해주세요"
+              required
+            />
+          </div>
+
+          {/* 전송 버튼 */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-lg bg-blue-500 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {loading ? '전송 중...' : '전송하기'}
+          </button>
+
+          {/* 상태 메시지 */}
+          {status.message && (
+            <div
+              className={`rounded-lg p-4 ${
+                status.type === 'success'
+                  ? 'border border-green-200 bg-green-50 text-green-800'
+                  : 'border border-red-200 bg-red-50 text-red-800'
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
+
+          {/* reCAPTCHA 안내 */}
+          <p className="text-center text-lg text-gray-500">
+            이 사이트는 reCAPTCHA로 보호되며, Google의
+            <Link
+              href="https://policies.google.com/privacy"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              개인정보 보호정책
+            </Link>
+            과
+            <Link
+              href="https://policies.google.com/terms"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              서비스 약관
+            </Link>
+            이 적용됩니다.
+          </p>
+        </form>
+      </div>
     </>
   );
 }

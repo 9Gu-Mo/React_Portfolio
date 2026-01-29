@@ -22,15 +22,18 @@ export default function Contents() {
     },
     {
       id: 'career',
-      children: <Thumbnail />,
+      // children: <Thumbnail />,
+      children: '경력',
     },
     {
       id: 'skill',
-      children: <Skill />,
+      // children: <Skill />,
+      children: '스킬',
     },
     {
       id: 'contact',
-      children: <Contact />,
+      // children: <Contact />,
+      children: '문의정보',
     },
   ];
 
