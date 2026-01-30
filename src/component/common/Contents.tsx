@@ -27,8 +27,8 @@ export default function Contents() {
     },
     {
       id: 'skill',
-      // children: <Skill />,
-      children: '스킬',
+      children: <Skill />,
+      // children: '스킬',
     },
     {
       id: 'contact',

@@ -1,0 +1,19 @@
+.skill {
+  &Item {
+    width: calc((100% - 40px) / 3);
+    border-color: var(--border-color);
+  }
+
+  &Icon {
+    background-color: var(--accent-bg);
+
+    svg {
+      color: var(--accent-color);
+    }
+  }
+
+  &Tag {
+    background-color: var(--bg-tag);
+    color: var(--text-secondary);
+  }
+}
