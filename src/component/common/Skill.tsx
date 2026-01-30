@@ -62,11 +62,14 @@ export default function Skill() {
   return (
     <>
       <ul className={`${style.skill} flex flex-wrap gap-8`}>
-        {skillArr.map((item) => (
+        {skillArr.map((item, index) => (
           <li
             key={item.id}
             id={item.id}
             className={`${style.skillItem} flex min-h-[250px] flex-col gap-6 rounded-[10px] border-1 p-8`}
+            data-aos="fade-down"
+            data-aos-duration={1000}
+            data-aos-delay={100 * index}
           >
             <span
               className={`${style.skillIcon} block flex h-[50px] w-[50px] items-center justify-center rounded-[10px] p-2`}
