@@ -4,16 +4,19 @@
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --bg-card: #ffffff;
+  --bg-tag: #f1f5f9;
+  --bg-accent: rgba(13, 148, 136, 0.1);
 
   // text
   --text-primary: #0f172a;
   --text-secondary: #64748b;
+  --text-accent: #2dd4bf;
 
   // border
   --border-color: #e2e8f0;
 
   // shadow
-  --color-box-shadow: rgba(0, 0, 0, 0.4);
+  --box-shadow: rgba(0, 0, 0, 0.4);
 
   // timeline
   --color-timeline: #e5e7eb; // timeline
@@ -26,16 +29,19 @@ html.dark {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --bg-card: #1e293b;
+  --bg-tag: #334155;
+  --bg-accent: rgba(45, 212, 191, 0.15);
 
   // text
   --text-primary: #f8f9fa;
   --text-secondary: #94a3b8;
+  --text-accent: #2dd4bf;
 
   // border
   --border-color: #334155;
 
   // shaodw
-  --color-box-shadow: rgba(255, 255, 255, 0.4);
+  --box-shadow: rgba(255, 255, 255, 0.4);
 
   // timeline
   --color-timeline: #0d9488; // timeline
