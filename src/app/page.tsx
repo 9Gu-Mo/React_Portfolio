@@ -6,14 +6,13 @@ export default function Home() {
     <>
       <div className="wrap relative min-h-dvh w-full">
         <video
-          src="/images/bg/bg.mp4"
+          src="/images/bg/bg3.mp4"
           muted
           loop
           autoPlay
           className="min-h-dvh w-full object-cover"
         />
-        {/* <TextTypingCursor text={`Hi, My Name Is WonMo Gu :) Welcome My Portfolio`} /> */}
-        <TextTypingCursor text={`Welcome`} />
+        <TextTypingCursor text={`Hi, My Name Is\nWonMo Gu :)\nWelcome My Portfolio`} />
       </div>
       <Contents />
     </>

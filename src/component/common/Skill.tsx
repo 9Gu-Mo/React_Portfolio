@@ -14,11 +14,11 @@ import { ReactNode } from 'react';
 import style from '@/styles/Skill.module.scss';
 
 // component
-import IconSkillMarkup from '@/component/icon/IconSkillMarkup';
-import IconSkillJavascript from '@/component/icon/IconSkillJavascript';
-import IconSkillFramework from '@/component/icon/IconSkillFramework';
 import IconSkillDesign from '@/component/icon/IconSkillDesign';
 import IconSkillDevelop from '@/component/icon/IconSkillDevelop';
+import IconSkillFramework from '@/component/icon/IconSkillFramework';
+import IconSkillJavascript from '@/component/icon/IconSkillJavascript';
+import IconSkillMarkup from '@/component/icon/IconSkillMarkup';
 
 const skillArr: Props[] = [
   {
@@ -66,28 +66,30 @@ export default function Skill() {
           <li
             key={item.id}
             id={item.id}
-            className={`${style.skillItem} flex min-h-[250px] flex-col gap-6 rounded-[10px] border-1 p-8`}
+            className={`${style.skillItem} min-h-[250px] w-full md:w-[calc((100%-40px)/3)]`}
             data-aos="fade-down"
             data-aos-duration={1000}
-            data-aos-delay={100 * index}
+            data-aos-delay={10 * index}
           >
-            <span
-              className={`${style.skillIcon} block flex h-[50px] w-[50px] items-center justify-center rounded-[10px] p-2`}
-            >
-              {item.icon}
-            </span>
-            <strong className="text-3xl">{item.title}</strong>
-            <p className="text-2xl">{item.desc}</p>
-            <ul className="flex flex-wrap items-start gap-4">
-              {item.skill.map((item, index) => (
-                <li
-                  className={`${style.skillTag} rounded-xl p-2`}
-                  key={index}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div className="flex h-full flex-col gap-6 rounded-[10px] border-1 p-8">
+              <span
+                className={`${style.skillIcon} block flex h-[50px] w-[50px] items-center justify-center rounded-[10px] p-2`}
+              >
+                {item.icon}
+              </span>
+              <strong className="text-3xl">{item.title}</strong>
+              <p className="text-2xl">{item.desc}</p>
+              <ul className="flex flex-wrap items-start gap-4">
+                {item.skill.map((item, index) => (
+                  <li
+                    className={`${style.skillTag} rounded-xl px-3 py-2`}
+                    key={index}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </li>
         ))}
       </ul>

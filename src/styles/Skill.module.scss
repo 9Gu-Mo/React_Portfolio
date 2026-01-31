@@ -1,11 +1,28 @@
 .skill {
   &Item {
-    width: calc((100% - 40px) / 3);
-    border-color: var(--border-color);
+    // width: calc((100% - 40px) / 3);
+
+    > div {
+      border-color: var(--border-color);
+      transition: border 0.3s ease-out;
+
+      &:hover {
+        border-color: #2dd4bf;
+
+        .skillIcon {
+          transform: rotate(-25deg);
+        }
+      }
+    }
+
+    p {
+      color: var(--text-secondary);
+    }
   }
 
   &Icon {
     background-color: var(--bg-accent);
+    transition: all 0.3s ease-out;
 
     svg {
       color: var(--text-accent);

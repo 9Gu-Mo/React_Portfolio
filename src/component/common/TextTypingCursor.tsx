@@ -25,8 +25,8 @@ export default function TextTypingCursor({ text }: { text: string }) {
 
   return (
     <>
-      <div className="absolute top-70 left-30 max-w-[526px] text-[50px] text-white">
-        <p className="inline-block break-keep">
+      <div className="absolute top-70 left-10 text-[30px] text-white transition-all duration-300 md:left-30 md:text-[50px]">
+        <p className="inline-block break-keep whitespace-pre-wrap">
           {displayedText}
           <motion.span
             animate={{ opacity: [1, 0] }}
