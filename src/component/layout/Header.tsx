@@ -66,16 +66,16 @@ export default function Header() {
       >
         <h1 className="logo">
           <Link href={'/'}>
-            <strong className="block text-3xl">가나다</strong>
+            <strong className="block text-3xl">구원모</strong>
             <span className="job text-xl">web publisher</span>
           </Link>
         </h1>
-        <ul className="list flex gap-12">
+        <ul className="list flex gap-6 transition-all duration-300 md:gap-12">
           {items.map((item, index) => (
             <li key={index}>
               <Link
                 href={`#${item.id}`}
-                className={`relative pb-1 text-3xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full ${isPassedTarget && theme === 'light' ? 'after:bg-black' : 'after:bg-white'}`}
+                className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full md:text-3xl ${isPassedTarget && theme === 'light' ? 'after:bg-black' : 'after:bg-white'}`}
               >
                 {item.name}
               </Link>

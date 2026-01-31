@@ -1,5 +1,6 @@
 // component
 import DarkModeBtn from '@/component/common/DarkModeBtn';
+import FloatUpBtn from '@/component/common/FloatUpBtn';
 import Footer from '@/component/layout/Footer';
 import Header from '@/component/layout/Header';
 
@@ -12,6 +13,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <Header />
       <main>{children}</main>
       <Footer />
+      <FloatUpBtn />
       <DarkModeBtn />
     </div>
   );

@@ -20,7 +20,7 @@ body {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
 }
 
 button {
@@ -30,6 +30,7 @@ button {
 .btn-darkmode {
   box-shadow: 0 0 12px var(--box-shadow);
   background-color: var(--bg-primary);
+  transition: all 0.3s ease-out;
 }
 
 .job {
