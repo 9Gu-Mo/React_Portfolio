@@ -1,11 +1,9 @@
 'use client';
 
 // component
-import Content from '@/component/common/Content';
-import Thumbnail from '@/component/common/Thumbnail';
-import Skill from '@/component/common/Skill';
-import Contact from '@/component/common/Contact';
 import About from '@/component/common/About';
+import Content from '@/component/common/Content';
+import Skill from '@/component/common/Skill';
 
 // hook
 import { useEffect, useRef } from 'react';
@@ -43,7 +41,7 @@ export default function Contents() {
   useEffect(() => {
     const handleScroll = () => {
       if (!targetRef.current) return;
-      const contentTop = targetRef.current.getBoundingClientRect().top;
+      const contentTop = Math.round(targetRef.current.getBoundingClientRect().top);
 
       setIsPassedTarget(0 >= contentTop - 70);
     };
