@@ -10,6 +10,7 @@ import { useEffect, useRef } from 'react';
 
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import Carrer from '@/component/common/Carrer';
 
 export default function Contents() {
   const content = [
@@ -20,8 +21,8 @@ export default function Contents() {
     },
     {
       id: 'career',
+      children: <Carrer />,
       // children: <Thumbnail />,
-      children: '경력',
     },
     {
       id: 'skill',
