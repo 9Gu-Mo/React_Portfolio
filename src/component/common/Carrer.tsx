@@ -10,6 +10,7 @@ interface ImageType {
 
 interface Props {
   id: string;
+  no: string;
   img: ImageType[];
   type: ProjectType;
   name: string;
@@ -41,6 +42,7 @@ import 'swiper/css/effect-fade';
 const carArr: Props[] = [
   {
     id: 'prj01',
+    no: 'project 01',
     img: [
       {
         src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
@@ -60,10 +62,10 @@ const carArr: Props[] = [
       },
     ],
     type: 'pc',
-    name: 'prj01',
+    name: '가나다라마바사아자차타',
     period: '25.11 ~ 26.02',
     contribution: '100%',
-    desc: 'ss',
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
     skill: ['react', 'typescript'],
     result: ['ss', 'ss'],
   },
@@ -77,7 +79,7 @@ export default function Carrer() {
       {carArr.map((item) => (
         <div
           key={item.id}
-          className={`flex items-start ${style.carrer}`}
+          className={`flex items-start gap-20 ${style.carrer}`}
         >
           <div className={`w-[500px] ${style.carrerImg}`}>
             <Swiper
@@ -124,7 +126,28 @@ export default function Carrer() {
               ))}
             </Swiper>
           </div>
-          <div></div>
+          <div className={style.carrerCon}>
+            <b className="mb-4 block text-3xl tracking-widest uppercase">{item.no}</b>
+            <h2 className="mb-6 text-5xl font-bold">{item.name}</h2>
+            <div className="flex gap-4 text-2xl">
+              <span>{item.period}</span>
+              <span>{item.contribution}</span>
+            </div>
+            <p>{item.desc}</p>
+            <ul>
+              {item.skill.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <div>
+              <h3>주요 성과 및 특징</h3>
+              <ul>
+                {item.result.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       ))}
     </>
