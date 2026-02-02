@@ -1,2 +1,7 @@
 .carrer {
+  &Img {
+    [class*='swiper-slide-thumb-active'] {
+      border: 1px solid var(--text-primary);
+    }
+  }
 }
