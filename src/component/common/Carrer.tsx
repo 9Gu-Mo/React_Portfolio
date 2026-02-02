@@ -95,13 +95,16 @@ export default function Carrer() {
               effect="fade"
             >
               {item.img.map((item, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide
+                  key={index}
+                  className="overflow-hidden rounded-[10px]"
+                >
                   <Image
                     alt={item.alt}
                     src={item.src}
                     width={500}
                     height={500}
-                    className="h-full rounded-[10px] object-cover"
+                    className="h-full object-cover"
                   />
                 </SwiperSlide>
               ))}
@@ -114,13 +117,16 @@ export default function Carrer() {
               className="h-[100px] md:mt-8"
             >
               {item.img.map((item, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide
+                  key={index}
+                  className="overflow-hidden rounded-[10px]"
+                >
                   <Image
                     alt={item.alt}
                     src={item.src}
                     width={100}
                     height={100}
-                    className="h-full rounded-[10px] object-cover"
+                    className="h-full object-cover"
                   />
                 </SwiperSlide>
               ))}
