@@ -1,7 +1,5 @@
 .skill {
   &Item {
-    // width: calc((100% - 40px) / 3);
-
     > div {
       border-color: var(--border-color);
       transition: border 0.3s ease-out;
