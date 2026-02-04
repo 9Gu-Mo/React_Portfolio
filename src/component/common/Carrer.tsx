@@ -132,7 +132,7 @@ export default function Carrer() {
                 delay: 3000,
                 disableOnInteraction: false,
               }}
-              className="h-[500px]"
+              className="aspect-square"
               effect="fade"
             >
               {item.img.map((item, index) => (
@@ -159,21 +159,21 @@ export default function Carrer() {
                 });
               }}
               modules={[Navigation, Thumbs]}
-              slidesPerView={5}
+              slidesPerView="auto"
               spaceBetween={10}
-              className="h-[100px] md:mt-4"
+              className="mt-4"
             >
               {item.img.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className="overflow-hidden rounded-[10px]"
+                  className={`aspect-square !w-[calc((100%-40px)/5)] cursor-pointer overflow-hidden rounded-[10px]`}
                 >
                   <Image
                     alt={item.alt}
                     src={item.src}
                     width={100}
                     height={100}
-                    className="h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </SwiperSlide>
               ))}
