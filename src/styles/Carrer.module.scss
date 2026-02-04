@@ -17,6 +17,10 @@
     }
   }
 
+  &Desc {
+    color: var(--text-third);
+  }
+
   &Skill {
     li {
       background-color: var(--bg-tag);

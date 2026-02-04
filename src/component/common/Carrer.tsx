@@ -190,7 +190,7 @@ export default function Carrer() {
                 </React.Fragment>
               ))}
             </div>
-            <p className="mb-4 text-3xl break-all">{item.desc}</p>
+            <p className={`${style.carrerDesc} mb-4 text-2xl break-all`}>{item.desc}</p>
             <ul className={`${style.carrerSkill} mb-8 flex flex-wrap items-start gap-4`}>
               {item.skill.map((item, index) => (
                 <li
