@@ -8,23 +8,30 @@ interface ImageType {
   alt: string;
 }
 
+interface AttrType {
+  period: string;
+  contribution: string;
+}
+
 interface Props {
   id: string;
   no: string;
   img: ImageType[];
   type: ProjectType;
   name: string;
-  period: string;
-  contribution: string;
+  attr: AttrType[];
   desc: string;
   skill: string[];
   result: string[];
   site?: string;
 }
 
+// react
+import { useState } from 'react';
+import React from 'react';
+
 // next
 import Image from 'next/image';
-import { useState } from 'react';
 
 // lib
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -34,7 +41,6 @@ import type { Swiper as SwiperType } from 'swiper/types';
 // style
 import style from '@/styles/Carrer.module.scss';
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/effect-fade';
@@ -63,28 +69,63 @@ const carArr: Props[] = [
     ],
     type: 'pc',
     name: '가나다라마바사아자차타',
-    period: '25.11 ~ 26.02',
-    contribution: '100%',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
+    attr: [
+      {
+        period: '25.11 ~ 26.02',
+        contribution: '100%',
+      },
+    ],
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
     skill: ['react', 'typescript'],
-    result: ['ss', 'ss'],
+    result: [
+      'consectetur adipiscing elit. Sed do eiusmod tempor incididunt',
+      'tempor incididunt ut labore Lorem ipsum dolor sit',
+    ],
+  },
+  {
+    id: 'prj02',
+    no: 'project 02',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: 'mo',
+    name: '가나다라마바사아자차타',
+    attr: [
+      {
+        period: '25.11 ~ 26.02',
+        contribution: '100%',
+      },
+    ],
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
+    skill: ['react', 'typescript'],
+    result: [
+      'consectetur adipiscing elit. Sed do eiusmod tempor incididunt',
+      'tempor incididunt ut labore Lorem ipsum dolor sit',
+    ],
   },
 ];
 
 export default function Carrer() {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<(SwiperType | null)[]>([]);
 
   return (
     <>
-      {carArr.map((item) => (
+      {carArr.map((item, index) => (
         <div
           key={item.id}
-          className={`flex items-start gap-20 ${style.carrer}`}
+          className={`flex flex-col items-start gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
         >
-          <div className={`w-[500px] ${style.carrerImg}`}>
+          <div className={`${style.carrerImg} w-full md:max-w-[500px]`}>
             <Swiper
               navigation
-              thumbs={{ swiper: thumbsSwiper }}
+              thumbs={{ swiper: thumbsSwiper[index] }}
               modules={[Thumbs, EffectFade, Autoplay]}
               slidesPerView={1}
               autoplay={{
@@ -104,17 +145,23 @@ export default function Carrer() {
                     src={item.src}
                     width={500}
                     height={500}
-                    className="h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
             <Swiper
-              onSwiper={setThumbsSwiper}
+              onSwiper={(swiper) => {
+                setThumbsSwiper((prev) => {
+                  const newSwipers = [...prev];
+                  newSwipers[index] = swiper;
+                  return newSwipers;
+                });
+              }}
               modules={[Navigation, Thumbs]}
               slidesPerView={5}
               spaceBetween={10}
-              className="h-[100px] md:mt-8"
+              className="h-[100px] md:mt-4"
             >
               {item.img.map((item, index) => (
                 <SwiperSlide
@@ -135,21 +182,35 @@ export default function Carrer() {
           <div className={style.carrerCon}>
             <b className="mb-4 block text-3xl tracking-widest uppercase">{item.no}</b>
             <h2 className="mb-6 text-5xl font-bold">{item.name}</h2>
-            <div className="flex gap-4 text-2xl">
-              <span>{item.period}</span>
-              <span>{item.contribution}</span>
+            <div className={`${style.carrerAttr} mb-4 flex gap-6 text-2xl`}>
+              {item.attr.map((item, index) => (
+                <React.Fragment key={index}>
+                  <span className="relative flex items-center gap-3 font-medium">{item.period}</span>
+                  <span className="relative flex items-center gap-3 font-medium">{item.contribution}</span>
+                </React.Fragment>
+              ))}
             </div>
-            <p>{item.desc}</p>
-            <ul>
+            <p className="mb-4 text-3xl break-all">{item.desc}</p>
+            <ul className={`${style.carrerSkill} mb-8 flex flex-wrap items-start gap-4`}>
               {item.skill.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li
+                  className="rounded-xl px-3 py-2 text-xl"
+                  key={index}
+                >
+                  {item}
+                </li>
               ))}
             </ul>
-            <div>
-              <h3>주요 성과 및 특징</h3>
-              <ul>
+            <div className={`${style.carrerResult} min-h-[200px] rounded-[10px] p-8`}>
+              <h3 className="mb-6 text-4xl font-bold">주요 성과 및 특징</h3>
+              <ul className="flex flex-col gap-2">
                 {item.result.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <li
+                    key={index}
+                    className={`relative pl-6 text-2xl ${index === 0 ? 'font-bold' : ''}`}
+                  >
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>

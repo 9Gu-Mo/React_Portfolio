@@ -18,7 +18,7 @@ export default function FloatUpBtn() {
   return (
     <>
       <motion.button
-        className={`btn-darkmode fixed right-8 bottom-30 flex h-[40px] w-[40px] items-center justify-center rounded-full ${isPassedTarget ? 'opacity-100' : 'opacity-0'}`}
+        className={`btn-darkmode fixed right-8 bottom-30 z-50 flex h-[40px] w-[40px] items-center justify-center rounded-full ${isPassedTarget ? 'opacity-100' : 'opacity-0'}`}
         onClick={handleClick}
       >
         <IconArrowUp

@@ -4,4 +4,46 @@
       border: 1px solid var(--text-primary);
     }
   }
+
+  &Attr {
+    span {
+      &::before {
+        content: '';
+        background-color: #e94560;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &Skill {
+    li {
+      background-color: var(--bg-tag);
+      color: var(--text-secondary);
+    }
+  }
+
+  &Result {
+    background-color: var(--bg-accent);
+
+    li {
+      color: var(--text-secondary);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 0;
+        background-color: var(--text-secondary);
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  & + .carrer {
+    margin-top: 80px;
+  }
 }

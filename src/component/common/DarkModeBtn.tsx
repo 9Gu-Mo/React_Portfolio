@@ -14,7 +14,7 @@ export default function DarkModeBtn() {
       <button
         type="button"
         onClick={toggleTheme}
-        className="btn-darkmode fixed right-8 bottom-8 flex h-[40px] w-[40px] items-center justify-center rounded-full"
+        className="btn-darkmode fixed right-8 bottom-8 z-50 flex h-[40px] w-[40px] items-center justify-center rounded-full"
       >
         <IconDark
           size="30px"
