@@ -82,7 +82,7 @@ export default function Skill() {
               <ul className="flex flex-wrap items-start gap-4">
                 {item.skill.map((item, index) => (
                   <li
-                    className={`${style.skillTag} rounded-xl px-3 py-2`}
+                    className={`${style.skillTag} rounded-xl px-3 py-2 text-xl`}
                     key={index}
                   >
                     {item}
