@@ -121,6 +121,8 @@ export default function Carrer() {
         <div
           key={item.id}
           className={`flex flex-col items-start gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
+          data-aos={`fade-${index % 2 !== 0 ? 'right' : 'left'}`}
+          data-aos-duration={1000}
         >
           <div className={`${style.carrerImg} w-full md:max-w-[500px]`}>
             <Swiper
@@ -201,13 +203,22 @@ export default function Carrer() {
                 </li>
               ))}
             </ul>
-            <div className={`${style.carrerResult} min-h-[200px] rounded-[10px] p-8`}>
-              <h3 className="mb-6 text-4xl font-bold">주요 성과 및 특징</h3>
-              <ul className="flex flex-col gap-2">
+            <div className={`${style.carrerResult} min-h-[200px] rounded-[12px]`}>
+              <div className={`${style.carrerResultHead} flex gap-4 p-6`}>
+                {[...Array(3)].map((_, index) => (
+                  <span
+                    key={index}
+                    className={`${style.carrerResultDot} h-[12px] w-[12px] rounded-[12px]`}
+                  >
+                    <em className="sr-only">{`도트표기${index}`}</em>
+                  </span>
+                ))}
+              </div>
+              <ul className="flex flex-col gap-2 p-6">
                 {item.result.map((item, index) => (
                   <li
                     key={index}
-                    className={`relative pl-6 text-2xl ${index === 0 ? 'font-bold' : ''}`}
+                    className={`relative text-2xl ${index === 0 ? 'font-bold' : ''}`}
                   >
                     {item}
                   </li>

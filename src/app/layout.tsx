@@ -50,7 +50,7 @@ export default function RootLayout({
     <html
       lang="ko"
       suppressHydrationWarning
-      className={pretendard.className}
+      className={`${pretendard.className} overflow-x-hidden`}
     >
       <head>
         <Script

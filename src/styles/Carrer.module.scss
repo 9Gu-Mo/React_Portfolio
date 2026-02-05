@@ -29,21 +29,29 @@
   }
 
   &Result {
-    background-color: var(--bg-accent);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+
+    &Head {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    &Dot {
+      &:first-child {
+        background-color: #ef4444;
+      }
+
+      &:nth-child(2) {
+        background-color: #f59e0b;
+      }
+
+      &:last-child {
+        background-color: #22c55e;
+      }
+    }
 
     li {
       color: var(--text-secondary);
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 8px;
-        left: 0;
-        background-color: var(--text-secondary);
-        width: 5px;
-        height: 5px;
-        border-radius: 5px;
-      }
     }
   }
 
