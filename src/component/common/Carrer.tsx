@@ -27,7 +27,7 @@ interface Props {
 }
 
 // react
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 
 // next
@@ -37,6 +37,9 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Thumbs } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper/types';
+
+// store
+import { useDeviceStore } from '@/stores/useDeviceStore';
 
 // style
 import style from '@/styles/Carrer.module.scss';
@@ -114,16 +117,17 @@ const carArr: Props[] = [
 
 export default function Carrer() {
   const [thumbsSwiper, setThumbsSwiper] = useState<(SwiperType | null)[]>([]);
-  const [mobile, setMobile] = useState<boolean>(false);
+  // const [mobile, setMobile] = useState<boolean>(false);
+  const { isMobile } = useDeviceStore();
 
-  useEffect(() => {
-    const size = window.innerWidth;
-    if (size < 769) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  }, [mobile]);
+  // useEffect(() => {
+  //   const size = window.innerWidth;
+  //   if (size < 769) {
+  //     setMobile(true);
+  //   } else {
+  //     setMobile(false);
+  //   }
+  // }, [mobile]);
 
   return (
     <>
@@ -131,7 +135,7 @@ export default function Carrer() {
         <div
           key={item.id}
           className={`flex flex-col items-start gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
-          data-aos={`fade-${mobile ? 'down' : index % 2 !== 0 ? 'right' : 'left'}`}
+          data-aos={`fade-${isMobile ? 'down' : index % 2 !== 0 ? 'right' : 'left'}`}
           data-aos-duration={1000}
         >
           <div className={`${style.carrerImg} w-full md:max-w-[500px]`}>

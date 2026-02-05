@@ -13,6 +13,7 @@ import { pretendard } from '@/app/fonts';
 
 // providers
 import AOSProvider from '@/app/providers/AOSProvider';
+import DeviceDetector from '@/component/DeviceDetector';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -79,6 +80,7 @@ export default function RootLayout({
       </head>
       <body>
         <AOSProvider>
+          <DeviceDetector />
           <MainLayout>{children}</MainLayout>
         </AOSProvider>
       </body>
