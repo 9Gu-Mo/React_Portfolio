@@ -27,7 +27,7 @@ interface Props {
 }
 
 // react
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 
 // next
@@ -114,6 +114,16 @@ const carArr: Props[] = [
 
 export default function Carrer() {
   const [thumbsSwiper, setThumbsSwiper] = useState<(SwiperType | null)[]>([]);
+  const [mobile, setMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const size = window.innerWidth;
+    if (size < 769) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  }, [mobile]);
 
   return (
     <>
@@ -121,7 +131,7 @@ export default function Carrer() {
         <div
           key={item.id}
           className={`flex flex-col items-start gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
-          data-aos={`fade-${index % 2 !== 0 ? 'right' : 'left'}`}
+          data-aos={`fade-${mobile ? 'down' : index % 2 !== 0 ? 'right' : 'left'}`}
           data-aos-duration={1000}
         >
           <div className={`${style.carrerImg} w-full md:max-w-[500px]`}>
