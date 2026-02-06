@@ -117,17 +117,7 @@ const carArr: Props[] = [
 
 export default function Carrer() {
   const [thumbsSwiper, setThumbsSwiper] = useState<(SwiperType | null)[]>([]);
-  // const [mobile, setMobile] = useState<boolean>(false);
   const { isMobile } = useDeviceStore();
-
-  // useEffect(() => {
-  //   const size = window.innerWidth;
-  //   if (size < 769) {
-  //     setMobile(true);
-  //   } else {
-  //     setMobile(false);
-  //   }
-  // }, [mobile]);
 
   return (
     <>
