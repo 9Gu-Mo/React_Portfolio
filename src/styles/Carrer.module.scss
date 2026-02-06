@@ -52,6 +52,17 @@
 
     li {
       color: var(--text-secondary);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+        background-color: var(--text-secondary);
+      }
     }
   }
 

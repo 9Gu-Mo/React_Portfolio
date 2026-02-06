@@ -11,6 +11,7 @@ interface ImageType {
 interface AttrType {
   period: string;
   contribution: string;
+  role: string;
 }
 
 interface Props {
@@ -27,15 +28,15 @@ interface Props {
 }
 
 // react
-import { useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 
 // next
 import Image from 'next/image';
+import Link from 'next/link';
 
 // lib
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Thumbs } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper/types';
 
 // store
@@ -44,9 +45,8 @@ import { useDeviceStore } from '@/stores/useDeviceStore';
 // style
 import style from '@/styles/Carrer.module.scss';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
 import 'swiper/css/effect-fade';
+import 'swiper/css/thumbs';
 
 const carArr: Props[] = [
   {
@@ -75,15 +75,20 @@ const carArr: Props[] = [
     attr: [
       {
         period: '25.11 ~ 26.02',
-        contribution: '100%',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 100%',
       },
     ],
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
-    skill: ['react', 'typescript'],
+    desc: 'CJ제일제당 연구 상품 관련 내부 연구원 설문조사 및 평가를 위한 모바일 웹/앱 서비스. 연구원들의 편리한 설문 참여, 관리자의 실시간 응답 모니터링, 평가 결과 통계 및 시각화를 통해 연구 상품 개선 의사결정을 지원',
+    skill: ['react', 'typescript', 'vite', 'scss', 'figma', 'gitlab'],
     result: [
-      'consectetur adipiscing elit. Sed do eiusmod tempor incididunt',
-      'tempor incididunt ut labore Lorem ipsum dolor sit',
+      'CJ Olive Networks 자체 개발 Canal Framework 활용한 UI 컴포넌트 제작(BO)',
+      'Ant Design 라이브러리를 활용한 공통 컴포넌트 제작(BO, FO)',
+      'hello-pangea/dnd 라이브러리를 활용한 Drag And Drop 컴포넌트 제작(FO)',
+      'GitLab을 활용한 FE 개발자와의 협업 업무 수행',
+      'Figma를 통한 디자인 시안 확인 및 협업 진행',
     ],
+    site: 'https://cgv.co.kr/',
   },
   {
     id: 'prj02',
@@ -103,7 +108,8 @@ const carArr: Props[] = [
     attr: [
       {
         period: '25.11 ~ 26.02',
-        contribution: '100%',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 100%',
       },
     ],
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
@@ -128,7 +134,9 @@ export default function Carrer() {
           data-aos={`fade-${isMobile ? 'down' : index % 2 !== 0 ? 'right' : 'left'}`}
           data-aos-duration={1000}
         >
-          <div className={`${style.carrerImg} w-full md:max-w-[500px]`}>
+          <div
+            className={`${style.carrerImg} w-full md:max-w-[calc(100%-400px-50px)] lg:max-w-[calc(100%-650px-50px)]`}
+          >
             <Swiper
               navigation
               thumbs={{ swiper: thumbsSwiper[index] }}
@@ -172,7 +180,7 @@ export default function Carrer() {
               {item.img.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className={`aspect-square !w-[calc((100%-40px)/5)] cursor-pointer overflow-hidden rounded-[10px]`}
+                  className={`aspect-square !w-[calc((100%-30px)/4)] cursor-pointer overflow-hidden rounded-[10px]`}
                 >
                   <Image
                     alt={item.alt}
@@ -185,25 +193,26 @@ export default function Carrer() {
               ))}
             </Swiper>
           </div>
-          <div className={style.carrerCon}>
-            <b className="mb-4 block text-3xl tracking-widest uppercase">{item.no}</b>
+          <div className={`${style.carrerCon} md:min-w-[400px] lg:min-w-[650px]`}>
+            <b className="mb-6 block text-3xl tracking-widest uppercase">{item.no}</b>
             <h2 className="mb-6 text-5xl font-bold">{item.name}</h2>
-            <div className={`${style.carrerAttr} mb-4 flex gap-6 text-2xl`}>
+            <div className={`${style.carrerAttr} mb-6 flex gap-6 text-2xl`}>
               {item.attr.map((item, index) => (
                 <React.Fragment key={index}>
                   <span className="relative flex items-center gap-3 font-medium">{item.period}</span>
+                  <span className="relative flex items-center gap-3 font-medium">{item.role}</span>
                   <span className="relative flex items-center gap-3 font-medium">{item.contribution}</span>
                 </React.Fragment>
               ))}
             </div>
-            <p className={`${style.carrerDesc} mb-4 text-2xl break-all`}>{item.desc}</p>
+            <p className={`${style.carrerDesc} mb-6 text-2xl break-all`}>{item.desc}</p>
             <ul className={`${style.carrerSkill} mb-8 flex flex-wrap items-start gap-4`}>
               {item.skill.map((item, index) => (
                 <li
                   className="rounded-xl px-3 py-2 text-xl"
                   key={index}
                 >
-                  {item}
+                  {item[0].toUpperCase() + item.slice(1)}
                 </li>
               ))}
             </ul>
@@ -222,13 +231,23 @@ export default function Carrer() {
                 {item.result.map((item, index) => (
                   <li
                     key={index}
-                    className={`relative text-2xl ${index === 0 ? 'font-bold' : ''}`}
+                    className="relative pl-6 text-2xl"
                   >
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
+            {item.site ? (
+              <Link
+                target="_blink"
+                href={item.site ?? ''}
+              >
+                <span>Live Site</span>
+              </Link>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       ))}
