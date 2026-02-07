@@ -9,29 +9,25 @@ import Skill from '@/component/common/Skill';
 import { useEffect, useRef } from 'react';
 
 // store
-import { useHeaderStore } from '@/stores/useHeaderStore';
 import Carrer from '@/component/common/Carrer';
+import { useHeaderStore } from '@/stores/useHeaderStore';
 
 export default function Contents() {
   const content = [
     {
       id: 'about',
-      // children: <TimeLine />,
       children: <About />,
-    },
-    {
-      id: 'career',
-      children: <Carrer />,
-      // children: <Thumbnail />,
     },
     {
       id: 'skill',
       children: <Skill />,
-      // children: '스킬',
+    },
+    {
+      id: 'career',
+      children: <Carrer />,
     },
     {
       id: 'contact',
-      // children: <Contact />,
       children: '문의정보',
     },
   ];
@@ -63,7 +59,7 @@ export default function Contents() {
       className="relative"
       ref={targetRef}
     >
-      <div className="content flex flex-col items-start">
+      <div className="content flex flex-col items-start overflow-x-hidden">
         {/* content */}
         {content.map((item) => (
           <Content

@@ -24,12 +24,12 @@ export default function Header() {
       name: 'about',
     },
     {
-      id: 'career',
-      name: 'career',
-    },
-    {
       id: 'skill',
       name: 'skill',
+    },
+    {
+      id: 'career',
+      name: 'career',
     },
     {
       id: 'contact',
