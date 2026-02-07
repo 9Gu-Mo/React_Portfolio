@@ -7,7 +7,7 @@ interface Props {
   skill: string[];
 }
 
-// next
+// react
 import { ReactNode } from 'react';
 
 // style
