@@ -2,6 +2,8 @@
 
 // component
 import About from '@/component/common/About';
+import Carrer from '@/component/common/Carrer';
+import Contact from '@/component/common/Contact';
 import Content from '@/component/common/Content';
 import Skill from '@/component/common/Skill';
 
@@ -9,7 +11,6 @@ import Skill from '@/component/common/Skill';
 import { useEffect, useRef } from 'react';
 
 // store
-import Carrer from '@/component/common/Carrer';
 import { useHeaderStore } from '@/stores/useHeaderStore';
 
 export default function Contents() {
@@ -28,7 +29,7 @@ export default function Contents() {
     },
     {
       id: 'contact',
-      children: '문의정보',
+      children: <Contact />,
     },
   ];
 
