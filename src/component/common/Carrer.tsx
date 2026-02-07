@@ -1,8 +1,5 @@
 'use client';
 
-// type
-type ProjectType = 'pc' | 'mo' | 'responsive' | 'adaptive';
-
 interface ImageType {
   src: string;
   alt: string;
@@ -18,7 +15,7 @@ interface Props {
   id: string;
   no: string;
   img: ImageType[];
-  type: ProjectType;
+  type: string[];
   name: string;
   attr: AttrType[];
   desc: string;
@@ -70,8 +67,8 @@ const carArr: Props[] = [
         alt: 'img04',
       },
     ],
-    type: 'pc',
-    name: '가나다라마바사아자차타',
+    type: ['Mobile', 'Adaptive'],
+    name: 'CJ 제일제당 SENSORY 내부 설문조사 시스템 구축',
     attr: [
       {
         period: '25.11 ~ 26.02',
@@ -88,7 +85,6 @@ const carArr: Props[] = [
       'GitLab을 활용한 FE 개발자와의 협업 업무 수행',
       'Figma를 통한 디자인 시안 확인 및 협업 진행',
     ],
-    site: 'https://cgv.co.kr/',
   },
   {
     id: 'prj02',
@@ -103,20 +99,209 @@ const carArr: Props[] = [
         alt: 'img02',
       },
     ],
-    type: 'mo',
-    name: '가나다라마바사아자차타',
+    type: ['Responsive'],
+    name: 'CGV 차세대 디지털 시스템 구축',
     attr: [
       {
-        period: '25.11 ~ 26.02',
+        period: '24.05 ~ 25.07',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 40%(작업 인원 3명)',
+      },
+    ],
+    desc: '영화 예매, 매점 상품(스토어) 구매, 상영관 및 액티비티 예약 등 사용자 편의성을 고려한 반응형 웹 / 앱 서비스 구축 프로젝트. 모바일 티켓, 액티비티, 결제 등 주요 서비스 UI/UX 구현 및 각 카테고리 별 공통 컴포넌트 구축',
+    skill: ['react', 'typescript', 'next.js', 'scss', 'figma', 'gitlab', 'jira', 'confluence'],
+    result: [
+      '디자인 가이드 기반 공통 UI 컴포넌트 구축 및 map 구조화를 통한 재사용성 향상',
+      'React Hook(useState, useEffect) 및 조건부 렌더링 기반 동적 UI 구현',
+      'module.scss 적용으로 컴포넌트 스타일 격리 및 클래스 충돌 방지',
+      'Ant Design·AUI Grid를 활용한 백오피스 UI 컴포넌트 및 테이블 구현',
+      'GitLab·Jira·Confluence·Figma 기반 애자일 협업 및 이슈 관리',
+    ],
+    site: 'https://cgv.co.kr/',
+  },
+  {
+    id: 'prj03',
+    no: 'project 03',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: ['Adaptive', 'Pc'],
+    name: 'SKT ISMS-P 증적관리 내부 시스템 구축',
+    attr: [
+      {
+        period: '23.09 ~ 24.02',
         role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
-    skill: ['react', 'typescript'],
+    desc: '기업 내부의 정보보호 관리체계(ISMS-P) 인증 획득 및 유지를 위한 증적 관리 시스템 구축. 정보보호 현황 모니터링, 인증 심사 대응 자료 관리, 관련 문서 및 증적 자료의 체계적 보관을 지원하는 사내 웹 서비스 개발',
+    skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
     result: [
-      'consectetur adipiscing elit. Sed do eiusmod tempor incididunt',
-      'tempor incididunt ut labore Lorem ipsum dolor sit',
+      '내부 보안 정책으로 인해 최신 브라우저가 아닌 Chrome 하위 버전(8.xx) 환경에 맞춰 개발 진행',
+      '정보보호 진단 보고서 페이지의 PDF 추출 기능 및 A4 인쇄 규격 대응 작업',
+      'jqGrid 라이브러리를 활용하여 데이터 테이블(그리드) UI 구현',
+      'Photoshop을 통한 디자인 시안 확인 및 협업 진행',
+    ],
+  },
+  {
+    id: 'prj04',
+    no: 'project 04',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: ['Responsive'],
+    name: 'CJ O’CLOUD 소개 사이트 리뉴얼 & 요금 계산기 카테고리 구축',
+    attr: [
+      {
+        period: '23.05 ~ 23.08',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 100%',
+      },
+    ],
+    desc: '클라우드 서비스 소개 사이트 전면 리뉴얼 및 사용자 편의성 강화를 위한 요금 계산기 카테고리 신규 구축. 서비스 이용 전 예상 비용을 실시간으로 확인할 수 있는 요금 산정 시스템 개발',
+    skill: ['html5', 'css3', 'javascript', 'jquery', 'figma'],
+    result: [
+      '메인페이지 포함 클라우드 서비스 소개 사이트 리뉴얼',
+      '요금 계산기 카테고리 신규 구축 및 반응형 UI 퍼블리싱',
+      '웹표준·웹접근성 가이드라인 준수한 시맨틱 마크업',
+      'Redmine 기반 이슈 관리 및 Figma를 활용한 디자인 협업',
+    ],
+    site: 'https://ocloudservice.com/',
+  },
+  {
+    id: 'prj05',
+    no: 'project 05',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: ['Adaptive'],
+    name: '삼성 CCC(Career Consulting Center) 내부 시스템 구축',
+    attr: [
+      {
+        period: '22.10 ~ 23.02',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 100%',
+      },
+    ],
+    desc: '삼성 임직원의 퇴직·이직 예정 임직원의 구직 활동 지원을 위한 재취업 지원 플랫폼 구축. 맞춤형 교육 프로그램, 커리어 컨설팅 신청 등 체계적인 재취업 지원 콘텐츠 제공',
+    skill: ['vue.js', 'scss', 'photoshop', 'github', 'figma', 'jira', 'confluence'],
+    result: [
+      'Samsung SDS 자체 개발 라이브러리(DWP) 및 Vuetify UI 라이브러리를 활용한 작업 진행',
+      'Vue Router를 활용한 페이지 전환 시 scoped CSS 적용으로 스타일 충돌 방지',
+      '디자인 가이드 기반 공통 UI 컴포넌트 구축',
+    ],
+  },
+  {
+    id: 'prj06',
+    no: 'project 06',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: ['Hybrid App'],
+    name: 'DGB 대구은행 IM 샵(#) SHOP 카테고리 구축',
+    attr: [
+      {
+        period: '22.02 ~ 22.04',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 40%(작업 인원 2명)',
+      },
+    ],
+    desc: '대구 지역 소상공인을 위한 무료 홍보 콘텐츠를 제공하고, 쿠폰·혜택 중심의 소비자 서비스를 운영하는 iM SHOP 앱 내 SHOP 카테고리 구축 프로젝트',
+    skill: ['html5', 'css3', 'javascript', 'jquery', 'adobe xd', 'svn'],
+    result: [
+      '고객 서비스 화면(주문/결제/장바구니/마이페이지) 및 점주 관리자 모드(직원 등록·관리, 실시간 주문 처리, 상품 등록·수정·재고 관리) UI 퍼블리싱 작업',
+      '고객사에서 제공한 웹표준 및 웹 접근성 지침을 준수한 퍼블리싱 작업 진행',
+      'Adobe XD를 통한 시안 확인 및 디자이너 협업',
+      'SVN을 활용한 버전 관리 및 산출물 공유',
+    ],
+  },
+  {
+    id: 'prj07',
+    no: 'project 07',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: ['Adaptive'],
+    name: '기술혁신 ESG기업 지오그린21 사이트 구축',
+    attr: [
+      {
+        period: '21.09 ~ 21.10',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 100%',
+      },
+    ],
+    desc: '환경·지하수·토양 엔지니어링 전문 기업인 geogreen21 회사 소개 웹사이트 구축 프로젝트',
+    skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
+    result: [
+      '기업 홍보 및 서비스 안내 목적의 적응형 웹사이트 제작',
+      'Photoshop을 활용한 시안 확인 및 디자이너 협업',
+      '프로젝트 관리 툴(Redmine) 활용으로 일정 및 업무 효율성 확보',
+    ],
+    site: 'https://www.geogreen21.com/',
+  },
+  {
+    id: 'prj08',
+    no: 'project 08',
+    img: [
+      {
+        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        alt: 'img01',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        alt: 'img02',
+      },
+    ],
+    type: ['Adaptive'],
+    name: '이랜드 내부 차량 관리 & 회의실 예약 관리 사이트 구축',
+    attr: [
+      {
+        period: '21.08 ~ 21.09',
+        role: '웹 퍼블리셔',
+        contribution: '퍼블리싱 100%',
+      },
+    ],
+    desc: '이랜드 그룹 내부 임직원을 대상으로 차량 관리 및 회의실 예약 기능을 제공하는 사내 전용 사이트 구축 프로젝트',
+    skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
+    result: [
+      '웹 표준 및 웹 접근성을 준수한 웹 퍼블리싱 진행',
+      'Photoshop을 활용한 시안 확인 및 디자이너 협업',
+      '프로젝트 관리 툴(Redmine) 활용으로 일정 및 업무 효율성 확보',
     ],
   },
 ];
@@ -130,12 +315,12 @@ export default function Carrer() {
       {carArr.map((item, index) => (
         <div
           key={item.id}
-          className={`flex flex-col items-start gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
+          className={`flex flex-col items-start gap-10 md:gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
           data-aos={`fade-${isMobile ? 'down' : index % 2 !== 0 ? 'right' : 'left'}`}
           data-aos-duration={1000}
         >
           <div
-            className={`${style.carrerImg} w-full md:max-w-[calc(100%-400px-50px)] lg:max-w-[calc(100%-650px-50px)]`}
+            className={`${style.carrerImg} w-full md:max-w-[calc(100%-400px-50px)] md:min-w-[300px] lg:max-w-[calc(100%-650px-50px)] lg:min-w-[400px]`}
           >
             <Swiper
               navigation
@@ -193,10 +378,11 @@ export default function Carrer() {
               ))}
             </Swiper>
           </div>
-          <div className={`${style.carrerCon} md:min-w-[400px] lg:min-w-[650px]`}>
-            <b className="mb-6 block text-3xl tracking-widest uppercase">{item.no}</b>
-            <h2 className="mb-6 text-5xl font-bold">{item.name}</h2>
-            <div className={`${style.carrerAttr} mb-6 flex gap-6 text-2xl`}>
+          {/* <div className={`${style.carrerCon} md:min-w-[400px] lg:min-w-[650px]`}> */}
+          <div className={`${style.carrerCon}`}>
+            <b className="mb-6 block text-2xl tracking-widest uppercase md:text-3xl">{item.no}</b>
+            <h2 className="mb-6 text-3xl font-bold md:text-5xl">{item.name}</h2>
+            <div className={`${style.carrerAttr} mb-6 flex gap-6 text-2xl md:text-xl lg:text-2xl`}>
               {item.attr.map((item, index) => (
                 <React.Fragment key={index}>
                   <span className="relative flex items-center gap-3 font-medium">{item.period}</span>
@@ -242,6 +428,7 @@ export default function Carrer() {
               <Link
                 target="_blink"
                 href={item.site ?? ''}
+                className={`mt-6 block w-full rounded-[10px] py-4 text-center text-2xl ${style.carrerUrl}`}
               >
                 <span>Live Site</span>
               </Link>
