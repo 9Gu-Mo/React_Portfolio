@@ -1,0 +1,13 @@
+.about {
+  &Con {
+    strong {
+      color: var(--text-accent);
+    }
+
+    li {
+      color: var(--text-secondary);
+      line-height: 28px;
+      word-break: keep-all;
+    }
+  }
+}
