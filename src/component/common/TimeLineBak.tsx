@@ -43,7 +43,7 @@ const careers: Timeline[] = [
   },
 ];
 
-export default function TimeLine() {
+export default function TimeLineBak() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -56,8 +56,6 @@ export default function TimeLine() {
   return (
     <>
       <section className="relative">
-        <h2 className="mb-20 text-center text-3xl font-bold">title</h2>
-
         <div
           ref={containerRef}
           className="relative mx-auto flex max-w-7xl gap-8 md:block md:py-4"

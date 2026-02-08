@@ -71,7 +71,7 @@ const carArr: Props[] = [
     name: 'CJ 제일제당 SENSORY 내부 설문조사 시스템 구축',
     attr: [
       {
-        period: '25.11 ~ 26.02',
+        period: '25.11 ~ ',
         role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
