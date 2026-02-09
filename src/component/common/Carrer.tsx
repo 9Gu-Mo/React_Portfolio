@@ -79,9 +79,9 @@ const carArr: Props[] = [
     desc: 'CJ제일제당 연구 상품 관련 내부 연구원 설문조사 및 평가를 위한 모바일 웹/앱 서비스. 연구원들의 편리한 설문 참여, 관리자의 실시간 응답 모니터링, 평가 결과 통계 및 시각화를 통해 연구 상품 개선 의사결정을 지원',
     skill: ['react', 'typescript', 'vite', 'scss', 'figma', 'gitlab'],
     result: [
-      'CJ Olive Networks 자체 개발 Canal Framework 활용한 UI 컴포넌트 제작(BO)',
-      'Ant Design 라이브러리를 활용한 공통 컴포넌트 제작(BO, FO)',
-      'hello-pangea/dnd 라이브러리를 활용한 Drag And Drop 컴포넌트 제작(FO)',
+      'CJ Olive Networks 자체 개발 Canal Framework를 활용한 UI 컴포넌트 제작',
+      'Ant Design 라이브러리를 활용한 공통 컴포넌트 제작',
+      'hello-pangea/dnd 라이브러리를 활용한 Drag And Drop 컴포넌트 제작',
       'GitLab을 활용한 FE 개발자와의 협업 업무 수행',
       'Figma를 통한 디자인 시안 확인 및 협업 진행',
     ],
@@ -113,6 +113,7 @@ const carArr: Props[] = [
     result: [
       '디자인 가이드 기반 공통 UI 컴포넌트 구축 및 map 구조화를 통한 재사용성 향상',
       'React Hook(useState, useEffect) 및 조건부 렌더링 기반 동적 UI 구현',
+      '웹 접근성(WCAG 2.1 AA) 준수 및 크로스브라우징 대응: 시맨틱 마크업, 키보드 네비게이션, 스크린 리더 접근성 구현, iOS/Android 웹뷰 환경 호환성 확보',
       'module.scss 적용으로 컴포넌트 스타일 격리 및 클래스 충돌 방지',
       'Ant Design·AUI Grid를 활용한 백오피스 UI 컴포넌트 및 테이블 구현',
       'GitLab·Jira·Confluence·Figma 기반 애자일 협업 및 이슈 관리',
