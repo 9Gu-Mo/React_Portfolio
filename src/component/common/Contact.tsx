@@ -47,10 +47,13 @@ export default function Contact() {
   return (
     <>
       <ul className={`${style.contact} flex flex-wrap gap-8 md:flex-nowrap`}>
-        {contactArr.map((item) => (
+        {contactArr.map((item, index) => (
           <li
             key={item.id}
             className={`${style.contactItem} md:w-[calc((100%-40px)/3) min-h-[200px] w-full`}
+            data-aos="fade-down"
+            data-aos-duration={1000}
+            data-aos-delay={100 * index}
           >
             <Link
               className="flex h-full flex-col items-center justify-center gap-6 rounded-[10px] border-1 p-8"

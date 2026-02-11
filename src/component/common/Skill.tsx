@@ -52,8 +52,8 @@ const skillArr: Props[] = [
   {
     id: 'Development',
     icon: <IconSkillDevelop />,
-    title: 'Development Tools',
-    desc: 'Figma, Adobe XD를 활용한 디자인 시안 분석 및 정확한 UI 구현. 디자이너와의 원활한 협업',
+    title: 'Version Control System',
+    desc: '버전 관리 시스템을 활용한 협업 및 코드 형상 관리. 브랜치 전략을 통한 효율적인 개발 워크플로우 구축',
     skill: ['Git', 'GitLab', 'GitHub', 'SVN'],
   },
 ];

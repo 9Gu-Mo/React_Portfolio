@@ -8,7 +8,7 @@ interface ImageType {
 interface AttrType {
   period: string;
   contribution: string;
-  role: string;
+  // role: string;
 }
 
 interface Props {
@@ -72,7 +72,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '25.11 ~ ',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -104,7 +104,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '24.05 ~ 25.07',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 40%(작업 인원 3명)',
       },
     ],
@@ -138,7 +138,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '23.09 ~ 24.02',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -168,7 +168,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '23.05 ~ 23.08',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -200,7 +200,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '22.10 ~ 23.02',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -231,7 +231,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '22.02 ~ 22.04',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 40%(작업 인원 2명)',
       },
     ],
@@ -262,7 +262,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '21.09 ~ 21.10',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -293,7 +293,7 @@ const carArr: Props[] = [
     attr: [
       {
         period: '21.08 ~ 21.09',
-        role: '웹 퍼블리셔',
+        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -382,12 +382,12 @@ export default function Carrer() {
           {/* <div className={`${style.carrerCon} md:min-w-[400px] lg:min-w-[650px]`}> */}
           <div className={`${style.carrerCon}`}>
             <b className="mb-6 block text-2xl tracking-widest uppercase md:text-3xl">{item.no}</b>
-            <h2 className="mb-6 text-3xl font-bold md:text-5xl">{item.name}</h2>
-            <div className={`${style.carrerAttr} mb-6 flex gap-6 text-2xl md:text-xl lg:text-2xl`}>
+            <h2 className="mb-6 text-3xl font-bold break-keep md:text-5xl md:leading-[35px]">{item.name}</h2>
+            <div className={`${style.carrerAttr} mb-6 flex gap-3 text-xl md:gap-6 lg:text-2xl`}>
               {item.attr.map((item, index) => (
                 <React.Fragment key={index}>
                   <span className="relative flex items-center gap-3 font-medium">{item.period}</span>
-                  <span className="relative flex items-center gap-3 font-medium">{item.role}</span>
+                  {/* <span className="relative flex items-center gap-3 font-medium">{item.role}</span> */}
                   <span className="relative flex items-center gap-3 font-medium">{item.contribution}</span>
                 </React.Fragment>
               ))}
@@ -403,7 +403,7 @@ export default function Carrer() {
                 </li>
               ))}
             </ul>
-            <div className={`${style.carrerResult} min-h-[200px] rounded-[12px]`}>
+            <div className={`${style.carrerResult} min-h-[150px] rounded-[12px]`}>
               <div className={`${style.carrerResultHead} flex gap-4 p-6`}>
                 {[...Array(3)].map((_, index) => (
                   <span
