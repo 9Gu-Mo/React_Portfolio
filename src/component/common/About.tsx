@@ -16,6 +16,7 @@ const about: Props[] = [
   },
 ];
 
+import AboutAnimation from '@/component/common/AboutAnimation';
 import style from '@/styles/About.module.scss';
 
 export default function About() {
@@ -42,6 +43,7 @@ export default function About() {
               ))}
             </ul>
           </div>
+          <AboutAnimation />
         </div>
       </div>
     </>
