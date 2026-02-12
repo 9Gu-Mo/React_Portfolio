@@ -51,20 +51,16 @@ const carArr: Props[] = [
     no: 'project 01',
     img: [
       {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+        src: '/images/temp/cheilJedang01.png',
         alt: 'img01',
       },
       {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+        src: '/images/temp/cheilJedang02.png',
         alt: 'img02',
       },
       {
-        src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop',
+        src: '/images/temp/cheilJedang03.png',
         alt: 'img03',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop',
-        alt: 'img04',
       },
     ],
     type: ['Mobile', 'Adaptive'],
@@ -328,17 +324,17 @@ export default function Carrer() {
               thumbs={{ swiper: thumbsSwiper[index] }}
               modules={[Thumbs, EffectFade, Autoplay]}
               slidesPerView={1}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
+              // autoplay={{
+              //   delay: 3000,
+              //   disableOnInteraction: false,
+              // }}
               className="aspect-square"
               effect="fade"
             >
               {item.img.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className="overflow-hidden rounded-[10px]"
+                  className="overflow-hidden rounded-[10px] bg-white"
                 >
                   <Image
                     alt={item.alt}
@@ -366,7 +362,7 @@ export default function Carrer() {
               {item.img.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className={`aspect-square !w-[calc((100%-30px)/4)] cursor-pointer overflow-hidden rounded-[10px]`}
+                  className={`aspect-square !w-[calc((100%-30px)/4)] cursor-pointer overflow-hidden rounded-[10px] bg-white`}
                 >
                   <Image
                     alt={item.alt}
