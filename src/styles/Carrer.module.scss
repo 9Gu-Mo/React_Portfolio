@@ -4,6 +4,10 @@
   border-bottom: 1px solid var(--border-color);
 
   &Img {
+    [class*='swiper-slide'] {
+      border: 1px solid var(--border-color);
+    }
+
     [class*='swiper-slide-thumb-active'] {
       border: 1px solid var(--text-primary);
     }
