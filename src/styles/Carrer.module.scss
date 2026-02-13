@@ -38,10 +38,13 @@
 
   &Result {
     background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
+    // border: 1px solid var(--border-color);
+    border: 1px solid rgba(79, 158, 255, 0.2);
 
     &Head {
-      border-bottom: 1px solid var(--border-color);
+      background-color: rgba(79, 158, 255, 0.1);
+      // border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid rgba(79, 158, 255, 0.2);
     }
 
     &Dot {

@@ -40,7 +40,7 @@ export default function AboutAnimation() {
           <div
             className={`absolute top-[50%] left-[50%] w-[80%] max-w-[500px] overflow-hidden rounded-[12px] ${style.aboutCode}`}
           >
-            <div className={`flex items-center gap-4 px-6 py-3 ${style.aboutCodeHeader}`}>
+            <div className={`flex items-center gap-4 p-6 ${style.aboutCodeHeader}`}>
               {[...Array(3)].map((_, index) => (
                 <div
                   className={`h-[12px] w-[12px] rounded-[12px] ${index === 0 ? 'bg-[#ff5f57]' : index === 1 ? 'bg-[#ffbd2e]' : 'bg-[#28c840]'} ${style.aboutDot}`}
@@ -48,7 +48,7 @@ export default function AboutAnimation() {
                 />
               ))}
             </div>
-            <div className={`p-6 text-2xl ${style.aboutCodeContent}`}>
+            <div className={`flex flex-col gap-1 p-6 text-2xl ${style.aboutCodeContent}`}>
               <div className={style.aboutCodeLine}>
                 <span className="keyword text-[#9b59ff]">const</span> {`publisher = {`}
               </div>
@@ -73,8 +73,8 @@ export default function AboutAnimation() {
                 {`: () =>`}
                 <span className="string text-[#ff4f9a]">'🚀'</span>
               </div>
-              <div className={style.aboutCodeLine}>
-                ;<span className={`inline-block h-[16px] w-[8px] bg-[#4f9eff] ${style.aboutCodeCursor}`}></span>
+              <div className={`flex items-end gap-2 ${style.aboutCodeLine}`}>
+                ;<span className={`inline-block h-[16px] w-[1px] bg-[#4f9eff] ${style.aboutCodeCursor}`}></span>
               </div>
             </div>
           </div>

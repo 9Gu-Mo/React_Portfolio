@@ -6,6 +6,7 @@
   --bg-card: #ffffff;
   --bg-tag: #f1f5f9;
   --bg-accent: rgba(13, 148, 136, 0.1);
+  --bg-map-line: rgba(79, 158, 255, 0.7);
 
   // text
   --text-primary: #0f172a;
@@ -20,8 +21,8 @@
   --box-shadow: rgba(0, 0, 0, 0.4);
 
   // timeline
-  --color-timeline: #e5e7eb; // timeline
-  --color-timeline-active: #1c1e24; // timeline active, dot
+  --color-timeline: #e5e7eb;
+  --color-timeline-active: #1c1e24;
 }
 
 /* Dark theme */
@@ -32,6 +33,7 @@ html.dark {
   --bg-card: #1e293b;
   --bg-tag: #334155;
   --bg-accent: rgba(45, 212, 191, 0.15);
+  --bg-map-line: rgba(79, 158, 255, 0.1);
 
   // text
   --text-primary: #f8f9fa;
@@ -46,6 +48,6 @@ html.dark {
   --box-shadow: rgba(255, 255, 255, 0.4);
 
   // timeline
-  --color-timeline: #0d9488; // timeline
-  --color-timeline-active: #0d9488; // timeline active, dot
+  --color-timeline: #0d9488;
+  --color-timeline-active: #0d9488;
 }
