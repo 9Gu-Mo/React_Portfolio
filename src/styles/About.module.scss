@@ -16,9 +16,10 @@
 
     &Bg {
       background-image:
-        linear-gradient(rgba(79, 158, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 158, 255, 0.1) 1px, transparent 1px);
+        linear-gradient(var(--bg-map-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-map-line) 1px, transparent 1px);
       background-size: 40px 40px;
+      background-position: 70px 60px;
       opacity: 0.3;
     }
 
@@ -66,8 +67,16 @@
     animation: float 6s ease-in-out infinite;
 
     &Header {
-      background: rgba(79, 158, 255, 0.1);
+      background-color: rgba(79, 158, 255, 0.1);
       border-bottom: 1px solid rgba(79, 158, 255, 0.2);
+    }
+
+    &Content {
+      > div:not(:first-child, :last-child) {
+        padding-left: 20px;
+      }
+
+      color: #f8f9fa;
     }
 
     &Cursor {

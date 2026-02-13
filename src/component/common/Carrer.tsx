@@ -324,10 +324,10 @@ export default function Carrer() {
               thumbs={{ swiper: thumbsSwiper[index] }}
               modules={[Thumbs, EffectFade, Autoplay]}
               slidesPerView={1}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               className="aspect-square"
               effect="fade"
             >
@@ -399,7 +399,7 @@ export default function Carrer() {
                 </li>
               ))}
             </ul>
-            <div className={`${style.carrerResult} min-h-[150px] rounded-[12px]`}>
+            <div className={`${style.carrerResult} min-h-[150px] overflow-hidden rounded-[12px]`}>
               <div className={`${style.carrerResultHead} flex gap-4 p-6`}>
                 {[...Array(3)].map((_, index) => (
                   <span
@@ -410,7 +410,7 @@ export default function Carrer() {
                   </span>
                 ))}
               </div>
-              <ul className="flex flex-col gap-2 p-6">
+              <ul className={`flex flex-col gap-2 p-6`}>
                 {item.result.map((item, index) => (
                   <li
                     key={index}

@@ -26,7 +26,7 @@ export default function About() {
   return (
     <>
       <div className={style.about}>
-        <div className="flex flex-wrap gap-15 md:flex-nowrap">
+        <div className="flex flex-wrap items-center gap-15 md:flex-nowrap">
           <div
             className={`${style.aboutCon} flex w-full flex-col gap-14 md:w-1/2`}
             data-aos="fade-up"
