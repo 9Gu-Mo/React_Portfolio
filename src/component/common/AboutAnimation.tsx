@@ -1,60 +1,80 @@
 'use client';
 
+// style
 import style from '@/styles/About.module.scss';
 
 export default function AboutAnimation() {
   return (
     <>
-      <div className={`relative flex h-[600px] items-center justify-center ${style.aboutRight}`}>
+      <div className={`relative flex h-[600px] w-full items-center justify-center md:w-1/2 ${style.aboutRight}`}>
         <div className={`relative h-full w-full ${style.aboutContainer}`}>
           <div className={`absolute top-0 left-0 h-full w-full ${style.aboutRightBg}`} />
           {[...Array(3)].map((_, index) => (
             <div
               key={index}
-              className={`${style.aboutRightShape} ${style.aboutRightShape + index}`}
+              className={`absolute rounded-[50%] opacity-40 blur-[40px] ${style.aboutRightShape} ${style[`aboutRightShape${index + 1}`]}`}
             />
           ))}
-          <div className={style.aboutSkill}>
-            <div className={style.aboutSkillItem}>HTML</div>
-            <div className={style.aboutSkillItem}>CSS</div>
-            <div className={style.aboutSkillItem}>JS</div>
-            <div className={style.aboutSkillItem}>React</div>
+          <div className={`absolute h-full w-full ${style.aboutSkill}`}>
+            <div
+              className={`absolute top-[15%] left-[15%] flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-[#13151a] font-bold text-[#4f9eff] [animation-delay:0s] ${style.aboutSkillItem}`}
+            >
+              HTML
+            </div>
+            <div
+              className={`absolute top-[25%] right-[20%] flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-[#13151a] font-bold text-[#4f9eff] [animation-delay:1s] ${style.aboutSkillItem}`}
+            >
+              CSS
+            </div>
+            <div
+              className={`absolute bottom-[25%] left-[10%] flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-[#13151a] font-bold text-[#4f9eff] [animation-delay:2s] ${style.aboutSkillItem}`}
+            >
+              JS
+            </div>
+            <div
+              className={`absolute right-[15%] bottom-[15%] flex h-[40px] w-[40px] items-center justify-center rounded-[8px] bg-[#13151a] font-bold text-[#4f9eff] [animation-delay:1.5s] ${style.aboutSkillItem}`}
+            >
+              React
+            </div>
           </div>
           <div
-            className={`absolute top-[50%] left-[50%] w-[80%] max-w-[500px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[12px] ${style.aboutCode}`}
+            className={`absolute top-[50%] left-[50%] w-[80%] max-w-[500px] overflow-hidden rounded-[12px] ${style.aboutCode}`}
           >
-            <div className={style.aboutCodeHeader}>
+            <div className={`flex items-center gap-4 px-6 py-3 ${style.aboutCodeHeader}`}>
               {[...Array(3)].map((_, index) => (
                 <div
-                  className={style.aboutDot}
+                  className={`h-[12px] w-[12px] rounded-[12px] ${index === 0 ? 'bg-[#ff5f57]' : index === 1 ? 'bg-[#ffbd2e]' : 'bg-[#28c840]'} ${style.aboutDot}`}
                   key={index}
                 />
               ))}
             </div>
-            <div className={style.aboutCodeContent}>
+            <div className={`p-6 text-2xl ${style.aboutCodeContent}`}>
               <div className={style.aboutCodeLine}>
-                <span className="keyword">const</span> {`publisher = {`}
+                <span className="keyword text-[#9b59ff]">const</span> {`publisher = {`}
               </div>
               <div className={style.aboutCodeLine}>
-                name: <span className="string">'구원모'</span>,
+                name: <span className="string text-[#ff4f9a]">'구원모'</span>,
               </div>
               <div className={style.aboutCodeLine}>
-                role: <span className="string">'Web Publisher'</span>,
+                role: <span className="string text-[#ff4f9a]">'Web Publisher'</span>,
               </div>
               <div className={style.aboutCodeLine}>
-                skills: [<span className="string">'HTML'</span>,<span className="string">'CSS'</span>,
-                <span className="string">'JS'</span>],
+                skills: [<span className="string text-[#ff4f9a]">'React'</span>,
+                <span className="string text-[#ff4f9a]">'HTML'</span>,
+                <span className="string text-[#ff4f9a]">'SCSS'</span>,
+                <span className="string text-[#ff4f9a]">'JS'</span>
+                ],
               </div>
               <div className={style.aboutCodeLine}>
-                passion: <span className="keyword">true</span>,
+                passion: <span className="keyword text-[#9b59ff]">true</span>,
               </div>
               <div className={style.aboutCodeLine}>
-                <span className="function">code</span>
+                <span className="function text-[#4f9eff]">code</span>
                 {`: () =>`}
-                <span className="string">'🚀'</span>
+                <span className="string text-[#ff4f9a]">'🚀'</span>
               </div>
               <div className={style.aboutCodeLine}>
-                ;<span className="cursor"></span>
+                ;<span className={`inline-block h-[16px] w-[8px] bg-[#4f9eff] ${style.aboutCodeCursor}`}></span>
               </div>
             </div>
           </div>

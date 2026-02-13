@@ -16,14 +16,17 @@ const about: Props[] = [
   },
 ];
 
+// component
 import AboutAnimation from '@/component/common/AboutAnimation';
+
+// style
 import style from '@/styles/About.module.scss';
 
 export default function About() {
   return (
     <>
       <div className={style.about}>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-15 md:flex-nowrap">
           <div
             className={`${style.aboutCon} flex w-full flex-col gap-14 md:w-1/2`}
             data-aos="fade-up"
