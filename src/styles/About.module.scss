@@ -21,6 +21,42 @@
       background-size: 40px 40px;
       opacity: 0.3;
     }
+
+    &Shape {
+      &1 {
+        width: 200px;
+        height: 200px;
+        background-color: #4f9eff;
+        top: 10%;
+        left: 10%;
+        animation: floatShape 20s ease-in-out infinite;
+      }
+
+      &2 {
+        width: 150px;
+        height: 150px;
+        background-color: #9b59ff;
+        bottom: 20%;
+        right: 15%;
+        animation: floatShape 15s ease-in-out reverse;
+      }
+
+      &3 {
+        width: 100px;
+        height: 100px;
+        background-color: #ff4f9a;
+        top: 50%;
+        right: 5%;
+        animation: floatShape 18s ease-in-out infinite;
+      }
+    }
+  }
+
+  &Skill {
+    &Item {
+      border: 2px solid #4f9eff;
+      animation: iconFloat 4s ease-in-out infinite;
+    }
   }
 
   &Code {
@@ -28,6 +64,15 @@
     border: 1px solid rgba(79, 158, 255, 0.3);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     animation: float 6s ease-in-out infinite;
+
+    &Header {
+      background: rgba(79, 158, 255, 0.1);
+      border-bottom: 1px solid rgba(79, 158, 255, 0.2);
+    }
+
+    &Cursor {
+      animation: blink 1s step-end infinite;
+    }
   }
 }
 
@@ -38,5 +83,39 @@
   }
   50% {
     transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes floatShape {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
+  66% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
   }
 }
