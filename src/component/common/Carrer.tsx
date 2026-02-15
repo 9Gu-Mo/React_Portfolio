@@ -98,6 +98,10 @@ const carArr: Props[] = [
         src: '/images/temp/cgv03.png',
         alt: 'cgv 슬라이드 03',
       },
+      {
+        src: '/images/temp/cgv04.png',
+        alt: 'cgv 슬라이드 04',
+      },
     ],
     type: ['Responsive'],
     name: 'CGV 차세대 디지털 시스템 구축',
@@ -125,12 +129,20 @@ const carArr: Props[] = [
     no: 'project 03',
     img: [
       {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
+        src: '/images/temp/skt01.png',
+        alt: 'skt 슬라이드 01',
       },
       {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
+        src: '/images/temp/skt02.png',
+        alt: 'skt 슬라이드 02',
+      },
+      {
+        src: '/images/temp/skt03.png',
+        alt: 'skt 슬라이드 03',
+      },
+      {
+        src: '/images/temp/skt04.png',
+        alt: 'skt 슬라이드 04',
       },
     ],
     type: ['Adaptive', 'Pc'],
@@ -155,12 +167,16 @@ const carArr: Props[] = [
     no: 'project 04',
     img: [
       {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
+        src: '/images/temp/ocloud01.png',
+        alt: 'ocloud 슬라이드 01',
       },
       {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
+        src: '/images/temp/ocloud02.png',
+        alt: 'ocloud 슬라이드 02',
+      },
+      {
+        src: '/images/temp/ocloud03.png',
+        alt: 'ocloud 슬라이드 03',
       },
     ],
     type: ['Responsive'],
@@ -429,7 +445,7 @@ export default function Carrer() {
               <Link
                 target="_blink"
                 href={item.site ?? ''}
-                className={`mt-6 block w-full rounded-[10px] py-4 text-center text-2xl ${style.carrerUrl}`}
+                className={`mt-6 block w-full rounded-[20px] py-4 text-center text-2xl ${style.carrerUrl}`}
               >
                 <span>Live Site</span>
               </Link>
