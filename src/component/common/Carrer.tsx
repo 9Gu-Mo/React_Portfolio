@@ -52,15 +52,15 @@ const carArr: Props[] = [
     img: [
       {
         src: '/images/temp/cheilJedang01.png',
-        alt: 'img01',
+        alt: 'cj 제일제당 슬라이드01',
       },
       {
         src: '/images/temp/cheilJedang02.png',
-        alt: 'img02',
+        alt: 'cj 제일제당 슬라이드02',
       },
       {
         src: '/images/temp/cheilJedang03.png',
-        alt: 'img03',
+        alt: 'cj 제일제당 슬라이드03',
       },
     ],
     type: ['Mobile', 'Adaptive'],
@@ -87,12 +87,16 @@ const carArr: Props[] = [
     no: 'project 02',
     img: [
       {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
+        src: '/images/temp/cgv01.png',
+        alt: 'cgv 슬라이드 01',
       },
       {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
+        src: '/images/temp/cgv02.png',
+        alt: 'cgv 슬라이드 02',
+      },
+      {
+        src: '/images/temp/cgv03.png',
+        alt: 'cgv 슬라이드 03',
       },
     ],
     type: ['Responsive'],
