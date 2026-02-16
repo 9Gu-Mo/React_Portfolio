@@ -14,7 +14,7 @@ interface AttrType {
 interface Props {
   id: string;
   no: string;
-  img: ImageType[];
+  img?: ImageType[];
   type: string[];
   name: string;
   attr: AttrType[];
@@ -38,6 +38,9 @@ import type { Swiper as SwiperType } from 'swiper/types';
 
 // store
 import { useDeviceStore } from '@/stores/useDeviceStore';
+
+// component
+import NoImage from '@/component/common/NoImage';
 
 // style
 import style from '@/styles/Carrer.module.scss';
@@ -68,7 +71,6 @@ const carArr: Props[] = [
     attr: [
       {
         period: '25.11 ~ ',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -108,7 +110,6 @@ const carArr: Props[] = [
     attr: [
       {
         period: '24.05 ~ 25.07',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 40%(작업 인원 3명)',
       },
     ],
@@ -150,7 +151,6 @@ const carArr: Props[] = [
     attr: [
       {
         period: '23.09 ~ 24.02',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -178,13 +178,16 @@ const carArr: Props[] = [
         src: '/images/temp/ocloud03.png',
         alt: 'ocloud 슬라이드 03',
       },
+      {
+        src: '/images/temp/ocloud04.png',
+        alt: 'ocloud 슬라이드 04',
+      },
     ],
     type: ['Responsive'],
     name: 'CJ O’CLOUD 소개 사이트 리뉴얼 및 요금 계산기 구축',
     attr: [
       {
         period: '23.05 ~ 23.08',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -201,22 +204,11 @@ const carArr: Props[] = [
   {
     id: 'prj05',
     no: 'project 05',
-    img: [
-      {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
-      },
-    ],
     type: ['Adaptive'],
     name: '삼성 CCC(Career Consulting Center) 내부 시스템 구축',
     attr: [
       {
         period: '22.10 ~ 23.02',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -234,12 +226,16 @@ const carArr: Props[] = [
     no: 'project 06',
     img: [
       {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
+        src: '/images/temp/dgb01.png',
+        alt: 'dgb 슬라이드 01',
       },
       {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
+        src: '/images/temp/dgb02.png',
+        alt: 'dgb 슬라이드 02',
+      },
+      {
+        src: '/images/temp/dgb03.png',
+        alt: 'dgb 슬라이드 03',
       },
     ],
     type: ['Hybrid App'],
@@ -247,7 +243,6 @@ const carArr: Props[] = [
     attr: [
       {
         period: '22.02 ~ 22.04',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 40%(작업 인원 2명)',
       },
     ],
@@ -259,18 +254,19 @@ const carArr: Props[] = [
       '고객사에서 제공한 웹표준 및 웹 접근성 지침을 준수한 퍼블리싱 작업 진행',
       'SVN을 활용한 버전 관리 및 산출물 공유',
     ],
+    site: 'https://m.imbank.co.kr/shp_ebz_nims_main_0010.act',
   },
   {
     id: 'prj07',
     no: 'project 07',
     img: [
       {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
+        src: '/images/temp/geogreen01.png',
+        alt: 'geogreen 슬라이드 01',
       },
       {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
+        src: '/images/temp/geogreen02.png',
+        alt: 'geogreen 슬라이드 02',
       },
     ],
     type: ['Adaptive'],
@@ -278,7 +274,6 @@ const carArr: Props[] = [
     attr: [
       {
         period: '21.09 ~ 21.10',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -294,22 +289,11 @@ const carArr: Props[] = [
   {
     id: 'prj08',
     no: 'project 08',
-    img: [
-      {
-        src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-        alt: 'img01',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        alt: 'img02',
-      },
-    ],
     type: ['Adaptive'],
     name: '이랜드 내부 차량 관리 & 회의실 예약 관리 사이트 구축',
     attr: [
       {
         period: '21.08 ~ 21.09',
-        // role: '웹 퍼블리셔',
         contribution: '퍼블리싱 100%',
       },
     ],
@@ -339,61 +323,67 @@ export default function Carrer() {
           <div
             className={`${style.carrerImg} w-full md:max-w-[calc(100%-400px-50px)] md:min-w-[300px] lg:max-w-[calc(100%-650px-50px)] lg:min-w-[400px]`}
           >
-            <Swiper
-              navigation
-              thumbs={{ swiper: thumbsSwiper[index] }}
-              modules={[Thumbs, EffectFade, Autoplay]}
-              slidesPerView={1}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              className="aspect-square"
-              effect="fade"
-            >
-              {item.img.map((item, index) => (
-                <SwiperSlide
-                  key={index}
-                  className="overflow-hidden rounded-[10px] bg-white"
+            {item.img ? (
+              <>
+                <Swiper
+                  navigation
+                  thumbs={{ swiper: thumbsSwiper[index] }}
+                  modules={[Thumbs, EffectFade, Autoplay]}
+                  slidesPerView={1}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                  className="aspect-square"
+                  effect="fade"
                 >
-                  <Image
-                    alt={item.alt}
-                    src={item.src}
-                    width={500}
-                    height={500}
-                    className="h-full w-full object-cover"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <Swiper
-              onSwiper={(swiper) => {
-                setThumbsSwiper((prev) => {
-                  const newSwipers = [...prev];
-                  newSwipers[index] = swiper;
-                  return newSwipers;
-                });
-              }}
-              modules={[Navigation, Thumbs]}
-              slidesPerView="auto"
-              spaceBetween={10}
-              className="mt-4"
-            >
-              {item.img.map((item, index) => (
-                <SwiperSlide
-                  key={index}
-                  className={`aspect-square !w-[calc((100%-30px)/4)] cursor-pointer overflow-hidden rounded-[10px] bg-white`}
+                  {item.img.map((item, index) => (
+                    <SwiperSlide
+                      key={index}
+                      className="overflow-hidden rounded-[10px] bg-white"
+                    >
+                      <Image
+                        alt={item.alt}
+                        src={item.src}
+                        width={500}
+                        height={500}
+                        className="h-full w-full object-cover"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <Swiper
+                  onSwiper={(swiper) => {
+                    setThumbsSwiper((prev) => {
+                      const newSwipers = [...prev];
+                      newSwipers[index] = swiper;
+                      return newSwipers;
+                    });
+                  }}
+                  modules={[Navigation, Thumbs]}
+                  slidesPerView="auto"
+                  spaceBetween={10}
+                  className="mt-4"
                 >
-                  <Image
-                    alt={item.alt}
-                    src={item.src}
-                    width={100}
-                    height={100}
-                    className="h-full w-full object-cover"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  {item.img.map((item, index) => (
+                    <SwiperSlide
+                      key={index}
+                      className={`aspect-square !w-[calc((100%-30px)/4)] cursor-pointer overflow-hidden rounded-[10px] bg-white`}
+                    >
+                      <Image
+                        alt={item.alt}
+                        src={item.src}
+                        width={100}
+                        height={100}
+                        className="h-full w-full object-cover"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </>
+            ) : (
+              <NoImage />
+            )}
           </div>
           {/* <div className={`${style.carrerCon} md:min-w-[400px] lg:min-w-[650px]`}> */}
           <div className={`${style.carrerCon}`}>
