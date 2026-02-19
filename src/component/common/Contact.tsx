@@ -9,15 +9,19 @@ interface Props {
   desc: string;
 }
 
+// component
+import IconGitHub from '@/component/icon/IconGitHub';
+import IconMail from '@/component/icon/IconMail';
+import IconPhone from '@/component/icon/IconPhone';
+
+// next
+import Link from 'next/link';
+
 // react
 import { ReactNode } from 'react';
 
 // style
-import IconGitHub from '@/component/icon/IconGitHub';
-import IconMail from '@/component/icon/IconMail';
-import IconPhone from '@/component/icon/IconPhone';
 import style from '@/styles/Contact.module.scss';
-import Link from 'next/link';
 
 const contactArr: Props[] = [
   {
