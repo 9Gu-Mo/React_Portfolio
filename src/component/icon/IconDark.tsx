@@ -1,9 +1,8 @@
-interface IconProps {
-  size?: string;
-  color?: string;
-}
+'use client';
 
-export default function IconDark(props: IconProps) {
+import { Icon } from '@/types/icon.types';
+
+export default function IconDark(props: Icon) {
   return (
     <>
       <svg

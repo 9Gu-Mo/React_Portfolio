@@ -1,9 +1,8 @@
-// type
-interface Props {
-  size?: number;
-}
+'use client';
 
-export default function IconSkillFramework({ size }: Props) {
+import { Icon } from '@/types/icon.types';
+
+export default function IconSkillFramework(props: Icon) {
   return (
     <>
       <svg
@@ -11,8 +10,8 @@ export default function IconSkillFramework({ size }: Props) {
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        width={size ? size : 30}
-        height={size ? size : 30}
+        width={props.size ? props.size : 30}
+        height={props.size ? props.size : 30}
       >
         <path
           strokeLinecap="round"

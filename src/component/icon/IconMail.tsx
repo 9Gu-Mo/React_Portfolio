@@ -1,9 +1,8 @@
-interface IconProps {
-  size?: string;
-  color?: string;
-}
+'use client';
 
-export default function IconMail(props: IconProps) {
+import { Icon } from '@/types/icon.types';
+
+export default function IconMail(props: Icon) {
   return (
     <>
       <svg

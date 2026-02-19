@@ -17,7 +17,7 @@ export default function DarkModeBtn() {
         className="btn-darkmode fixed right-8 bottom-8 z-50 flex h-[40px] w-[40px] items-center justify-center rounded-full"
       >
         <IconDark
-          size="30px"
+          size={30}
           color={theme === 'dark' ? '#fff' : '#000'}
         />
       </button>

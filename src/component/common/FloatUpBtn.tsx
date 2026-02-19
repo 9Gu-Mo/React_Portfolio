@@ -22,7 +22,7 @@ export default function FloatUpBtn() {
         onClick={handleClick}
       >
         <IconArrowUp
-          size="20px"
+          size={20}
           color={theme === 'dark' ? '#fff' : '#000'}
         />
       </motion.button>

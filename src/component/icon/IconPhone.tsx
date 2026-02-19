@@ -1,9 +1,8 @@
-interface IconProps {
-  size?: string;
-  color?: string;
-}
+'use client';
 
-export default function IconPhone(props: IconProps) {
+import { Icon } from '@/types/icon.types';
+
+export default function IconPhone(props: Icon) {
   return (
     <>
       <svg

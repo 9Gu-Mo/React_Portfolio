@@ -26,7 +26,7 @@ import style from '@/styles/Contact.module.scss';
 const contactArr: Props[] = [
   {
     id: 'email',
-    icon: <IconMail size="30" />,
+    icon: <IconMail size={30} />,
     title: 'EMAIL',
     url: 'mailto:wonmo.gu09@gmail.com',
     desc: 'wonmo.gu09@gmail.com',
@@ -40,7 +40,7 @@ const contactArr: Props[] = [
   },
   {
     id: 'phone',
-    icon: <IconPhone size="30" />,
+    icon: <IconPhone size={30} />,
     title: 'phone',
     url: 'tel:+821020621872',
     desc: '010-2062-1872',
