@@ -20,6 +20,7 @@ interface Props {
   attr: AttrType[];
   desc: string;
   skill: string[];
+  work?: string[];
   result: string[];
   site?: string;
 }
@@ -70,18 +71,21 @@ const carArr: Props[] = [
     name: 'CJ 제일제당 SENSORY 내부 설문조사 시스템 구축',
     attr: [
       {
-        period: '25.11 ~ ',
+        period: '25.11 ~ 26.02',
         contribution: '퍼블리싱 100%',
       },
     ],
     desc: 'CJ제일제당 연구 상품 관련 내부 연구원 설문조사 및 평가를 위한 모바일 웹/앱 서비스. 연구원들의 편리한 설문 참여, 관리자의 실시간 응답 모니터링, 평가 결과 통계 및 시각화를 통해 연구 상품 개선 의사결정을 지원',
     skill: ['react', 'typescript', 'vite', 'scss', 'figma', 'gitlab'],
-    result: [
+    work: [
       'CJ Olive Networks 자체 개발 Canal Framework를 활용한 UI 컴포넌트 제작',
       'Ant Design 라이브러리를 활용한 공통 컴포넌트 제작',
-      'hello-pangea/dnd 라이브러리를 활용한 Drag And Drop 컴포넌트 제작',
-      'GitLab을 활용한 FE 개발자와의 협업 업무 수행',
-      'Figma를 통한 디자인 시안 확인 및 협업 진행',
+      '그룹별 상이한 레이아웃을 가진 Drag & Drop 선호도 조사 UI 구현',
+    ],
+    result: [
+      'Drag & Drop 기반 선호도 조사 UI 구현으로 사용자 경험 개선',
+      'React/TypeScript 기반 공통 컴포넌트 체계 구축으로 개발 효율성 향상',
+      '비상주 환경에서 GitLab feature 브랜치 전략으로 안정적인 버전 관리',
     ],
   },
   {
@@ -115,13 +119,15 @@ const carArr: Props[] = [
     ],
     desc: '영화 예매, 모바일 티켓, 매점 상품(스토어) 구매, 액티비티 예약 등 사용자 편의성을 고려한 반응형 웹/앱 서비스 구축 프로젝트. 예매·결제·티켓 화면 등 주요 서비스 UI/UX 구현 및 각 카테고리별 재사용 가능한 공통 컴포넌트 구축',
     skill: ['react', 'typescript', 'next.js', 'scss', 'figma', 'gitlab', 'jira', 'confluence'],
-    result: [
-      '디자인 가이드 기반 공통 UI 컴포넌트 구축 및 map 구조화를 통한 재사용성 향상',
+    work: [
+      '디자인 가이드 기반 공통 UI 컴포넌트 구축 및 모바일 티켓, 결제, 액티비티등 다수의 카테고리 구축 작업 진행',
       'React Hook(useState, useEffect) 및 조건부 렌더링 기반 동적 UI 구현',
-      '웹 접근성 준수 및 크로스브라우징 대응으로 안정적인 서비스 품질 제공',
       'Swiper, Ant Design, AUI Grid 라이브러리 활용한 FO/BO UI 구현',
-      'module.scss 적용으로 컴포넌트 스타일 격리 및 클래스 충돌 방지',
-      'GitLab·Jira·Confluence·Figma 기반 프로젝트 협업 및 이슈 관리',
+      'SCSS module 기반 컴포넌트 스타일 관리',
+    ],
+    result: [
+      '공통 컴포넌트 체계 및 module.scss 사용으로 협업 효율성 향상',
+      'Next.js 기반 반응형 웹/앱 통합 구축으로 영화 예매부터 액티비티까지 일관된 사용자 경험 제공',
     ],
     site: 'https://cgv.co.kr/',
   },
@@ -156,10 +162,14 @@ const carArr: Props[] = [
     ],
     desc: '기업 내부의 정보보호 관리체계(ISMS-P) 인증 획득 및 유지를 위한 증적 관리 시스템 구축. 정보보호 현황 모니터링, 인증 심사 대응 자료 관리, 관련 문서 및 증적 자료의 체계적 보관을 지원하는 사내 웹 서비스 개발',
     skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
-    result: [
-      '내부 보안 정책으로 인해 최신 브라우저가 아닌 Chrome 하위 버전(8.xx) 환경에 맞춰 개발 진행',
+    work: [
+      '내부 보안 정책으로 인해 최신 브라우저가 아닌 Chrome 하위 버전 환경에 맞춰 개발 진행',
       'jqGrid 라이브러리를 활용한 데이터 그리드 UI 구현',
       '정보보호 진단 보고서의 PDF 변환 및 A4 인쇄 규격 대응',
+    ],
+    result: [
+      '레거시 브라우저 제약 환경에서 안정적인 시스템 구축 완료',
+      'PDF 변환 및 인쇄 기능 구현으로 ISMS-P 인증 심사 대응 문서화 업무 효율성 향상',
     ],
   },
   {
@@ -193,11 +203,15 @@ const carArr: Props[] = [
     ],
     desc: '클라우드 서비스 소개 사이트 리뉴얼 및 요금 계산기 카테고리 신규 구축. 서비스 이용 전 예상 비용을 실시간으로 확인할 수 있는 요금 산정 시스템을 통한 사용자의 편의성을 강화하는 UI 구현',
     skill: ['html5', 'css3', 'javascript', 'jquery', 'figma'],
-    result: [
+    work: [
       '메인페이지 포함 클라우드 서비스 소개 사이트 리뉴얼',
       '요금 계산기 카테고리 신규 구축 및 실시간 요금 산정 UI 구현',
       'CSS 미디어쿼리를 활용한 PC/Tablet/Mobile 반응형 레이아웃 제작',
       '웹 접근성 지침 준수한 시맨틱 마크업 및 크로스브라우징 대응',
+    ],
+    result: [
+      '요금 계산기 신규 구축으로 사용자의 서비스 비용 확인 편의성 향상',
+      '반응형 웹 구현으로 PC/Tablet/Mobile 환경에서 일관된 사용자 경험 제공',
     ],
     site: 'https://ocloudservice.com/',
   },
@@ -214,11 +228,14 @@ const carArr: Props[] = [
     ],
     desc: '퇴직·이직 예정 임직원의 재취업 지원을 위한 커리어 컨설팅 플랫폼 구축. 맞춤형 교육 프로그램, 커리어 컨설팅 신청, 구직 활동 지원 등 체계적인 재취업 콘텐츠를 사용자 페이지(FO)와 관리자 페이지(BO) 통합 구조로 제공',
     skill: ['vue.js', 'scss', 'photoshop', 'github', 'figma', 'jira', 'confluence'],
-    result: [
-      'Samsung SDS 자체 개발 라이브러리(DWP) 및 Vuetify UI 라이브러리 분석 및 적용',
-      '디자인 가이드 기반 공통 UI 컴포넌트 구축',
-      '사용자/관리자 페이지 통합 구조 및 계정 권한별 GNB 메뉴 노출 기능 구현',
+    work: [
+      'Vuetify UI 라이브러리를 활용한 폼, 버튼, 테이블 등 공통 컴포넌트 구현',
+      '디자인 가이드 기반 대시보드 UI 컴포넌트 구축',
       'scoped CSS를 활용한 페이지별 스타일 격리 및 충돌 방지',
+    ],
+    result: [
+      '공통 컴포넌트 체계 구축으로 개발 생산성 및 유지보수성 개선',
+      'Vue.js 기반 SPA 구조로 페이지 전환 없는 부드러운 사용자 경험 제공',
     ],
   },
   {
@@ -239,7 +256,7 @@ const carArr: Props[] = [
       },
     ],
     type: ['Hybrid App'],
-    name: 'DGB 대구은행 IM 샵(#) SHOP 카테고리 구축',
+    name: 'DGB 대구은행 iM 샵(#) SHOP 카테고리 구축',
     attr: [
       {
         period: '22.02 ~ 22.04',
@@ -248,11 +265,14 @@ const carArr: Props[] = [
     ],
     desc: '대구 지역 소상공인 무료 홍보 및 쿠폰·혜택 중심의 소비자 서비스를 제공하는 iM SHOP 앱 내 SHOP 카테고리 구축. 고객 주문·결제 서비스와 점주 관리자 모드를 통한 소상공인 지원 플랫폼',
     skill: ['html5', 'css3', 'javascript', 'jquery', 'adobe xd', 'svn'],
-    result: [
+    work: [
       '고객 서비스 화면(주문/결제/장바구니/마이페이지) 및 점주 관리자 모드(직원 등록·관리, 실시간 주문 처리, 상품 등록·수정·재고 관리 등) UI 퍼블리싱 작업',
       '타 업체 선행 작업 분석 및 공통 레이아웃 구조 적용',
-      '고객사에서 제공한 웹표준 및 웹 접근성 지침을 준수한 퍼블리싱 작업 진행',
-      'SVN을 활용한 버전 관리 및 산출물 공유',
+      '웹 접근성을 준수한 시맨틱 마크업 및 크로스브라우징 대응',
+    ],
+    result: [
+      '고객 서비스와 점주 관리자 모드 통합 구축으로 소상공인 지원 플랫폼 완성',
+      '기존 레이아웃 구조 활용으로 일관된 UI 및 개발 효율성 향상',
     ],
     site: 'https://m.imbank.co.kr/shp_ebz_nims_main_0010.act',
   },
@@ -279,32 +299,32 @@ const carArr: Props[] = [
     ],
     desc: '환경·지하수·토양 엔지니어링 전문 기업인 geogreen21 회사 소개 웹사이트 구축 프로젝트',
     skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
+    work: ['기업 홍보 및 서비스 안내 목적의 적응형 웹사이트 제작', 'Photoshop을 활용한 시안 확인 및 디자이너 협업'],
     result: [
-      '기업 홍보 및 서비스 안내 목적의 적응형 웹사이트 제작',
-      'Photoshop을 활용한 시안 확인 및 디자이너 협업',
-      '프로젝트 관리 툴(Redmine) 활용으로 일정 및 업무 효율성 확보',
+      '기획/디자인과 긴밀한 협업을 통해 효율적인 산출물 제작',
+      '프로젝트 관리 툴 활용으로 일정 및 업무 효율성 확보',
     ],
     site: 'https://www.geogreen21.com/',
   },
-  {
-    id: 'prj08',
-    no: 'project 08',
-    type: ['Adaptive'],
-    name: '이랜드 내부 차량 관리 & 회의실 예약 관리 사이트 구축',
-    attr: [
-      {
-        period: '21.08 ~ 21.09',
-        contribution: '퍼블리싱 100%',
-      },
-    ],
-    desc: '이랜드 그룹 내부 임직원을 대상으로 차량 관리 및 회의실 예약 기능을 제공하는 사내 전용 사이트 구축 프로젝트',
-    skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
-    result: [
-      '웹 표준 및 웹 접근성을 준수한 웹 퍼블리싱 진행',
-      'Photoshop을 활용한 시안 확인 및 디자이너 협업',
-      '프로젝트 관리 툴(Redmine) 활용으로 일정 및 업무 효율성 확보',
-    ],
-  },
+  // {
+  //   id: 'prj08',
+  //   no: 'project 08',
+  //   type: ['Adaptive'],
+  //   name: '이랜드 내부 차량 관리 & 회의실 예약 관리 사이트 구축',
+  //   attr: [
+  //     {
+  //       period: '21.08 ~ 21.09',
+  //       contribution: '퍼블리싱 100%',
+  //     },
+  //   ],
+  //   desc: '이랜드 그룹 내부 임직원을 대상으로 차량 관리 및 회의실 예약 기능을 제공하는 사내 전용 사이트 구축 프로젝트',
+  //   skill: ['html5', 'css3', 'javascript', 'jquery', 'photoshop'],
+  //   result: [
+  //     '웹 표준 및 웹 접근성을 준수한 웹 퍼블리싱 진행',
+  //     'Photoshop을 활용한 시안 확인 및 디자이너 협업',
+  //     '프로젝트 관리 툴(Redmine) 활용으로 일정 및 업무 효율성 확보',
+  //   ],
+  // },
 ];
 
 export default function Carrer() {
@@ -385,7 +405,6 @@ export default function Carrer() {
               <NoImage />
             )}
           </div>
-          {/* <div className={`${style.carrerCon} md:min-w-[400px] lg:min-w-[650px]`}> */}
           <div className={`${style.carrerCon}`}>
             <b className="mb-6 block text-2xl tracking-widest uppercase md:text-3xl">{item.no}</b>
             <h2 className="mb-6 text-3xl font-bold break-keep md:text-5xl md:leading-[35px]">{item.name}</h2>
@@ -393,7 +412,6 @@ export default function Carrer() {
               {item.attr.map((item, index) => (
                 <React.Fragment key={index}>
                   <span className="relative flex items-center gap-3 font-medium">{item.period}</span>
-                  {/* <span className="relative flex items-center gap-3 font-medium">{item.role}</span> */}
                   <span className="relative flex items-center gap-3 font-medium">{item.contribution}</span>
                 </React.Fragment>
               ))}
@@ -420,16 +438,35 @@ export default function Carrer() {
                   </span>
                 ))}
               </div>
-              <ul className={`flex flex-col gap-2 p-6`}>
-                {item.result.map((item, index) => (
-                  <li
-                    key={index}
-                    className="relative pl-6 text-2xl"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className={`${style.carrerResultCon} p-6`}>
+                <div className="text-3xl">
+                  <h3 className="mb-3 text-2xl">업무</h3>
+                  <ul className={`flex flex-col gap-2`}>
+                    {item.work?.map((item, index) => (
+                      <li
+                        key={index}
+                        className="relative pl-6 text-2xl"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6">
+                  <h3 className="mb-3 text-2xl">성과</h3>
+                  <ul className={`flex flex-col gap-2`}>
+                    {item.result.map((item, index) => (
+                      <li
+                        key={index}
+                        className="relative pl-6 text-2xl"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
             {item.site ? (
               <Link
