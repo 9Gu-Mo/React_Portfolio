@@ -5,7 +5,7 @@ type DeviceType = 'mobile' | 'desktop';
 interface Props {
   deviceType: DeviceType;
   isMobile: boolean;
-  isDesktop: boolean;
+  // isDesktop: boolean;
   detectDevice: () => void;
 }
 
@@ -23,7 +23,7 @@ export const useDeviceStore = create<Props>((set) => ({
     set({
       deviceType: isMobile ? 'mobile' : 'desktop',
       isMobile,
-      isDesktop: !isMobile,
+      // isDesktop: !isMobile,
     });
   },
 }));

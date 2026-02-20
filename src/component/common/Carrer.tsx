@@ -227,7 +227,7 @@ const carArr: Props[] = [
       },
     ],
     desc: '퇴직·이직 예정 임직원의 재취업 지원을 위한 커리어 컨설팅 플랫폼 구축. 맞춤형 교육 프로그램, 커리어 컨설팅 신청, 구직 활동 지원 등 체계적인 재취업 콘텐츠를 사용자 페이지(FO)와 관리자 페이지(BO) 통합 구조로 제공',
-    skill: ['vue.js', 'scss', 'photoshop', 'github', 'figma', 'jira', 'confluence'],
+    skill: ['vue.js', 'scss', 'photoshop', 'github', 'jira', 'confluence'],
     work: [
       'Vuetify UI 라이브러리를 활용한 폼, 버튼, 테이블 등 공통 컴포넌트 구현',
       '디자인 가이드 기반 대시보드 UI 컴포넌트 구축',
@@ -356,15 +356,18 @@ export default function Carrer() {
                   }}
                   className="aspect-square"
                   effect="fade"
+                  aria-roledescription="carousel"
+                  aria-label={`${item.name} 이미지 갤러리, 총 ${item.img.length}개 이미지`}
                 >
-                  {item.img.map((item, index) => (
+                  {item.img.map((el, index) => (
                     <SwiperSlide
                       key={index}
                       className="overflow-hidden rounded-[10px] bg-white"
+                      aria-label={`이미지 ${index + 1} / ${item.img ? item.img.length : 1}`}
                     >
                       <Image
-                        alt={item.alt}
-                        src={item.src}
+                        alt={el.alt}
+                        src={el.src}
                         width={500}
                         height={500}
                         className="h-full w-full object-cover"
