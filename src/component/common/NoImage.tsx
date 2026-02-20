@@ -23,8 +23,7 @@ export default function NoImage() {
         </div>
 
         <div className="text-center text-white">
-          <h3 className="text-3xl">No Image Available</h3>
-          <p className="mt-3 text-xl">내부 시스템으로 화면을 공개할 수 없습니다.</p>
+          <h3 className="text-3xl">No Image</h3>
         </div>
       </div>
     </>
