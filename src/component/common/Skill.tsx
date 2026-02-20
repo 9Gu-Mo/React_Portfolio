@@ -74,6 +74,7 @@ export default function Skill() {
             <div className="flex h-full flex-col gap-6 rounded-[10px] border-1 p-8">
               <span
                 className={`${style.skillIcon} block flex h-[50px] w-[50px] items-center justify-center rounded-[10px] p-2`}
+                aria-hidden="true"
               >
                 {item.icon}
               </span>

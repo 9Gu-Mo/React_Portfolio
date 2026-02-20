@@ -12,6 +12,8 @@ export default function IconSkillJavascript(props: Icon) {
         stroke="currentColor"
         width={props.size ? props.size : 30}
         height={props.size ? props.size : 30}
+        aria-hidden={props.ariaHidden !== false ? 'true' : 'false'}
+        aria-label={props.ariaLabel}
       >
         <path
           strokeLinecap="round"

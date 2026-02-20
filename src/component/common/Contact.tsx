@@ -50,7 +50,10 @@ const contactArr: Props[] = [
 export default function Contact() {
   return (
     <>
-      <ul className={`${style.contact} flex flex-wrap gap-8 md:flex-nowrap`}>
+      <ul
+        className={`${style.contact} flex flex-wrap gap-8 md:flex-nowrap`}
+        aria-label="연락처"
+      >
         {contactArr.map((item, index) => (
           <li
             key={item.id}
@@ -63,8 +66,15 @@ export default function Contact() {
               className="flex h-full flex-col items-center justify-center gap-6 rounded-[10px] border-1 p-8"
               target="_blank"
               href={item.url}
+              rel="noopener noreferrer"
+              aria-label={`${item.title}: ${item.desc}`}
             >
-              <div className={style.contactIcon}>{item.icon}</div>
+              <div
+                className={style.contactIcon}
+                aria-hidden="true"
+              >
+                {item.icon}
+              </div>
               <b className="text-2xl">{item.title}</b>
               <span className="text-xl">{item.desc}</span>
             </Link>

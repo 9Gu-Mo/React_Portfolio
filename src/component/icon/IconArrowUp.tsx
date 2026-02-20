@@ -11,6 +11,8 @@ export default function IconArrowUp(props: Icon) {
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden={props.ariaHidden !== false ? 'true' : 'false'}
+        aria-label={props.ariaLabel}
       >
         <path
           fillRule="evenodd"
