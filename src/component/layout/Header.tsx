@@ -82,6 +82,10 @@ export default function Header() {
                 <Link
                   href={`#${item.id}`}
                   className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full md:text-3xl ${isPassedTarget && theme === 'light' ? 'after:bg-black' : 'after:bg-white'}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   {item.name}
                 </Link>

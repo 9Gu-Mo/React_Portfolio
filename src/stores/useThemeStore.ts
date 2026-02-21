@@ -12,7 +12,7 @@ interface Props {
 export const useThemeStore = create<Props>()(
   persist(
     (set, get) => ({
-      theme: 'light',
+      theme: 'dark',
 
       setTheme: (theme) => {
         if (typeof window === 'undefined') return;
