@@ -33,6 +33,16 @@ button {
   transition: all 0.3s ease-out;
 }
 
+.logo {
+  strong {
+    font-size: 18px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+}
+
 .job {
   color: var(--text-secondary);
 }

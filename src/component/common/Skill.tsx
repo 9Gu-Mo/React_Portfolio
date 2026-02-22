@@ -61,7 +61,7 @@ const skillArr: Props[] = [
 export default function Skill() {
   return (
     <>
-      <ul className={`${style.skill} flex flex-wrap gap-8`}>
+      <ul className={`${style.skill} flex flex-wrap`}>
         {skillArr.map((item, index) => (
           <li
             key={item.id}
