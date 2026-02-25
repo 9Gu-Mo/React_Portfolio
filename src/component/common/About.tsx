@@ -18,6 +18,7 @@ const about: Props[] = [
 
 // component
 import AboutAnimation from '@/component/common/AboutAnimation';
+import { cn } from '@/lib/utils';
 
 // style
 import style from '@/styles/About.module.scss';
@@ -28,7 +29,7 @@ export default function About() {
       <div className={style.about}>
         <div className="flex flex-wrap items-center gap-15 md:flex-nowrap">
           <div
-            className={`${style.aboutCon} flex w-full flex-col gap-14 md:w-1/2`}
+            className={cn('flex w-full flex-col gap-14 md:w-1/2', style.aboutCon)}
             data-aos="fade-up"
             data-aos-duration={1200}
           >

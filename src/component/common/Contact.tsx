@@ -22,6 +22,7 @@ import { ReactNode } from 'react';
 
 // style
 import style from '@/styles/Contact.module.scss';
+import { cn } from '@/lib/utils';
 
 const contactArr: Props[] = [
   {
@@ -51,13 +52,13 @@ export default function Contact() {
   return (
     <>
       <ul
-        className={`${style.contact} flex flex-wrap gap-8 md:flex-nowrap`}
+        className={cn('flex flex-wrap gap-8 md:flex-nowrap', style.contact)}
         aria-label="연락처"
       >
         {contactArr.map((item, index) => (
           <li
             key={item.id}
-            className={`${style.contactItem} md:w-[calc((100%-40px)/3) min-h-[200px] w-full`}
+            className={cn('md:w-[calc((100%-40px)/3) min-h-[200px] w-full', style.contactItem)}
             data-aos="fade-down"
             data-aos-duration={1000}
             data-aos-delay={100 * index}
