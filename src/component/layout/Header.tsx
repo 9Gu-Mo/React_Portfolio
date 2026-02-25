@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 // store
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useThemeStore } from '@/stores/useThemeStore';
+import { cn } from '@/lib/utils';
 
 export default function Header() {
   // dark mode state
@@ -81,7 +82,13 @@ export default function Header() {
               <li key={index}>
                 <Link
                   href={`#${item.id}`}
-                  className={`relative pb-1 text-2xl after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full md:text-3xl ${isPassedTarget && theme === 'light' ? 'after:bg-black' : 'after:bg-white'}`}
+                  className={cn(
+                    'relative pb-1 text-2xl md:text-3xl',
+                    'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0',
+                    "after:transition-all after:duration-300 after:content-['']",
+                    'hover:after:w-full',
+                    isPassedTarget && theme === 'light' ? 'after:bg-black' : 'after:bg-white',
+                  )}
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });

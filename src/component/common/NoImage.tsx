@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 // style
 import style from '@/styles/Carrer.module.scss';
 
@@ -7,9 +8,12 @@ export default function NoImage() {
   return (
     <>
       <div
-        className={`relative flex h-full min-h-[400px] w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-[12px] md:min-h-[500px] ${style.carrerNo}`}
+        className={cn(
+          'relative flex h-full min-h-[400px] w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-[12px] md:min-h-[500px]',
+          style.carrerNo,
+        )}
       >
-        <div className={`relative z-5 ${style.carrerNoIcon}`}>
+        <div className={cn('relative z-5', style.carrerNoIcon)}>
           <div className="flex h-[120px] w-[120px] items-center justify-center">
             <svg
               className="h-[60px] w-[60px]"

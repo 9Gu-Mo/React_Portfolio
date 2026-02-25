@@ -48,6 +48,7 @@ import style from '@/styles/Carrer.module.scss';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/thumbs';
+import { cn } from '@/lib/utils';
 
 const carArr: Props[] = [
   {
@@ -339,12 +340,19 @@ export default function Carrer() {
       {carArr.map((item, index) => (
         <div
           key={item.id}
-          className={`flex flex-col items-start gap-10 md:gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} ${style.carrer}`}
+          className={cn(
+            'flex flex-col items-start gap-10 md:gap-20',
+            index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row',
+            style.carrer,
+          )}
           data-aos={`fade-${isMobile ? 'down' : index % 2 !== 0 ? 'right' : 'left'}`}
           data-aos-duration={1000}
         >
           <div
-            className={`${style.carrerImg} w-full md:max-w-[calc(100%-400px-50px)] md:min-w-[300px] lg:max-w-[calc(100%-650px-50px)] lg:min-w-[400px]`}
+            className={cn(
+              'w-full md:max-w-[calc(100%-400px-50px)] md:min-w-[300px] lg:max-w-[calc(100%-650px-50px)] lg:min-w-[400px]',
+              style.carrerImg,
+            )}
           >
             {item.img ? (
               <>
@@ -414,7 +422,7 @@ export default function Carrer() {
           <div className={`${style.carrerCon}`}>
             <b className="mb-6 block text-2xl tracking-widest uppercase md:text-3xl">{item.no}</b>
             <h2 className="mb-6 text-3xl font-bold break-keep md:text-5xl md:leading-[35px]">{item.name}</h2>
-            <div className={`${style.carrerAttr} mb-6 flex gap-3 text-xl md:gap-6 lg:text-2xl`}>
+            <div className={cn('mb-6 flex gap-3 text-xl md:gap-6 lg:text-2xl', style.carrerAttr)}>
               {item.attr.map((item, index) => (
                 <React.Fragment key={index}>
                   <span className="relative flex items-center gap-3 font-medium">{item.period}</span>
@@ -422,8 +430,8 @@ export default function Carrer() {
                 </React.Fragment>
               ))}
             </div>
-            <p className={`${style.carrerDesc} mb-6 text-2xl break-all`}>{item.desc}</p>
-            <ul className={`${style.carrerSkill} mb-8 flex flex-wrap items-start gap-4`}>
+            <p className={cn('mb-6 text-2xl break-all', style.carrerDesc)}>{item.desc}</p>
+            <ul className={cn('mb-8 flex flex-wrap items-start gap-4', style.carrerSkill)}>
               {item.skill.map((item, index) => (
                 <li
                   className="rounded-xl px-3 py-2 text-xl"
@@ -433,18 +441,18 @@ export default function Carrer() {
                 </li>
               ))}
             </ul>
-            <div className={`${style.carrerResult} min-h-[150px] overflow-hidden rounded-[12px]`}>
-              <div className={`${style.carrerResultHead} flex gap-4 p-6`}>
+            <div className={cn('min-h-[150px] overflow-hidden rounded-[12px]', style.carrerResult)}>
+              <div className={cn('flex gap-4 p-6', style.carrerResultHead)}>
                 {[...Array(3)].map((_, index) => (
                   <span
                     key={index}
-                    className={`${style.carrerResultDot} h-[12px] w-[12px] rounded-[12px]`}
+                    className={cn('h-[12px] w-[12px] rounded-[12px]', style.carrerResultDot)}
                   >
                     <em className="sr-only">{`도트표기${index}`}</em>
                   </span>
                 ))}
               </div>
-              <div className={`${style.carrerResultCon} p-6`}>
+              <div className={cn('p-6', style.carrerResultCon)}>
                 <div className="text-3xl">
                   <h3 className="mb-3 text-2xl">업무</h3>
                   <ul className={`flex flex-col gap-2`}>
@@ -478,7 +486,7 @@ export default function Carrer() {
               <Link
                 target="_blink"
                 href={item.site ?? ''}
-                className={`mt-6 block w-full rounded-[20px] py-4 text-center text-2xl ${style.carrerUrl}`}
+                className={cn('mt-6 block w-full rounded-[20px] py-4 text-center text-2xl', style.carrerUrl)}
               >
                 <span>Live Site</span>
               </Link>

@@ -19,6 +19,7 @@ import IconSkillDevelop from '@/component/icon/IconSkillDevelop';
 import IconSkillFramework from '@/component/icon/IconSkillFramework';
 import IconSkillJavascript from '@/component/icon/IconSkillJavascript';
 import IconSkillMarkup from '@/component/icon/IconSkillMarkup';
+import { cn } from '@/lib/utils';
 
 const skillArr: Props[] = [
   {
@@ -61,19 +62,22 @@ const skillArr: Props[] = [
 export default function Skill() {
   return (
     <>
-      <ul className={`${style.skill} flex flex-wrap`}>
+      <ul className={cn('flex flex-wrap', style.skill)}>
         {skillArr.map((item, index) => (
           <li
             key={item.id}
             id={item.id}
-            className={`${style.skillItem} min-h-[250px] w-full md:w-[calc((100%-40px)/3)]`}
+            className={cn('min-h-[250px] w-full md:w-[calc((100%-40px)/3)]', style.skillItem)}
             data-aos="fade-down"
             data-aos-duration={1000}
             data-aos-delay={10 * index}
           >
             <div className="flex h-full flex-col gap-6 rounded-[10px] border-1 p-8">
               <span
-                className={`${style.skillIcon} block flex h-[50px] w-[50px] items-center justify-center rounded-[10px] p-2`}
+                className={cn(
+                  'block flex h-[50px] w-[50px] items-center justify-center rounded-[10px] p-2',
+                  style.skillIcon,
+                )}
                 aria-hidden="true"
               >
                 {item.icon}
@@ -83,7 +87,7 @@ export default function Skill() {
               <ul className="flex flex-wrap items-start gap-4">
                 {item.skill.map((item, index) => (
                   <li
-                    className={`${style.skillTag} rounded-xl px-3 py-2 text-xl`}
+                    className={cn('rounded-xl px-3 py-2 text-xl', style.skillTag)}
                     key={index}
                   >
                     {item}
