@@ -32,6 +32,7 @@ export default function About() {
             className={cn('flex w-full flex-col gap-14 md:w-1/2', style.aboutCon)}
             data-aos="fade-up"
             data-aos-duration={1200}
+            tabIndex={0}
           >
             <h3 className="text-4xl">
               안녕하세요, <strong>5년차 웹 퍼블리셔</strong> 구원모입니다.
