@@ -44,11 +44,11 @@ import { useDeviceStore } from '@/stores/useDeviceStore';
 import NoImage from '@/component/common/NoImage';
 
 // style
+import { cn } from '@/lib/utils';
 import style from '@/styles/Carrer.module.scss';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/thumbs';
-import { cn } from '@/lib/utils';
 
 const carArr: Props[] = [
   {
@@ -378,14 +378,13 @@ export default function Carrer() {
                       slideEl.setAttribute('aria-hidden', isActive ? 'false' : 'true');
                       slideEl.setAttribute('tabindex', isActive ? '0' : '-1');
                     });
-                    const el = swiper.slides[swiper.activeIndex] as HTMLElement;
-                    el?.focus(); // 새 슬라이드로 포커스 이동
+                    // autoplay로 인한 변경에서는 포커스 이동하지 않음
                   }}
                   slidesPerView={1}
-                  // autoplay={{
-                  //   delay: 3000,
-                  //   disableOnInteraction: false,
-                  // }}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
                   className="aspect-square"
                   effect="fade"
                   aria-roledescription="carousel"
