@@ -33,7 +33,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // lib
-import { Autoplay, EffectFade, Navigation, Thumbs } from 'swiper/modules';
+import { Autoplay, EffectFade, Keyboard, Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper/types';
 
@@ -359,12 +359,33 @@ export default function Carrer() {
                 <Swiper
                   navigation
                   thumbs={{ swiper: thumbsSwiper[index] }}
-                  modules={[Thumbs, EffectFade, Autoplay]}
-                  slidesPerView={1}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
+                  modules={[Thumbs, EffectFade, Autoplay, Keyboard]}
+                  keyboard={{ enabled: true, onlyInViewport: true }}
+                  onSwiper={(swiper) => {
+                    // 초기 aria-hidden 및 tabIndex 설정
+                    swiper.slides.forEach((slide, idx) => {
+                      const slideEl = slide as HTMLElement;
+                      const isActive = idx === swiper.activeIndex;
+                      slideEl.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                      slideEl.setAttribute('tabindex', isActive ? '0' : '-1');
+                    });
                   }}
+                  onSlideChange={(swiper) => {
+                    // 슬라이드 변경 시 aria-hidden 및 tabIndex 업데이트
+                    swiper.slides.forEach((slide, idx) => {
+                      const slideEl = slide as HTMLElement;
+                      const isActive = idx === swiper.activeIndex;
+                      slideEl.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                      slideEl.setAttribute('tabindex', isActive ? '0' : '-1');
+                    });
+                    const el = swiper.slides[swiper.activeIndex] as HTMLElement;
+                    el?.focus(); // 새 슬라이드로 포커스 이동
+                  }}
+                  slidesPerView={1}
+                  // autoplay={{
+                  //   delay: 3000,
+                  //   disableOnInteraction: false,
+                  // }}
                   className="aspect-square"
                   effect="fade"
                   aria-roledescription="carousel"
@@ -402,6 +423,7 @@ export default function Carrer() {
                   {item.img.map((item, index) => (
                     <SwiperSlide
                       key={index}
+                      tabIndex={0}
                       className={`aspect-square !w-[calc((100%-30px)/4)] cursor-pointer overflow-hidden rounded-[10px] bg-white`}
                     >
                       <Image
@@ -419,7 +441,10 @@ export default function Carrer() {
               <NoImage />
             )}
           </div>
-          <div className={`${style.carrerCon}`}>
+          <div
+            className={`${style.carrerCon}`}
+            tabIndex={0}
+          >
             <b className="mb-6 block text-2xl tracking-widest uppercase md:text-3xl">{item.no}</b>
             <h2 className="mb-6 text-3xl font-bold break-keep md:text-5xl md:leading-[35px]">{item.name}</h2>
             <div className={cn('mb-6 flex gap-3 text-xl md:gap-6 lg:text-2xl', style.carrerAttr)}>

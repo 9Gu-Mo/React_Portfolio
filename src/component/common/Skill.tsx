@@ -71,6 +71,7 @@ export default function Skill() {
             data-aos="fade-down"
             data-aos-duration={1000}
             data-aos-delay={10 * index}
+            tabIndex={0}
           >
             <div className="flex h-full flex-col gap-6 rounded-[10px] border-1 p-8">
               <span
