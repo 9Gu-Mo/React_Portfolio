@@ -2,7 +2,6 @@
 import type { Metadata, Viewport } from 'next';
 
 // next
-import Script from 'next/script';
 
 // layout
 import MainLayout from '@/component/layout/MainLayout';
@@ -54,31 +53,6 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${pretendard.className} overflow-x-hidden`}
     >
-      <head>
-        <Script
-          id="scroll-reset"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                if ('scrollRestoration' in history) {
-                  history.scrollRestoration = 'manual';
-                }
-                window.scrollTo(0, 0);
-                
-                // 해시가 있어도 스크롤 방지
-                if (window.location.hash) {
-                  history.replaceState(null, '', window.location.pathname + window.location.search);
-
-                  setTimeout(function() {
-                    window.scrollTo(0, 0);
-                  }, 0);
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
       <body>
         <AOSProvider>
           <DeviceDetector />
