@@ -1,3 +1,5 @@
+'use client';
+
 // component
 import DarkModeBtn from '@/component/common/DarkModeBtn';
 import FloatUpBtn from '@/component/common/FloatUpBtn';
@@ -11,7 +13,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="flex min-h-svh flex-col">
       <Header />
-      <main>{children}</main>
+      <main className="min-h-[calc(100svh-58px)] pt-[70px]">{children}</main>
       <Footer />
       <FloatUpBtn />
       <DarkModeBtn />

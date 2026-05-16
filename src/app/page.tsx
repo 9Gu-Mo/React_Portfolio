@@ -4,7 +4,7 @@ import TextTypingCursor from '@/component/common/TextTypingCursor';
 export default function Home() {
   return (
     <>
-      <div className="wrap relative min-h-svh w-full">
+      <div className="relative mt-[-70px] min-h-svh w-full">
         <video
           muted
           loop
