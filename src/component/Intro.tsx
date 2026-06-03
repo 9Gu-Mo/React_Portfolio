@@ -59,7 +59,7 @@ export default function Intro({ onDisMiss }: IntroProps) {
         ref={innerRef}
         className={style.inner}
       >
-        <p className={style.eyebrow}>studio</p>
+        <p className={style.eyebrow}>PUBLISHER</p>
         <h1 className={style.title}>
           구원모
           <br />
