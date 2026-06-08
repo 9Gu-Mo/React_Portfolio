@@ -52,7 +52,7 @@ export default function Intro({ onDisMiss }: IntroProps) {
     }, slideStart);
 
     // 4단계 — 애니메이션 종료 후 언마운트
-    add(onDisMiss, slideStart + SLIDE_DURATION);
+    // add(onDisMiss, slideStart + SLIDE_DURATION);
 
     return () => timers.forEach(clearTimeout);
   }, [onDisMiss]);
