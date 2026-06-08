@@ -34,8 +34,21 @@ export default function Intro({ onDisMiss }: IntroProps) {
 
     // 3단계 — 슬라이드 아웃
     const slideStart = 300 + PROGRESS_DURATION + HOLD_AFTER_FULL;
+
     add(() => {
-      overlayRef.current?.classList.add(style.slideOut);
+      const el = overlayRef.current;
+      if (!el) return;
+
+      el.classList.add(style.slideOut);
+
+      // ✅ transitionend 기반으로 변경
+      el.addEventListener(
+        'transitionend',
+        (e) => {
+          if (e.propertyName === 'transform') onDisMiss();
+        },
+        { once: true },
+      );
     }, slideStart);
 
     // 4단계 — 애니메이션 종료 후 언마운트
