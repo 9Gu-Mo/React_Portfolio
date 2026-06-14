@@ -8,11 +8,21 @@ import Footer from '@/component/layout/Footer';
 import Header from '@/component/layout/Header';
 
 // hook
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
   const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showIntro) {
+      document.documentElement.classList.add('visible');
+    }
+
+    return () => {
+      document.documentElement.classList.remove('visible');
+    };
+  }, [showIntro]);
 
   const handleDisMiss = () => {
     setShowIntro(false);

@@ -18,6 +18,14 @@ body {
   background-color: var(--bg-intro);
 }
 
+html {
+  overflow: hidden;
+
+  &.visible {
+    overflow: visible;
+  }
+}
+
 body {
   color: var(--text-primary);
   transition: all 0.3s ease-out;

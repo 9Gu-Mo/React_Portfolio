@@ -128,7 +128,7 @@ export default function Contact() {
         ))}
       </ul>
 
-      <div className="mt-12">
+      {/* <div className="mt-12">
         <h3 className="mb-4 text-lg font-medium">저에 대해 궁금한 게 있으신가요?</h3>
 
         <div className="rounding-lg mb-3 flex h-64 flex-col gap-3 overflow-y-auto border p-4">
@@ -164,7 +164,7 @@ export default function Contact() {
             전송
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
