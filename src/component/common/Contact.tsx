@@ -18,16 +18,16 @@ import IconPhone from '@/component/icon/IconPhone';
 import Link from 'next/link';
 
 // react
-import { ReactNode, useRef, useState } from 'react';
+import { ReactNode } from 'react';
 
 // style
 import { cn } from '@/lib/utils';
 import style from '@/styles/Contact.module.scss';
 
-type Message = {
-  role: 'user' | 'assistant';
-  content: string;
-};
+// type Message = {
+//   role: 'user' | 'assistant';
+//   content: string;
+// };
 
 const contactArr: Props[] = [
   {
@@ -41,8 +41,8 @@ const contactArr: Props[] = [
     id: 'github',
     icon: <IconGitHub size={30} />,
     title: 'GITHUB',
-    url: 'https://github.com/9Gu-Mo',
-    desc: 'https://github.com/9Gu-Mo',
+    url: 'https://github.com/9Gu-Mo/React_Portfolio',
+    desc: 'https://github.com/9Gu-Mo/React_Portfolio',
   },
   {
     id: 'phone',
@@ -54,45 +54,45 @@ const contactArr: Props[] = [
 ];
 
 export default function Contact() {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  // const [messages, setMessages] = useState<Message[]>([]);
+  // const [input, setInput] = useState('');
+  // const [isLoading, setIsLoading] = useState(false);
+  // const bottomRef = useRef<HTMLDivElement>(null);
 
   // useEffect(() => {
   //   bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   // }, [messages]);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+  // const sendMessage = async () => {
+  //   if (!input.trim() || isLoading) return;
 
-    const userMessage: Message = { role: 'user', content: input };
-    const newMessages = [...messages, userMessage];
+  //   const userMessage: Message = { role: 'user', content: input };
+  //   const newMessages = [...messages, userMessage];
 
-    setMessages(newMessages);
-    setInput('');
-    setIsLoading(true);
+  //   setMessages(newMessages);
+  //   setInput('');
+  //   setIsLoading(true);
 
-    setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
+  //   setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
 
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages }),
-      });
+  //   try {
+  //     const res = await fetch('/api/chat', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ messages: newMessages }),
+  //     });
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      setMessages((prev) => {
-        const updated = [...prev];
-        updated[updated.length - 1].content = data.text;
-        return updated;
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  //     setMessages((prev) => {
+  //       const updated = [...prev];
+  //       updated[updated.length - 1].content = data.text;
+  //       return updated;
+  //     });
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   return (
     <>
