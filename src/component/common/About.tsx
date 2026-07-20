@@ -35,7 +35,7 @@ export default function About() {
             tabIndex={0}
           >
             <h3 className="text-4xl">
-              안녕하세요, <strong>5년차 웹 퍼블리셔</strong> 구원모입니다.
+              안녕하세요, <strong>6년차 웹 퍼블리셔</strong> 구원모입니다.
             </h3>
             <ul className="flex flex-col gap-14">
               {about.map((item, index) => (
