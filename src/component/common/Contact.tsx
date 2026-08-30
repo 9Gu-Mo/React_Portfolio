@@ -18,16 +18,12 @@ import IconPhone from '@/component/icon/IconPhone';
 import Link from 'next/link';
 
 // react
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 
 // style
+import LayerModal from '@/component/common/LayerModal';
 import { cn } from '@/lib/utils';
 import style from '@/styles/Contact.module.scss';
-
-// type Message = {
-//   role: 'user' | 'assistant';
-//   content: string;
-// };
 
 const contactArr: Props[] = [
   {
@@ -54,45 +50,9 @@ const contactArr: Props[] = [
 ];
 
 export default function Contact() {
-  // const [messages, setMessages] = useState<Message[]>([]);
-  // const [input, setInput] = useState('');
-  // const [isLoading, setIsLoading] = useState(false);
-  // const bottomRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  // }, [messages]);
-
-  // const sendMessage = async () => {
-  //   if (!input.trim() || isLoading) return;
-
-  //   const userMessage: Message = { role: 'user', content: input };
-  //   const newMessages = [...messages, userMessage];
-
-  //   setMessages(newMessages);
-  //   setInput('');
-  //   setIsLoading(true);
-
-  //   setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
-
-  //   try {
-  //     const res = await fetch('/api/chat', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({ messages: newMessages }),
-  //     });
-
-  //     const data = await res.json();
-
-  //     setMessages((prev) => {
-  //       const updated = [...prev];
-  //       updated[updated.length - 1].content = data.text;
-  //       return updated;
-  //     });
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isLayerOpen, setIsLayerOpen] = useState(false);
 
   return (
     <>
@@ -128,43 +88,21 @@ export default function Contact() {
         ))}
       </ul>
 
-      {/* <div className="mt-12">
-        <h3 className="mb-4 text-lg font-medium">저에 대해 궁금한 게 있으신가요?</h3>
-
-        <div className="rounding-lg mb-3 flex h-64 flex-col gap-3 overflow-y-auto border p-4">
-          {messages.length === 0 && <p className="text-gray-400">예? "CGV 프로젝트에서 어떤 역할을 하셨나요?"</p>}
-          {messages.map((msg, i) => (
-            <div
-              key={i}
-              className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${
-                msg.role === 'user' ? 'self-end bg-blue-500 text-white' : 'self-start bg-gray-100 dark:bg-gray-800'
-              }`}
-            >
-              {msg.content || (isLoading ? '▌' : '')}
-            </div>
-          ))}
-          <div ref={bottomRef} />
-        </div>
-
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-            placeholder="질문을 입력해주세요"
-            className="flex-1 rounded-lg border px-4 py-2 outline-none"
-          />
-
-          <button
-            onClick={sendMessage}
-            disabled={isLoading}
-            className="rounded-lg bg-blue-500 px-4 py-2 text-white disabled:opacity-50"
-          >
-            전송
-          </button>
-        </div>
-      </div> */}
+      <button
+        type="button"
+        onClick={() => setIsAlertOpen(true)}
+      >
+        오픈
+      </button>
+      <LayerModal
+        type="layer"
+        isOpen={isAlertOpen}
+        onClose={() => setIsAlertOpen(false)}
+        title="알림"
+        width={500}
+      >
+        처리가 성공적으로 완료되었습니다.
+      </LayerModal>
     </>
   );
 }
