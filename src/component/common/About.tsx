@@ -23,7 +23,7 @@ import { cn } from '@/lib/utils';
 // style
 import style from '@/styles/About.module.scss';
 
-export default function About() {
+export default function About(props: Props) {
   return (
     <>
       <div className={style.about}>
